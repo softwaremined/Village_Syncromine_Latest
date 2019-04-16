@@ -1,0 +1,578 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" StartReportEvent="_StartReport" ReportInfo.Created="03/10/2015 10:42:33" ReportInfo.Modified="09/07/2017 10:12:33" ReportInfo.CreatorVersion="2017.3.0.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void _StartReport(object sender, EventArgs e)
+    {
+      if ((Report.GetColumnValue(&quot;MODailyStopeData.Name_2&quot;).ToString()) == &quot;&quot;)
+      {
+        Page1.Visible = false;
+      } 
+      
+      if ((Report.GetColumnValue(&quot;MODailyDevData.Name_2&quot;).ToString()) == &quot;&quot;)
+      {
+        Page3.Visible = false;
+      } 
+    }
+
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {
+      string logo =  ((String)Report.GetParameterValue(&quot;logo&quot;));
+      picClientPage1.ImageLocation = logo;
+      picClientPage2.ImageLocation = logo;
+      picClientPage3.ImageLocation = logo;
+      picClientPage4.ImageLocation = logo;
+      
+      string logo1 =  ((String)Report.GetParameterValue(&quot;logoMineware&quot;));
+      picMinewarePage1.ImageLocation = logo1;
+      picMinewarePage2.ImageLocation = logo1;
+      picMinewarePage3.ImageLocation = logo1;
+      picMinewarePage4.ImageLocation = logo1;
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="MODailyStopeData" ReferenceName="Data.MODailyStopeData" DataType="System.Int32" Enabled="true">
+      <Column Name="Name_2" DataType="System.String"/>
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Description" DataType="System.String"/>
+      <Column Name="ShiftDay" DataType="System.Decimal"/>
+      <Column Name="Calendardate" DataType="System.DateTime"/>
+      <Column Name="SQM" DataType="System.Decimal"/>
+      <Column Name="PlannedStrength" DataType="System.Decimal"/>
+      <Column Name="Strength" DataType="System.Decimal"/>
+      <Column Name="AvgAtWorkLabour" DataType="System.Decimal"/>
+      <Column Name="FL" DataType="System.Decimal"/>
+      <Column Name="cmgt" DataType="System.Decimal"/>
+      <Column Name="PlanSQM" DataType="System.Decimal"/>
+      <Column Name="BookSQM" DataType="System.Decimal"/>
+      <Column Name="NoteID" DataType="System.String"/>
+      <Column Name="SBNotes" DataType="System.String"/>
+      <Column Name="ShiftProgBookSQM" DataType="System.Decimal"/>
+      <Column Name="NonShiftProgBookSQM" DataType="System.Decimal"/>
+      <Column Name="ProgBookSQM" DataType="System.Decimal"/>
+      <Column Name="ProgPlanSQM" DataType="System.Decimal"/>
+      <Column Name="VAriance" DataType="System.Decimal"/>
+      <Column Name="Problem" DataType="System.String"/>
+      <Column Name="Note" DataType="System.String"/>
+      <Column Name="Explanation" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="MODailyDevData" ReferenceName="Data.MODailyDevData" DataType="System.Int32" Enabled="true">
+      <Column Name="Name_2" DataType="System.String"/>
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Description" DataType="System.String"/>
+      <Column Name="ShiftDay" DataType="System.Decimal"/>
+      <Column Name="Calendardate" DataType="System.DateTime"/>
+      <Column Name="Metresadvance" DataType="System.Decimal"/>
+      <Column Name="PlannedStrength" DataType="System.Decimal"/>
+      <Column Name="Strength" DataType="System.Decimal"/>
+      <Column Name="AvgAtWorkLabour" DataType="System.Decimal"/>
+      <Column Name="FL" DataType="System.Decimal"/>
+      <Column Name="cmgt" DataType="System.Decimal"/>
+      <Column Name="PlanSQM" DataType="System.Decimal"/>
+      <Column Name="BookSQM" DataType="System.Decimal"/>
+      <Column Name="NoteID" DataType="System.String"/>
+      <Column Name="SBNotes" DataType="System.String"/>
+      <Column Name="Problem" DataType="System.String"/>
+      <Column Name="Note" DataType="System.String"/>
+      <Column Name="Explanation" DataType="System.String"/>
+      <Column Name="ShiftProgBookAdv" DataType="System.Decimal"/>
+      <Column Name="NonShiftProgBookAdv" DataType="System.Decimal"/>
+      <Column Name="ProgBookAdv" DataType="System.Decimal"/>
+      <Column Name="ProgPlanAdv" DataType="System.Decimal"/>
+      <Column Name="VAriance" DataType="System.Decimal"/>
+    </TableDataSource>
+    <Parameter Name="Banner" DataType="System.String"/>
+    <Parameter Name="Prodmonth" DataType="System.String"/>
+    <Parameter Name="Section" DataType="System.String"/>
+    <Parameter Name="TheDate" DataType="System.DateTime"/>
+    <Parameter Name="SelectCell" DataType="System.String">
+      <Parameter Name="Calendardate" DataType="System.String"/>
+      <Parameter Name="ShiftDay" DataType="System.String"/>
+      <Parameter Name="MO" DataType="System.String"/>
+      <Parameter Name="Miner" DataType="System.String"/>
+      <Parameter Name="Workplace" DataType="System.String"/>
+    </Parameter>
+    <Parameter Name="logo" DataType="System.String"/>
+    <Parameter Name="logoMineware" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="1" TopMargin="1" RightMargin="1" BottomMargin="1" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="1115.1" Height="182.18" BeforePrintEvent="ReportTitle1_BeforePrint">
+      <MatrixObject Name="Matrix1" Left="5.67" Top="75.6" Width="257.42" Height="78.23" FixedRows="2" FixedColumns="6" AutoSize="false" CellsSideBySide="true" DataSource="MODailyStopeData">
+        <MatrixColumns>
+          <Header Expression="[MODailyStopeData.Calendardate]" Totals="false"/>
+          <Header Expression="[MODailyStopeData.ShiftDay]" Totals="false"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[MODailyStopeData.Name_2]"/>
+          <Header Expression="[MODailyStopeData.Name]"/>
+          <Header Expression="[MODailyStopeData.Description]" Totals="false"/>
+          <Header Expression="[MODailyStopeData.SQM]" Totals="false"/>
+          <Header Expression="[MODailyStopeData.FL]" Totals="false"/>
+          <Header Expression="[MODailyStopeData.cmgt]" Totals="false"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[MODailyStopeData.BookSQM]"/>
+        </MatrixCells>
+        <TableColumn Name="Column1" Width="20.03"/>
+        <TableColumn Name="Column2" Width="28.73"/>
+        <TableColumn Name="Column3" Width="128.52"/>
+        <TableColumn Name="Column4" Width="32.13"/>
+        <TableColumn Name="Column5" Width="17.01"/>
+        <TableColumn Name="Column6" Width="31"/>
+        <TableColumn Name="Column7" Width="0"/>
+        <TableRow Name="Row1" Height="14.74">
+          <TableCell Name="Cell1" Border.Lines="All" Fill.Color="DarkGray" Text="MO" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" RowSpan="2"/>
+          <TableCell Name="Cell2" Border.Lines="All" Fill.Color="Silver" Text="Miner" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" RowSpan="2"/>
+          <TableCell Name="Cell7" Border.Lines="All" Fill.Color="Silver" Text="Workplace" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" RowSpan="2"/>
+          <TableCell Name="Cell13" Border.Lines="All" Fill.Color="Silver" Text="Month&#13;&#10;Call" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" RowSpan="2"/>
+          <TableCell Name="Cell21" Border.Lines="All" Fill.Color="Silver" Text="FL" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" RowSpan="2"/>
+          <TableCell Name="Cell31" Border.Lines="Left, Top, Bottom" Fill.Color="Silver" Text="cm.g/t" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" RowSpan="2"/>
+          <TableCell Name="Cell43" Text="[Calendardate]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row2" Height="14.74">
+          <TableCell Name="Cell3"/>
+          <TableCell Name="Cell4"/>
+          <TableCell Name="Cell8"/>
+          <TableCell Name="Cell14"/>
+          <TableCell Name="Cell22"/>
+          <TableCell Name="Cell32"/>
+          <TableCell Name="Cell44" Text="[ShiftDay]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row3" Height="16.25">
+          <TableCell Name="Cell5" Border.Lines="All" Fill.Color="DarkGray" Text="[Name_2]" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 6pt" RowSpan="2"/>
+          <TableCell Name="Cell6" Border.Lines="All" Fill.Color="Silver" Text="[Name]" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 6pt"/>
+          <TableCell Name="Cell9" Border.Lines="All" Text="[Description]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell15" Border.Lines="All" Text="[SQM]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell23" Border.Lines="All" Text="[FL]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell33" Border.Lines="Left, Top, Bottom" Text="[cmgt]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell45" Text="[BookSQM]" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row4" Height="16.25">
+          <TableCell Name="Cell10"/>
+          <TableCell Name="Cell11" Border.Lines="Left, Top, Bottom" Fill.Color="Silver" Text="Total [MODailyStopeData.Name]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" ColSpan="5"/>
+          <TableCell Name="Cell12"/>
+          <TableCell Name="Cell16"/>
+          <TableCell Name="Cell24"/>
+          <TableCell Name="Cell34"/>
+          <TableCell Name="Cell46" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row5" Height="16.25">
+          <TableCell Name="Cell17" Border.Lines="Left, Top, Bottom" Fill.Color="DarkGray" Text="Total [MODailyStopeData.Name_2]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" ColSpan="6"/>
+          <TableCell Name="Cell18"/>
+          <TableCell Name="Cell19"/>
+          <TableCell Name="Cell20"/>
+          <TableCell Name="Cell25"/>
+          <TableCell Name="Cell35"/>
+          <TableCell Name="Cell47" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+        </TableRow>
+      </MatrixObject>
+      <TextObject Name="Text8" Left="175.77" Top="9.45" Width="803.25" Height="18.9" Text="[Banner]" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text9" Left="175.77" Top="35.53" Width="803.25" Height="18.9" Text="Stoping MO Daily Production Report" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text84" Left="175.77" Top="56.7" Width="803.25" Height="18.9" Text="[Section] for Month [Prodmonth] upto [FormatDateTime([TheDate],&quot;Short Date&quot;)]" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <MatrixObject Name="Matrix3" Left="263.15" Top="75.6" Width="103.45" Height="78.23" FixedRows="2" FixedColumns="3" AutoSize="false" CellsSideBySide="true" DataSource="MODailyStopeData" Filter="[MODailyStopeData.ShiftDay] == 1">
+        <MatrixColumns>
+          <Header Expression="[MODailyStopeData.ShiftDay]" Totals="false"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[MODailyStopeData.Name_2]"/>
+          <Header Expression="[MODailyStopeData.Name]"/>
+          <Header Expression="[MODailyStopeData.Description]" Totals="false"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[MODailyStopeData.NonShiftProgBookSQM]"/>
+          <Cell Expression="[MODailyStopeData.ProgPlanSQM]"/>
+          <Cell Expression="[MODailyStopeData.ProgBookSQM]"/>
+          <Cell Expression="[MODailyStopeData.VAriance]"/>
+        </MatrixCells>
+        <TableColumn Name="Column13" Width="0"/>
+        <TableColumn Name="Column14" Width="0"/>
+        <TableColumn Name="Column15" Width="0"/>
+        <TableColumn Name="Column16" Width="25.33"/>
+        <TableColumn Name="Column17" Width="25.7"/>
+        <TableColumn Name="Column18" Width="27.59"/>
+        <TableColumn Name="Column19" Width="24.83"/>
+        <TableRow Name="Row12" Height="0">
+          <TableCell Name="Cell90" Border.Lines="All" Fill.Color="DarkGray" Text="MO" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" RowSpan="2"/>
+          <TableCell Name="Cell91" Border.Lines="All" Fill.Color="Silver" Text="Miner" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" RowSpan="2"/>
+          <TableCell Name="Cell92" Border.Lines="All" Fill.Color="Silver" Text="Workplace" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" RowSpan="2"/>
+          <TableCell Name="Cell93" Border.Lines="All" Fill.Color="Silver" Text="[ShiftDay]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" ColSpan="4"/>
+          <TableCell Name="Cell109"/>
+          <TableCell Name="Cell118"/>
+          <TableCell Name="Cell123"/>
+        </TableRow>
+        <TableRow Name="Row13" Height="29.48">
+          <TableCell Name="Cell95"/>
+          <TableCell Name="Cell96"/>
+          <TableCell Name="Cell97"/>
+          <TableCell Name="Cell98" Border.Lines="All" Fill.Color="Silver" Text="Non&#13;&#10;Shift" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+          <TableCell Name="Cell110" Border.Lines="All" Fill.Color="Silver" Text="Prog&#13;&#10;Call" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+          <TableCell Name="Cell119" Border.Lines="All" Fill.Color="Silver" Text="Prog&#13;&#10;Book" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+          <TableCell Name="Cell124" Border.Lines="All" Fill.Color="Silver" Text="Diff" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+        </TableRow>
+        <TableRow Name="Row14" Height="16.25">
+          <TableCell Name="Cell100" Border.Lines="All" Fill.Color="DarkGray" Text="[Name_2]" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 6pt" RowSpan="2"/>
+          <TableCell Name="Cell101" Border.Lines="All" Fill.Color="Silver" Text="[Name]" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 6pt"/>
+          <TableCell Name="Cell102" Border.Lines="All" Text="[Description]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell103" Border.Lines="All" Hyperlink.Kind="DetailPage" Text="[NonShiftProgBookSQM]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt"/>
+          <TableCell Name="Cell111" Border.Lines="All" Text="[ProgPlanSQM]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt"/>
+          <TableCell Name="Cell120" Border.Lines="All" Text="[ProgBookSQM]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt"/>
+          <TableCell Name="Cell125" Border.Lines="All" Hyperlink.Kind="DetailPage" Text="[VAriance]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt"/>
+        </TableRow>
+        <TableRow Name="Row15" Height="16.25">
+          <TableCell Name="Cell105"/>
+          <TableCell Name="Cell106" Border.Lines="All" Fill.Color="Silver" Text="Total [MODailyStopeData.Name]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" ColSpan="2"/>
+          <TableCell Name="Cell107"/>
+          <TableCell Name="Cell108" Border.Lines="All" Fill.Color="Silver" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt"/>
+          <TableCell Name="Cell112" Border.Lines="All" Fill.Color="Silver" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt"/>
+          <TableCell Name="Cell121" Border.Lines="All" Fill.Color="Silver" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt"/>
+          <TableCell Name="Cell126" Border.Lines="All" Fill.Color="Silver" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt"/>
+        </TableRow>
+        <TableRow Name="Row16" Height="16.25">
+          <TableCell Name="Cell113" Border.Lines="All" Fill.Color="DarkGray" Text="Total [MODailyStopeData.Name_2]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" ColSpan="3"/>
+          <TableCell Name="Cell114"/>
+          <TableCell Name="Cell115"/>
+          <TableCell Name="Cell116" Border.Lines="All" Fill.Color="DarkGray" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt"/>
+          <TableCell Name="Cell117" Border.Lines="All" Fill.Color="DarkGray" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt"/>
+          <TableCell Name="Cell122" Border.Lines="All" Fill.Color="DarkGray" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt"/>
+          <TableCell Name="Cell127" Border.Lines="All" Fill.Color="DarkGray" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt"/>
+        </TableRow>
+      </MatrixObject>
+      <MatrixObject Name="Matrix4" Left="366.65" Top="75.6" Width="32.51" Height="78.23" FixedRows="3" FixedColumns="3" AutoSize="false" CellsSideBySide="true" DataSource="MODailyStopeData" Filter="[MODailyStopeData.ShiftDay] != 0">
+        <MatrixColumns>
+          <Header Expression="[MODailyStopeData.Calendardate]" Totals="false"/>
+          <Header Expression="[MODailyStopeData.ShiftDay]" Totals="false"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[MODailyStopeData.Name_2]"/>
+          <Header Expression="[MODailyStopeData.Name]"/>
+          <Header Expression="[MODailyStopeData.Description]" Totals="false"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[MODailyStopeData.NoteID]"/>
+          <Cell Expression="[MODailyStopeData.BookSQM]"/>
+        </MatrixCells>
+        <TableColumn Name="Column20" Width="0"/>
+        <TableColumn Name="Column21" Width="0"/>
+        <TableColumn Name="Column22" Width="0"/>
+        <TableColumn Name="Column23" Width="14.74"/>
+        <TableColumn Name="Column24" Width="17.77"/>
+        <TableRow Name="Row17" Height="14.74">
+          <TableCell Name="Cell128" Border.Lines="All" Fill.Color="DarkGray" Text="MO" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" RowSpan="3"/>
+          <TableCell Name="Cell129" Border.Lines="All" Fill.Color="Silver" Text="Miner" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" RowSpan="3"/>
+          <TableCell Name="Cell130" Border.Lines="All" Fill.Color="Silver" Text="Workplace" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" RowSpan="3"/>
+          <TableCell Name="Cell131" Border.Lines="All" Fill.Color="Silver" Text="[Calendardate]" Format="Custom" Format.Format="dd" HorzAlign="Center" VertAlign="Center" Font="Arial, 5pt, style=Bold" ColSpan="2"/>
+          <TableCell Name="Cell161"/>
+        </TableRow>
+        <TableRow Name="Row18" Height="14.74">
+          <TableCell Name="Cell135"/>
+          <TableCell Name="Cell136"/>
+          <TableCell Name="Cell137"/>
+          <TableCell Name="Cell138" Border.Lines="All" Fill.Color="Silver" Text="[ShiftDay]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" ColSpan="2"/>
+          <TableCell Name="Cell162"/>
+        </TableRow>
+        <TableRow Name="Row19" Height="0">
+          <TableCell Name="Cell142"/>
+          <TableCell Name="Cell143"/>
+          <TableCell Name="Cell144"/>
+          <TableCell Name="Cell145" Text="NoteID" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell163" Text="BookSQM" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row20" Height="16.25">
+          <TableCell Name="Cell149" Border.Lines="All" Fill.Color="DarkGray" Text="[Name_2]" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 6pt" RowSpan="2"/>
+          <TableCell Name="Cell150" Border.Lines="All" Fill.Color="Silver" Text="[Name]" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 6pt"/>
+          <TableCell Name="Cell151" Border.Lines="All" Text="[Description]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell152" Border.Lines="Left, Top, Bottom" Text="[NoteID]" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt" TextFill.Color="Red"/>
+          <TableCell Name="Cell164" Border.Lines="Right, Top, Bottom" Hyperlink.Kind="DetailPage" Hyperlink.DetailPageName="Page2" Hyperlink.ReportParameter="SelectCell" Text="[BookSQM]" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt">
+            <Highlight>
+              <Condition Expression="Matrix4.Value(0) != &quot;&quot;"/>
+            </Highlight>
+          </TableCell>
+        </TableRow>
+        <TableRow Name="Row21" Height="16.25">
+          <TableCell Name="Cell157"/>
+          <TableCell Name="Cell158" Border.Lines="All" Fill.Color="Silver" Text="Total [MODailyStopeData.Name]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" ColSpan="2"/>
+          <TableCell Name="Cell159"/>
+          <TableCell Name="Cell160" Border.Lines="Left, Top, Bottom" Fill.Color="Silver" HorzAlign="Right" VertAlign="Center" TextFill.Color="Transparent"/>
+          <TableCell Name="Cell165" Border.Lines="Right, Top, Bottom" Fill.Color="Silver" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt"/>
+        </TableRow>
+        <TableRow Name="Row22" Height="16.25">
+          <TableCell Name="Cell166" Border.Lines="All" Fill.Color="DarkGray" Text="Total [MODailyStopeData.Name_2]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" ColSpan="3"/>
+          <TableCell Name="Cell167"/>
+          <TableCell Name="Cell168"/>
+          <TableCell Name="Cell169" Border.Lines="Left, Top, Bottom" Fill.Color="DarkGray" HorzAlign="Right" VertAlign="Center" TextFill.Color="Transparent"/>
+          <TableCell Name="Cell170" Border.Lines="Right, Top, Bottom" Fill.Color="DarkGray" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt"/>
+        </TableRow>
+      </MatrixObject>
+      <PictureObject Name="picClientPage1" Top="9.45" Width="170.1" Height="47.25" Image=""/>
+      <PictureObject Name="picMinewarePage1" Left="982.8" Top="9.45" Width="132.3" Height="56.7" Image=""/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="186.18" Width="1115.1" Height="30.35">
+      <TextObject Name="Text2" Left="179.77" Top="20.9" Width="189" Height="9.45" Border.Lines="All" Text="Note" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Text4" Left="368.77" Top="20.9" Width="217.35" Height="9.45" Border.Lines="All" Text="SBNotes" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Text6" Top="20.9" Width="179.55" Height="9.45" Border.Lines="All" Text="Description" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Text7" Top="9.45" Width="491.4" Height="9.45" Text="Problem Bookings for: [FormatDateTime([TheDate],&quot;Short Date&quot;)]" Font="Arial, 7pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="220.53" Width="1115.1" Height="10.24" DataSource="MODailyStopeData" Filter="[MODailyStopeData.Calendardate] == [TheDate] &amp;&amp; [MODailyStopeData.NoteID] != &quot;&quot;">
+      <TextObject Name="Text5" Top="0.79" Width="179.55" Height="9.45" Border.Lines="All" Text="[MODailyStopeData.Description]" Font="Arial, 6pt"/>
+      <TextObject Name="Text85" Left="179.77" Top="0.79" Width="189" Height="9.45" Border.Lines="All" Text="[MODailyStopeData.Note]" Font="Arial, 6pt"/>
+      <TextObject Name="Text3" Left="368.77" Top="0.79" Width="217.35" Height="9.45" Border.Lines="All" Text="[MODailyStopeData.SBNotes]" Font="Arial, 6pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="234.77" Width="1115.1" Height="18.9">
+      <TextObject Name="Text36" Width="189" Height="18.9" Text="[Date]" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text35" Left="1007.37" Width="75.6" Height="18.9" Text="Page [Page] of [TotalPages#]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text83" Left="818.37" Width="189" Height="18.9" Text="Mineware - SyncroMine Generated Report" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt" TextFill.Color="Gray"/>
+    </PageFooterBand>
+  </ReportPage>
+  <ReportPage Name="Page2" Visible="false" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5">
+    <ReportTitleBand Name="ReportTitle2" Width="756"/>
+    <PageHeaderBand Name="PageHeader2" Top="4" Width="756" Height="75.6">
+      <TextObject Name="Text16" Top="56.7" Width="264.6" Height="18.9" Border.Lines="All" Text="[MODailyStopeData.Calendardate]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text97" Left="166.32" Top="20.79" Width="423.36" Height="37.8" Text="Stoping MO Daily Production Report: Problem Details&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text96" Left="166.32" Width="423.36" Height="18.9" Text="[Banner]" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <PictureObject Name="picClientPage2" Width="160.65" Height="56.7" Image=""/>
+      <PictureObject Name="picMinewarePage2" Left="585.9" Width="132.3" Height="56.7" Image=""/>
+    </PageHeaderBand>
+    <DataBand Name="Data2" Top="83.6" Width="756" Height="312.4" DataSource="MODailyStopeData" Filter="[MODailyStopeData.Description]==[SelectCell.Workplace]&amp;&amp;[MODailyStopeData.Calendardate]==ToDateTime([SelectCell.Calendardate])">
+      <TextObject Name="Text1" Left="113.4" Top="94.5" Width="56.7" Height="18.9" Border.Lines="All" Text="[MODailyStopeData.NoteID]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text11" Left="113.4" Top="9.45" Width="226.8" Height="18.9" Border.Lines="All" Text="[MODailyStopeData.Name]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text12" Left="113.4" Top="37.8" Width="226.8" Height="18.9" Border.Lines="All" Text="[MODailyStopeData.Description]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text13" Left="113.4" Top="122.85" Width="311.85" Height="18.9" Border.Lines="All" Text="[MODailyStopeData.SBNotes]" VertAlign="Center"/>
+      <TextObject Name="Text10" Left="113.4" Top="199" Width="94.5" Height="18.9" Border.Lines="All" Text="[MODailyStopeData.BookSQM]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center" WordWrap="false" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text15" Left="113.4" Top="227.35" Width="94.5" Height="18.9" Border.Lines="All" Text="[MODailyStopeData.PlanSQM]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center" WordWrap="false" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text14" Top="9.45" Width="94.5" Height="18.9" Border.Lines="All" Text="Miner" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text86" Top="37.8" Width="94.5" Height="18.9" Border.Lines="All" Text="Workplace" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text87" Top="66.15" Width="94.5" Height="18.9" Border.Lines="All" Text="Problem" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text88" Top="199" Width="94.5" Height="18.9" Border.Lines="All" Text="Book" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text89" Top="227.35" Width="94.5" Height="18.9" Border.Lines="All" Text="Plan" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text17" Left="113.4" Top="66.15" Width="226.8" Height="18.9" Border.Lines="All" Text="[MODailyStopeData.Problem]"/>
+      <TextObject Name="Text18" Left="179.55" Top="94.5" Width="245.7" Height="18.9" Border.Lines="All" Text="[MODailyStopeData.Note]"/>
+      <TextObject Name="Text19" Left="113.4" Top="151.2" Width="510.3" Height="37.8" Border.Lines="All" Text="[MODailyStopeData.Explanation]"/>
+      <TextObject Name="Text93" Top="94.5" Width="94.5" Height="18.9" Border.Lines="All" Text="Note" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text94" Top="122.85" Width="94.5" Height="18.9" Border.Lines="All" Text="SB Notes" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text95" Top="151.2" Width="94.5" Height="37.8" Border.Lines="All" Text="Explanation" HorzAlign="Center" VertAlign="Center"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter2" Top="400" Width="756" Height="18.9" Guides="0">
+      <TextObject Name="Text90" Width="189" Height="18.9" Text="[Date]" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text91" Left="642.6" Width="75.6" Height="18.9" Text="Page [Page] of [TotalPages#]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text92" Left="453.6" Width="189" Height="18.9" Text="Mineware - SyncroMine Generated Report" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt" TextFill.Color="Gray"/>
+    </PageFooterBand>
+  </ReportPage>
+  <ReportPage Name="Page3" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="1" TopMargin="1" RightMargin="1" BottomMargin="1" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle3" Width="1115.1" Height="175.93" Guides="75.6">
+      <TextObject Name="Text98" Left="166.32" Top="9.45" Width="812.7" Height="18.9" Text="[Banner]" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text99" Left="166.32" Top="28.35" Width="812.7" Height="18.9" Text="Development MO Daily Production Report" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text100" Left="166.32" Top="47.25" Width="812.7" Height="18.9" Text="[Section] for Month [Prodmonth] upto [FormatDateTime([TheDate],&quot;Short Date&quot;)]" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <MatrixObject Name="Matrix2" Left="9.45" Top="75.6" Width="347.1" Height="79.48" FixedRows="2" FixedColumns="3" AutoSize="false" CellsSideBySide="true" DataSource="MODailyDevData" Filter="[MODailyDevData.ShiftDay] == 1">
+        <MatrixColumns/>
+        <MatrixRows>
+          <Header Expression="[MODailyDevData.Name_2]"/>
+          <Header Expression="[MODailyDevData.Name]"/>
+          <Header Expression="[MODailyDevData.Description]" Totals="false"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[MODailyDevData.Metresadvance]"/>
+          <Cell Expression="[MODailyDevData.NonShiftProgBookAdv]"/>
+          <Cell Expression="[MODailyDevData.ProgBookAdv]"/>
+          <Cell Expression="[MODailyDevData.ProgPlanAdv]"/>
+          <Cell Expression="[MODailyDevData.VAriance]"/>
+        </MatrixCells>
+        <TableColumn Name="Column25" Width="27.69"/>
+        <TableColumn Name="Column26" Width="36.39"/>
+        <TableColumn Name="Column27" Width="128.52"/>
+        <TableColumn Name="Column28" Width="38.95"/>
+        <TableColumn Name="Column29" Width="25.38"/>
+        <TableColumn Name="Column30" Width="31.58"/>
+        <TableColumn Name="Column31" Width="32.13"/>
+        <TableColumn Name="Column32" Width="26.46"/>
+        <TableRow Name="Row23" Height="0">
+          <TableCell Name="Cell171" Border.Lines="All" Fill.Color="Silver" Text="MO" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" RowSpan="2"/>
+          <TableCell Name="Cell172" Border.Lines="All" Fill.Color="Silver" Text="Miner" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" RowSpan="2"/>
+          <TableCell Name="Cell177" Border.Lines="All" Fill.Color="Silver" Text="Description" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" RowSpan="2"/>
+          <TableCell Name="Cell183" Text="Drag data here to&#13;&#10;create a new column" HorzAlign="Center" VertAlign="Center" TextFill.Color="Gray"/>
+          <TableCell Name="Cell193"/>
+          <TableCell Name="Cell202"/>
+          <TableCell Name="Cell207"/>
+          <TableCell Name="Cell212"/>
+        </TableRow>
+        <TableRow Name="Row24" Height="31.6">
+          <TableCell Name="Cell173"/>
+          <TableCell Name="Cell174"/>
+          <TableCell Name="Cell178"/>
+          <TableCell Name="Cell184" Border.Lines="All" Fill.Color="Silver" Text="Month&#13;&#10;Call&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+          <TableCell Name="Cell194" Border.Lines="All" Fill.Color="Silver" Text="Non&#13;&#10;Shift" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+          <TableCell Name="Cell203" Border.Lines="All" Fill.Color="Silver" Text="Prog &#13;&#10;Book&#13;&#10;Adv" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+          <TableCell Name="Cell208" Border.Lines="All" Fill.Color="Silver" Text="Prog&#13;&#10;Plan&#13;&#10;Adv" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+          <TableCell Name="Cell213" Border.Lines="All" Fill.Color="Silver" Text="Diff" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+        </TableRow>
+        <TableRow Name="Row25" Height="15.88">
+          <TableCell Name="Cell185" Border.Lines="All" Fill.Color="Silver" Text="[Name_2]" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 6pt, style=Bold" RowSpan="2"/>
+          <TableCell Name="Cell186" Border.Lines="All" Fill.Color="Silver" Text="[Name]" HorzAlign="Center" VertAlign="Center" Angle="270" Font="Arial, 6pt, style=Bold"/>
+          <TableCell Name="Cell187" Border.Lines="All" Text="[Description]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+          <TableCell Name="Cell188" Border.Lines="All" Text="[Metresadvance]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell195" Border.Lines="All" Text="[NonShiftProgBookAdv]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell204" Border.Lines="All" Text="[ProgBookAdv]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell209" Border.Lines="All" Text="[ProgPlanAdv]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+          <TableCell Name="Cell214" Border.Lines="All" Text="[VAriance]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row26" Height="16">
+          <TableCell Name="Cell189"/>
+          <TableCell Name="Cell190" Border.Lines="All" Fill.Color="Silver" Text="Total" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" ColSpan="2"/>
+          <TableCell Name="Cell191"/>
+          <TableCell Name="Cell192" Border.Lines="All" Fill.Color="Silver" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+          <TableCell Name="Cell196" Border.Lines="All" Fill.Color="Silver" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+          <TableCell Name="Cell205" Border.Lines="All" Fill.Color="Silver" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+          <TableCell Name="Cell210" Border.Lines="All" Fill.Color="Silver" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+          <TableCell Name="Cell215" Border.Lines="All" Fill.Color="Silver" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+        </TableRow>
+        <TableRow Name="Row27" Height="16">
+          <TableCell Name="Cell197" Border.Lines="All" Fill.Color="Silver" Text="Total [MODailyDevData.Name_2]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6pt, style=Bold" ColSpan="3"/>
+          <TableCell Name="Cell198"/>
+          <TableCell Name="Cell199"/>
+          <TableCell Name="Cell200" Border.Lines="All" Fill.Color="Silver" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+          <TableCell Name="Cell201" Border.Lines="All" Fill.Color="Silver" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+          <TableCell Name="Cell206" Border.Lines="All" Fill.Color="Silver" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+          <TableCell Name="Cell211" Border.Lines="All" Fill.Color="Silver" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt, style=Bold"/>
+          <TableCell Name="Cell216" Border.Lines="All" Fill.Color="Silver" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 6pt"/>
+        </TableRow>
+      </MatrixObject>
+      <MatrixObject Name="Matrix5" Left="356.1" Top="75.6" Width="32.51" Height="79.4" Border.Lines="All" Fill.Color="Silver" FixedRows="3" FixedColumns="3" AutoSize="false" CellsSideBySide="true" DataSource="MODailyDevData" Filter="[MODailyDevData.ShiftDay] != 0">
+        <MatrixColumns>
+          <Header Expression="[MODailyDevData.Calendardate]" Totals="false"/>
+          <Header Expression="[MODailyDevData.ShiftDay]" Totals="false"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[MODailyDevData.Name_2]"/>
+          <Header Expression="[MODailyDevData.Name]"/>
+          <Header Expression="[MODailyDevData.Description]" Totals="false"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[MODailyDevData.NoteID]"/>
+          <Cell Expression="[MODailyDevData.BookSQM]"/>
+        </MatrixCells>
+        <TableColumn Name="Column33" Width="0"/>
+        <TableColumn Name="Column34" Width="0"/>
+        <TableColumn Name="Column35" Width="0"/>
+        <TableColumn Name="Column36" Width="14.74"/>
+        <TableColumn Name="Column37" Width="17.77"/>
+        <TableRow Name="Row28" Height="15.88">
+          <TableCell Name="Cell217" Text="Name_2" HorzAlign="Center" VertAlign="Center" RowSpan="3"/>
+          <TableCell Name="Cell218" Text="Name" HorzAlign="Center" VertAlign="Center" RowSpan="3"/>
+          <TableCell Name="Cell223" Text="Description" HorzAlign="Center" VertAlign="Center" RowSpan="3"/>
+          <TableCell Name="Cell229" Border.Lines="All" Text="[Calendardate]" Format="Custom" Format.Format="dd" HorzAlign="Center" VertAlign="Center" Font="Arial, 5pt, style=Bold" ColSpan="2"/>
+          <TableCell Name="Cell245"/>
+        </TableRow>
+        <TableRow Name="Row29" Height="15.88">
+          <TableCell Name="Cell219"/>
+          <TableCell Name="Cell220"/>
+          <TableCell Name="Cell224"/>
+          <TableCell Name="Cell230" Border.Lines="All" Text="[ShiftDay]" HorzAlign="Center" VertAlign="Center" Font="Arial, 5pt, style=Bold" ColSpan="2"/>
+          <TableCell Name="Cell246"/>
+        </TableRow>
+        <TableRow Name="Row30" Height="0">
+          <TableCell Name="Cell221"/>
+          <TableCell Name="Cell222"/>
+          <TableCell Name="Cell225"/>
+          <TableCell Name="Cell231" Text="NoteID" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell247" Text="BookSQM" HorzAlign="Center" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row31" Height="15.88">
+          <TableCell Name="Cell226" Text="[Name_2]" HorzAlign="Center" VertAlign="Center" RowSpan="2"/>
+          <TableCell Name="Cell227" Text="[Name]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell228" Text="[Description]" HorzAlign="Center" VertAlign="Center"/>
+          <TableCell Name="Cell232" Border.Lines="Left, Top, Bottom" Fill.Color="White" Text="[NoteID]" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt" TextFill.Color="Red"/>
+          <TableCell Name="Cell248" Border.Lines="Right, Top, Bottom" Fill.Color="White" Hyperlink.Kind="DetailPage" Hyperlink.DetailPageName="Page4" Hyperlink.ReportParameter="SelectCell" Text="[BookSQM]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt">
+            <Highlight>
+              <Condition Expression="Matrix5.Value(0) != &quot;&quot;"/>
+            </Highlight>
+          </TableCell>
+        </TableRow>
+        <TableRow Name="Row32" Height="15.88">
+          <TableCell Name="Cell241"/>
+          <TableCell Name="Cell242" Text="Total" HorzAlign="Center" VertAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell243"/>
+          <TableCell Name="Cell244" Border.Lines="Left, Top, Bottom" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt" TextFill.Color="Transparent"/>
+          <TableCell Name="Cell249" Border.Lines="Right, Top, Bottom" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt"/>
+        </TableRow>
+        <TableRow Name="Row33" Height="15.88">
+          <TableCell Name="Cell250" Text="Total" HorzAlign="Center" VertAlign="Center" ColSpan="3"/>
+          <TableCell Name="Cell251"/>
+          <TableCell Name="Cell252"/>
+          <TableCell Name="Cell253" Border.Lines="Left, Top, Bottom" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt" TextFill.Color="Transparent"/>
+          <TableCell Name="Cell254" Border.Lines="Right, Top, Bottom" HorzAlign="Right" VertAlign="Center" Font="Arial, 5pt"/>
+        </TableRow>
+      </MatrixObject>
+      <PictureObject Name="picClientPage3" Top="9.45" Width="151.2" Height="56.7" Image=""/>
+      <PictureObject Name="picMinewarePage3" Left="982.8" Top="9.45" Width="132.3" Height="56.7" Image=""/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader3" Top="179.93" Width="1115.1" Height="30.35">
+      <TextObject Name="Text103" Left="9.45" Top="9" Width="491.4" Height="9.45" Text="Problem Bookings for: [FormatDateTime([TheDate],&quot;Short Date&quot;)]" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text101" Left="189.22" Top="20.34" Width="122.85" Height="9.45" Border.Lines="All" Text="Note" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Text102" Left="312.07" Top="20.34" Width="217.35" Height="9.45" Border.Lines="All" Text="SBNotes" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Text105" Left="9.45" Top="20.34" Width="179.55" Height="9.45" Border.Lines="All" Text="Description" Font="Arial, 6pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data3" Top="214.28" Width="1115.1" Height="9.45" DataSource="MODailyDevData" Filter="[MODailyDevData.Calendardate] == [TheDate] &amp;&amp; [MODailyDevData.NoteID] != &quot;&quot;">
+      <TextObject Name="Text104" Left="9.45" Width="179.55" Height="9.45" Border.Lines="All" Text="[MODailyDevData.Description]" Font="Arial, 6pt"/>
+      <TextObject Name="Text20" Left="189" Width="122.85" Height="9.45" Border.Lines="All" Text="[MODailyDevData.Note]" Font="Arial, 6pt"/>
+      <TextObject Name="Text21" Left="311.85" Width="217.35" Height="9.45" Border.Lines="All" Text="[MODailyDevData.SBNotes]" Font="Arial, 6pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter3" Top="227.73" Width="1115.1" Height="18.9">
+      <TextObject Name="Text106" Width="189" Height="18.9" Text="[Date]" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text107" Left="1007.37" Width="75.6" Height="18.9" Text="Page [Page] of [TotalPages#]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text108" Left="818.37" Width="189" Height="18.9" Text="Mineware - SyncroMine Generated Report" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt" TextFill.Color="Gray"/>
+    </PageFooterBand>
+  </ReportPage>
+  <ReportPage Name="Page4" Visible="false" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5">
+    <ReportTitleBand Name="ReportTitle4" Width="756" Height="75.6">
+      <TextObject Name="Text127" Left="166.32" Top="20.79" Width="423.36" Height="37.8" Text="Development MO Daily Production Report: Problem Details&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text128" Left="166.32" Width="423.36" Height="18.9" Text="[Banner]" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold"/>
+      <PictureObject Name="picClientPage4" Width="151.2" Height="66.15" Image=""/>
+      <PictureObject Name="picMinewarePage4" Left="585.9" Width="132.3" Height="56.7" Image=""/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader4" Top="79.6" Width="756" Height="28.35">
+      <TextObject Name="Text109" Left="9.45" Top="9.45" Width="264.6" Height="18.9" Border.Lines="All" Text="[MODailyDevData.Calendardate]" Format="Date" Format.Format="d" HorzAlign="Center" VertAlign="Center"/>
+    </PageHeaderBand>
+    <DataBand Name="Data4" Top="111.95" Width="756" Height="264.6" DataSource="MODailyDevData" Filter="[MODailyDevData.Description]==[SelectCell.Workplace]&amp;&amp;[MODailyDevData.Calendardate]==ToDateTime([SelectCell.Calendardate])">
+      <TextObject Name="Text110" Left="122.85" Top="98.66" Width="56.7" Height="18.9" Border.Lines="All" Text="[MODailyDevData.NoteID]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text111" Left="122.85" Top="13.61" Width="226.8" Height="18.9" Border.Lines="All" Text="[MODailyDevData.Name]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text112" Left="122.85" Top="41.96" Width="226.8" Height="18.9" Border.Lines="All" Text="[MODailyDevData.Description]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text113" Left="122.85" Top="127.01" Width="311.85" Height="18.9" Border.Lines="All" Text="[MODailyDevData.SBNotes]" VertAlign="Center"/>
+      <TextObject Name="Text114" Left="122.85" Top="203.16" Width="94.5" Height="18.9" Border.Lines="All" Text="[MODailyDevData.BookSQM]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center" WordWrap="false" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text115" Left="122.85" Top="231.51" Width="94.5" Height="18.9" Border.Lines="All" Text="[MODailyDevData.PlanSQM]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center" WordWrap="false" Trimming="EllipsisCharacter"/>
+      <TextObject Name="Text116" Left="9.45" Top="13.61" Width="94.5" Height="18.9" Border.Lines="All" Text="Miner" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text117" Left="9.45" Top="41.96" Width="94.5" Height="18.9" Border.Lines="All" Text="Workplace" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text118" Left="9.45" Top="70.31" Width="94.5" Height="18.9" Border.Lines="All" Text="Problem" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text119" Left="9.45" Top="203.16" Width="94.5" Height="18.9" Border.Lines="All" Text="Book" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text120" Left="9.45" Top="231.51" Width="94.5" Height="18.9" Border.Lines="All" Text="Plan" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text121" Left="122.85" Top="70.31" Width="226.8" Height="18.9" Border.Lines="All" Text="[MODailyDevData.Problem]"/>
+      <TextObject Name="Text122" Left="189" Top="98.66" Width="245.7" Height="18.9" Border.Lines="All" Text="[MODailyDevData.Note]"/>
+      <TextObject Name="Text123" Left="122.85" Top="155.36" Width="510.3" Height="37.8" Border.Lines="All" Text="[MODailyDevData.Explanation]"/>
+      <TextObject Name="Text124" Left="9.45" Top="98.66" Width="94.5" Height="18.9" Border.Lines="All" Text="Note" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text125" Left="9.45" Top="127.01" Width="94.5" Height="18.9" Border.Lines="All" Text="SB Notes" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text126" Left="9.45" Top="155.36" Width="94.5" Height="37.8" Border.Lines="All" Text="Explanation" HorzAlign="Center" VertAlign="Center"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter4" Top="380.55" Width="756" Height="18.9">
+      <TextObject Name="Text129" Width="189" Height="18.9" Text="[Date]" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text130" Left="642.6" Width="75.6" Height="18.9" Text="Page [Page] of [TotalPages#]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text131" Left="453.6" Width="189" Height="18.9" Text="Mineware - SyncroMine Generated Report" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt" TextFill.Color="Gray"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

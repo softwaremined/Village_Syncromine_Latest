@@ -1,0 +1,6 @@
+<Dns.SolutionBuilder.Control>
+	<exclude.patterns>
+		<exclude regular.expression="\.*?\\Other\\.*"/>
+		<exclude regular.expression="\.*?\\SetupWinNtHost\\.*"/>
+	</exclude.patterns>
+</Dns.SolutionBuilder.Control>

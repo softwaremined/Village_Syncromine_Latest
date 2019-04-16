@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="09/17/2014 10:45:44" ReportInfo.Modified="06/02/2017 08:48:59" ReportInfo.CreatorVersion="2016.3.0.0">
+  <Dictionary>
+    <TableDataSource Name="PlanningReportSweepVampSummary" ReferenceName="Data.PlanningReportSweepVampSummary" DataType="System.Int32" Enabled="true">
+      <Column Name="GroupSec" DataType="System.String"/>
+      <Column Name="Units" DataType="System.Decimal"/>
+      <Column Name="Grams" DataType="System.Decimal"/>
+      <Column Name="Tons" DataType="System.Decimal"/>
+      <Column Name="Grade" DataType="System.Decimal"/>
+    </TableDataSource>
+    <TableDataSource Name="PlanningReportSweepVamp" ReferenceName="Data.PlanningReportSweepVamp" DataType="System.Int32" Enabled="true"/>
+    <Parameter Name="Type" DataType="System.String"/>
+    <Parameter Name="Summary" DataType="System.String"/>
+    <Parameter Name="logo" DataType="System.String"/>
+    <Parameter Name="logoMineware" DataType="System.String"/>
+    <Parameter Name="Banner" DataType="System.String"/>
+    <Parameter Name="Prodmonth" DataType="System.String"/>
+    <Total Name="Units" Expression="[PlanningReportSweepVampSummary.Units]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="Tons" Expression="[PlanningReportSweepVampSummary.Tons]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="Grade" Expression="[PlanningReportSweepVampSummary.Grade]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="Content" Expression="[PlanningReportSweepVampSummary.Grams]" Evaluator="Data1" PrintOn="ReportSummary1"/>
+    <Total Name="Units1" Expression="[PlanningReportSweepVamp.Units]" Evaluator="Data2" PrintOn="GroupFooter2"/>
+    <Total Name="Tons1" Expression="[PlanningReportSweepVamp.Tons]" Evaluator="Data2" PrintOn="GroupFooter2"/>
+    <Total Name="Grade1" Expression="[PlanningReportSweepVamp.Grade]" Evaluator="Data2" PrintOn="GroupFooter2"/>
+    <Total Name="Depth1" Expression="[PlanningReportSweepVamp.Depth]" Evaluator="Data2" PrintOn="GroupFooter2"/>
+    <Total Name="Content1" Expression="[PlanningReportSweepVamp.Grams]" Evaluator="Data2" PrintOn="GroupFooter2"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="400">
+    <ReportTitleBand Name="ReportTitle1" Width="1436.4" Height="94.5" OutlineExpression="[Summary]">
+      <TextObject Name="Text62" Left="207.9" Top="28.35" Width="217.35" Height="28.35" Text="Sweep and Vamps" Font="Arial, 16pt, style=Bold"/>
+      <TextObject Name="Text53" Left="207.9" Top="56.7" Width="396.9" Height="18.9" Text="[Summary]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text52" Left="207.9" Width="567" Height="28.35" Text="[Banner]" Font="Arial, 16pt, style=Bold"/>
+      <TextObject Name="Text63" Left="207.9" Top="75.6" Width="396.9" Height="18.9" Text="[Prodmonth]" Font="Arial, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="98.5" Width="1436.4" Height="28.35">
+      <TextObject Name="Text1" Width="207.9" Height="28.35" Dock="Left" Border.Lines="All" Text="Sections" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text2" Left="207.9" Width="75.6" Height="28.35" Dock="Left" Border.Lines="All" Text="Units" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text3" Left="283.5" Width="75.6" Height="28.35" Dock="Left" Border.Lines="All" Text="Tons" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text4" Left="359.1" Width="75.6" Height="28.35" Dock="Left" Border.Lines="All" Text="Grade" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text5" Left="434.7" Width="75.6" Height="28.35" Dock="Left" Border.Lines="All" Text="Content" Font="Arial, 10pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="130.85" Width="1436.4" Height="18.9" DataSource="PlanningReportSweepVampSummary">
+      <TextObject Name="Text6" Width="207.9" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportSweepVampSummary.GroupSec]">
+        <Highlight>
+          <Condition Expression="[PlanningReportSweepVampSummary.GroupSec]==&quot;&quot;" Fill.Color="PeachPuff" ApplyFill="true" ApplyTextFill="false"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text7" Left="207.9" Width="75.6" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportSweepVampSummary.Units]" HorzAlign="Right">
+        <Highlight>
+          <Condition Expression="[PlanningReportSweepVampSummary.GroupSec]==&quot;&quot;" Fill.Color="PeachPuff" ApplyFill="true" ApplyTextFill="false"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text8" Left="283.5" Width="75.6" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportSweepVampSummary.Tons]" HorzAlign="Right">
+        <Highlight>
+          <Condition Expression="[PlanningReportSweepVampSummary.GroupSec]==&quot;&quot;" Fill.Color="PeachPuff" ApplyFill="true" ApplyTextFill="false"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text9" Left="359.1" Width="75.6" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportSweepVampSummary.Grade]" HorzAlign="Right">
+        <Highlight>
+          <Condition Expression="[PlanningReportSweepVampSummary.GroupSec]==&quot;&quot;" Fill.Color="PeachPuff" ApplyFill="true" ApplyTextFill="false"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text10" Left="434.7" Width="75.6" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportSweepVampSummary.Grams]" HorzAlign="Right">
+        <Highlight>
+          <Condition Expression="[PlanningReportSweepVampSummary.GroupSec]==&quot;&quot;" Fill.Color="PeachPuff" ApplyFill="true" ApplyTextFill="false"/>
+        </Highlight>
+      </TextObject>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="153.75" Width="1436.4" Height="18.9" Visible="false">
+      <TextObject Name="Text11" Width="207.9" Height="18.9" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="TOTAL" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text12" Left="207.9" Width="75.6" Height="18.9" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="[Units]" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text13" Left="283.5" Width="75.6" Height="18.9" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="[Tons]" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text14" Left="359.1" Width="75.6" Height="18.9" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="[Grade]" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text15" Left="434.7" Width="75.6" Height="18.9" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="[Content]" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+      <ChildBand Name="Child1" Top="176.65" Width="1436.4" Height="292.95">
+        <LineObject Name="Line1" Left="56.7" Top="122.85" Width="151.2"/>
+        <LineObject Name="Line2" Left="283.5" Top="122.85" Width="151.2"/>
+        <TextObject Name="Text16" Left="56.7" Top="132.3" Width="151.2" Height="18.9" Text="Unit Manager"/>
+        <TextObject Name="Text17" Left="283.5" Top="132.3" Width="151.2" Height="18.9" Text="Shaft Planner"/>
+        <LineObject Name="Line3" Left="56.7" Top="198.45" Width="151.2"/>
+        <LineObject Name="Line4" Left="283.5" Top="198.45" Width="151.2"/>
+        <TextObject Name="Text18" Left="56.7" Top="207.9" Width="151.2" Height="18.9" Text="Ops Manager"/>
+        <TextObject Name="Text19" Left="283.5" Top="207.9" Width="151.2" Height="18.9" Text="Senior Ops Manager"/>
+      </ChildBand>
+    </ReportSummaryBand>
+  </ReportPage>
+  <ReportPage Name="Page2" PaperWidth="400">
+    <GroupHeaderBand Name="GroupHeader1" Width="1436.4" Height="94.5" StartNewPage="true" OutlineExpression="[PlanningReportSweepVamp.Name_2]" RepeatOnEveryPage="true" Condition="[PlanningReportSweepVamp.Name_2]">
+      <TextObject Name="Text49" Left="103.95" Top="28.35" Width="670.95" Height="28.35" Text="Sweep and Vamps" Font="Arial, 16pt, style=Bold"/>
+      <TextObject Name="Text50" Left="103.95" Top="56.7" Width="670.95" Height="18.9" Text="Mine Overseer [PlanningReportSweepVamp.Name_2]" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text51" Left="103.95" Width="670.95" Height="28.35" Text="[Banner]" Font="Arial, 16pt, style=Bold"/>
+      <TextObject Name="Text54" Left="103.95" Top="75.6" Width="670.95" Height="18.9" Text="[Prodmonth]" Font="Arial, 10pt, style=Bold"/>
+      <GroupHeaderBand Name="GroupHeader2" Top="98.5" Width="1436.4" Height="37.8" RepeatOnEveryPage="true" Condition="[PlanningReportSweepVamp.Name_2]" KeepTogether="true">
+        <TextObject Name="Text20" Width="103.95" Height="37.8" Dock="Left" Border.Lines="All" Text="Production Supervisor" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text21" Left="103.95" Width="66.15" Height="37.8" Dock="Left" Border.Lines="All" Text="Miner" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text22" Left="170.1" Width="103.95" Height="37.8" Dock="Left" Border.Lines="All" Text="OrgUnit Day" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text23" Left="274.05" Width="113.4" Height="37.8" Dock="Left" Border.Lines="All" Text="OrgUnit Afternoon" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text24" Left="387.45" Width="113.4" Height="37.8" Dock="Left" Border.Lines="All" Text="OrgUnit Night" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text25" Left="500.85" Width="132.3" Height="37.8" Dock="Left" Border.Lines="All" Text="Workplace" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text26" Left="633.15" Width="56.7" Height="37.8" Dock="Left" Border.Lines="All" Text="WP ID" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text27" Left="689.85" Width="330.75" Height="37.8" Dock="Left" Border.Lines="All" Text="Activity" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text28" Left="1020.6" Width="47.25" Height="37.8" Dock="Left" Border.Lines="All" Text="Units" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text29" Left="1067.85" Width="56.7" Height="37.8" Dock="Left" Border.Lines="All" Text="Tons" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text30" Left="1124.55" Width="56.7" Height="37.8" Dock="Left" Border.Lines="All" Text="Grade" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text31" Left="1181.25" Width="56.7" Height="37.8" Dock="Left" Border.Lines="All" Text="Depth" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text32" Left="1237.95" Width="85.05" Height="37.8" Dock="Left" Border.Lines="All" Text="Content" Font="Arial, 10pt, style=Bold"/>
+        <TextObject Name="Text33" Left="1323" Width="122.85" Height="37.8" Dock="Left" Border.Lines="All" Text="Remarks" Font="Arial, 10pt, style=Bold"/>
+        <DataBand Name="Data2" Top="140.3" Width="1436.4" Height="18.9" DataSource="PlanningReportSweepVamp">
+          <TextObject Name="Text34" Width="103.95" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportSweepVamp.Name_1]">
+            <Highlight>
+              <Condition Expression="[PlanningReportSweepVamp.POS]==2" Border.Lines="Left, Top, Bottom" Fill.Color="PeachPuff" TextFill.Color="White" ApplyBorder="true" ApplyFill="true" ApplyTextFill="false"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text35" Left="103.95" Width="66.15" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportSweepVamp.Name_2]">
+            <Highlight>
+              <Condition Expression="[PlanningReportSweepVamp.POS]==2" Border.Lines="Top, Bottom" Fill.Color="PeachPuff" TextFill.Color="Transparent" ApplyBorder="true" ApplyFill="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text36" Left="170.1" Width="103.95" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportSweepVamp.Orgunitday]">
+            <Highlight>
+              <Condition Expression="[PlanningReportSweepVamp.POS]==2" Border.Lines="Top, Bottom" Fill.Color="PeachPuff" TextFill.Color="Transparent" ApplyBorder="true" ApplyFill="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text37" Left="274.05" Width="113.4" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportSweepVamp.OrgunitAfternoon]">
+            <Highlight>
+              <Condition Expression="[PlanningReportSweepVamp.POS]==2" Border.Lines="Top, Bottom" Fill.Color="PeachPuff" TextFill.Color="Transparent" ApplyBorder="true" ApplyFill="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text38" Left="387.45" Width="113.4" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportSweepVamp.OrgUnitNight]">
+            <Highlight>
+              <Condition Expression="[PlanningReportSweepVamp.POS]==2" Border.Lines="Top, Bottom" Fill.Color="PeachPuff" TextFill.Color="Transparent" ApplyBorder="true" ApplyFill="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text39" Left="500.85" Width="132.3" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportSweepVamp.Description]">
+            <Highlight>
+              <Condition Expression="[PlanningReportSweepVamp.POS]==2" Border.Lines="Top, Bottom" Fill.Color="PeachPuff" TextFill.Color="Transparent" ApplyBorder="true" ApplyFill="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text40" Left="633.15" Width="56.7" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportSweepVamp.Workplace]">
+            <Highlight>
+              <Condition Expression="[PlanningReportSweepVamp.POS]==2" Border.Lines="Top, Bottom" Fill.Color="PeachPuff" TextFill.Color="Transparent" ApplyBorder="true" ApplyFill="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text41" Left="689.85" Width="330.75" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportSweepVamp.Old_Activity]">
+            <Highlight>
+              <Condition Expression="[PlanningReportSweepVamp.POS]==2" Border.Lines="Right, Top, Bottom" Fill.Color="PeachPuff" TextFill.Color="Transparent" ApplyBorder="true" ApplyFill="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text42" Left="1020.6" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportSweepVamp.Units]" HorzAlign="Right">
+            <Highlight>
+              <Condition Expression="[PlanningReportSweepVamp.POS]==2" Fill.Color="PeachPuff" ApplyFill="true" ApplyTextFill="false"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text43" Left="1067.85" Width="56.7" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportSweepVamp.Tons]" HorzAlign="Right">
+            <Highlight>
+              <Condition Expression="[PlanningReportSweepVamp.POS]==2" Fill.Color="PeachPuff" ApplyFill="true" ApplyTextFill="false"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text44" Left="1124.55" Width="56.7" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportSweepVamp.Grade]" HorzAlign="Right">
+            <Highlight>
+              <Condition Expression="[PlanningReportSweepVamp.POS]==2" Fill.Color="PeachPuff" ApplyFill="true" ApplyTextFill="false"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text45" Left="1181.25" Width="56.7" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportSweepVamp.Depth]" HorzAlign="Right">
+            <Highlight>
+              <Condition Expression="[PlanningReportSweepVamp.POS]==2" Fill.Color="PeachPuff" ApplyFill="true" ApplyTextFill="false"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text46" Left="1237.95" Width="85.05" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportSweepVamp.Grams]" HorzAlign="Right">
+            <Highlight>
+              <Condition Expression="[PlanningReportSweepVamp.POS]==2" Fill.Color="PeachPuff" ApplyFill="true" ApplyTextFill="false"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text47" Left="1323" Width="122.85" Height="18.9" Dock="Left" Border.Lines="All">
+            <Highlight>
+              <Condition Expression="[PlanningReportSweepVamp.POS]==2" Fill.Color="PeachPuff" ApplyFill="true" ApplyTextFill="false"/>
+            </Highlight>
+          </TextObject>
+          <Sort>
+            <Sort Expression="[PlanningReportSweepVamp.POS]"/>
+            <Sort Expression="[PlanningReportSweepVamp.Name_1]"/>
+            <Sort Expression="[PlanningReportSweepVamp.Old_Activity]"/>
+          </Sort>
+        </DataBand>
+        <GroupFooterBand Name="GroupFooter2" Top="163.2" Width="1436.4" Height="18.9" Visible="false">
+          <TextObject Name="Text48" Width="1020.6" Height="18.9" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="TOTAL" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TextObject Name="Text56" Left="1020.6" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="[Units1]" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+          <TextObject Name="Text57" Left="1067.85" Width="56.7" Height="18.9" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="[Tons1]" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+          <TextObject Name="Text58" Left="1124.55" Width="56.7" Height="18.9" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="[Grade1]" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+          <TextObject Name="Text59" Left="1181.25" Width="56.7" Height="18.9" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="[Depth1]" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+          <TextObject Name="Text60" Left="1237.95" Width="85.05" Height="18.9" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="[Content1]" HorzAlign="Right" Font="Arial, 10pt, style=Bold"/>
+          <TextObject Name="Text61" Left="1323" Width="122.85" Height="18.9" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Font="Arial, 10pt, style=Bold"/>
+        </GroupFooterBand>
+      </GroupHeaderBand>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter2" Top="186.1" Width="1436.4" Height="18.9"/>
+  </ReportPage>
+</Report>

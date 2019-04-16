@@ -1,0 +1,68 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mineware.Systems.WindowsServices", "Mineware.Systems.WindowsServices", "{1F3E8208-69A5-47C1-843B-264E8DE690FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mineware.Systems.WindowsServices", "Mineware.Systems.WindowsServices\Mineware.Systems.WindowsServices.csproj", "{EC75284C-9F24-469B-8FC2-2537C69FFB2F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mineware.Systems.WindowsServices.Shell", "Mineware.Systems.WindowsServices.Shell", "{AB090C7F-6CB1-4E34-8126-8119C4116970}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mineware.Systems.WindowsServices.Shell", "Mineware.Systems.WindowsServices.Shell\Mineware.Systems.WindowsServices.Shell.csproj", "{87D79793-1FAC-4EE2-AD39-C93B2F8B405F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mineware.Systems.WindowsServices.ImportPlugin", "Plugins\Mineware.Systems.WindowsServices.ImportPlugin\Mineware.Systems.WindowsServices.ImportPlugin.csproj", "{3637BD0F-4A0D-4092-BD47-A478AF9A6C6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinNtServiceDebugger", "WinNtServiceDebugger\WinNtServiceDebugger.csproj", "{91E0B6E9-69EB-4CAF-B42F-16D233A95FC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mineware.Systems.WindowsServices.WorkplaceStripperPlugin", "Plugins\Mineware.Systems.WindowsServices.WorkplaceStripperPlugin\Mineware.Systems.WindowsServices.WorkplaceStripperPlugin.csproj", "{961ED9F7-3DDE-4650-935B-848088F4110E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mineware.Systems.WindowsServices.XyzCoordinatesPlugin", "Plugins\Mineware.Systems.WindowsServices.XyzCoordinatesPlugin\Mineware.Systems.WindowsServices.XyzCoordinatesPlugin.csproj", "{72262851-692E-4052-AF30-CA0C53CAFD6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mineware.Systems.WindowsServices.WorkplaceImportPlugin", "Plugins\Mineware.Systems.WindowsServices.WorkplaceImportPlugin\Mineware.Systems.WindowsServices.WorkplaceImportPlugin.csproj", "{6FF654BB-B397-41E4-874F-2F3C09874611}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC75284C-9F24-469B-8FC2-2537C69FFB2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC75284C-9F24-469B-8FC2-2537C69FFB2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC75284C-9F24-469B-8FC2-2537C69FFB2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC75284C-9F24-469B-8FC2-2537C69FFB2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87D79793-1FAC-4EE2-AD39-C93B2F8B405F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87D79793-1FAC-4EE2-AD39-C93B2F8B405F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87D79793-1FAC-4EE2-AD39-C93B2F8B405F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87D79793-1FAC-4EE2-AD39-C93B2F8B405F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3637BD0F-4A0D-4092-BD47-A478AF9A6C6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3637BD0F-4A0D-4092-BD47-A478AF9A6C6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3637BD0F-4A0D-4092-BD47-A478AF9A6C6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3637BD0F-4A0D-4092-BD47-A478AF9A6C6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91E0B6E9-69EB-4CAF-B42F-16D233A95FC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91E0B6E9-69EB-4CAF-B42F-16D233A95FC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91E0B6E9-69EB-4CAF-B42F-16D233A95FC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91E0B6E9-69EB-4CAF-B42F-16D233A95FC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{961ED9F7-3DDE-4650-935B-848088F4110E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{961ED9F7-3DDE-4650-935B-848088F4110E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{961ED9F7-3DDE-4650-935B-848088F4110E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{961ED9F7-3DDE-4650-935B-848088F4110E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72262851-692E-4052-AF30-CA0C53CAFD6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72262851-692E-4052-AF30-CA0C53CAFD6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72262851-692E-4052-AF30-CA0C53CAFD6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72262851-692E-4052-AF30-CA0C53CAFD6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FF654BB-B397-41E4-874F-2F3C09874611}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FF654BB-B397-41E4-874F-2F3C09874611}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FF654BB-B397-41E4-874F-2F3C09874611}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FF654BB-B397-41E4-874F-2F3C09874611}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EC75284C-9F24-469B-8FC2-2537C69FFB2F} = {1F3E8208-69A5-47C1-843B-264E8DE690FC}
+		{87D79793-1FAC-4EE2-AD39-C93B2F8B405F} = {AB090C7F-6CB1-4E34-8126-8119C4116970}
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = testproject.vsmdi
+	EndGlobalSection
+EndGlobal

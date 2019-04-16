@@ -1,0 +1,1 @@
+﻿public enum reportAction { raPrint, raWord, raExcel, raPoerpoint, raAdobe, raImage }

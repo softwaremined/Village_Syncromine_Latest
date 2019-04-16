@@ -1,0 +1,1162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" StartReportEvent="_StartReport" ReportInfo.Created="08/26/2015 10:09:52" ReportInfo.Modified="09/20/2017 13:32:42" ReportInfo.CreatorVersion="2017.3.0.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+   
+
+    private void ReportTitle_BeforePrint(object sender, EventArgs e)
+    {    
+      if(((String)Report.GetParameterValue(&quot;type&quot;))== &quot;Stop Workplace&quot;)
+      {
+        Summary.Visible =true ;
+        CallChanges .Visible =false ;
+        CrewMinerChanges .Visible =false ;
+        MovePlanning .Visible =false ;
+         StopWP.Visible =true  ;
+      }
+      
+      if(((String)Report.GetParameterValue(&quot;type&quot;))== &quot;Call Changes&quot;)
+      {
+         Summary.Visible =true ;
+         StopWP.Visible =false ;
+        CrewMinerChanges .Visible =false ;
+        MovePlanning .Visible =false ;
+         CallChanges .Visible =true ;
+        Summary .Visible =true ;
+      }
+      
+      if(((String)Report.GetParameterValue(&quot;type&quot;))== &quot;Crew Miner Changes&quot;)
+      {
+         Summary.Visible =true ;
+        StopWP.Visible =false ;
+        CallChanges .Visible =false ;
+        CrewMinerChanges .Visible =true  ;
+        MovePlanning .Visible =false ;
+      }
+      
+      if(((String)Report.GetParameterValue(&quot;type&quot;))== &quot;All&quot;)
+      {
+           Summary.Visible =true ;
+        StopWP.Visible =true ;
+        CallChanges .Visible =true ;
+        CrewMinerChanges .Visible =true  ;
+        MovePlanning .Visible =true ;
+        MiningMethod .Visible =true ;
+        NewWP .Visible =true ;
+        StartWP .Visible =true ;
+      
+      }
+      
+      string logo =  ((String)Report.GetParameterValue(&quot;logo&quot;));
+      picLogo.ImageLocation = logo;
+      
+      string logoMineware =  ((String)Report.GetParameterValue(&quot;logoMineware&quot;));
+      picLogoMineware.ImageLocation = logoMineware;
+      
+      string logo1 =  ((String)Report.GetParameterValue(&quot;logo&quot;));
+      picLogo1.ImageLocation = logo1;
+      
+      string logoMineware1 =  ((String)Report.GetParameterValue(&quot;logoMineware&quot;));
+      picLogoMineware1.ImageLocation = logoMineware1;
+      
+      string logo2 =  ((String)Report.GetParameterValue(&quot;logo&quot;));
+      picLogo2.ImageLocation = logo2;
+      
+      string logoMineware2 =  ((String)Report.GetParameterValue(&quot;logoMineware&quot;));
+      picLogoMineware2.ImageLocation = logoMineware2;
+    }
+
+    private void _StartReport(object sender, EventArgs e)
+    {
+       string sub=&quot;&quot;;
+      sub = ((String)Report.GetColumnValue(&quot;sect.name&quot;))  ;
+      //if(sub .Substring (0,13)==&quot;Mine Overseer&quot;)
+      //{
+      //  Summary.Visible =false ;
+      //}
+      //else
+      //{
+      //  Summary.Visible =true  ;
+      //}
+      if(((String)Report.GetParameterValue(&quot;type&quot;))== &quot;Stop Workplace&quot;)
+      {
+       //  Summary.Visible =true ;
+        CallChanges .Visible =false ;
+        CrewMinerChanges .Visible =false ;
+        MovePlanning .Visible =false ;
+        StopWP.Visible =true  ;
+        MiningMethod .Visible =false ;
+        NewWP .Visible =false ;
+        StartWP .Visible =false ;
+      }
+      
+      if(((String)Report.GetParameterValue(&quot;type&quot;))== &quot;Call Changes&quot;)
+      {
+       //  Summary.Visible =true ;
+        StopWP.Visible =false ;
+        CrewMinerChanges .Visible =false ;
+        MovePlanning .Visible =false ;
+        CallChanges .Visible =true ;
+        MiningMethod .Visible =false ;
+        NewWP .Visible =false ;
+         StartWP .Visible =false ;
+      }
+      
+      if(((String)Report.GetParameterValue(&quot;type&quot;))== &quot;Crew Miner Changes&quot;)
+      {
+       //  Summary.Visible =true ;
+        StopWP.Visible =false ;
+        CallChanges .Visible =false ;
+        CrewMinerChanges .Visible =true  ;
+        MovePlanning .Visible =false ;
+        MiningMethod .Visible =false ;
+        NewWP .Visible =false ;
+         StartWP .Visible =false ;
+      }
+      
+      if(((String)Report.GetParameterValue(&quot;type&quot;))== &quot;Move Planning&quot;)
+      {
+       //  Summary.Visible =true ;
+        StopWP.Visible =false ;
+        CallChanges .Visible =false ;
+        CrewMinerChanges .Visible =false  ;
+        MovePlanning .Visible =true ;
+        MiningMethod .Visible =false ;
+        NewWP .Visible =false ;
+         StartWP .Visible =false ;
+      }
+      
+      if(((String)Report.GetParameterValue(&quot;type&quot;))== &quot;Mining Method Change&quot;)
+      {
+       //  Summary.Visible =true ;
+        StopWP.Visible =false ;
+        CallChanges .Visible =false ;
+        CrewMinerChanges .Visible =false  ;
+        MovePlanning .Visible =false ;
+        MiningMethod .Visible =true ;
+        NewWP .Visible =false ;
+         StartWP .Visible =false ;
+      }
+      
+      if(((String)Report.GetParameterValue(&quot;type&quot;))== &quot;New Workplace&quot;)
+      {
+       //  Summary.Visible =true ;
+        StopWP.Visible =false ;
+        CallChanges .Visible =false ;
+        CrewMinerChanges .Visible =false  ;
+        MovePlanning .Visible =false ;
+        MiningMethod .Visible =false ;
+        NewWP .Visible =true ;
+         StartWP .Visible =false ;
+      }
+      
+      if(((String)Report.GetParameterValue(&quot;type&quot;))== &quot;Start Workplace&quot;)
+      {
+      //   Summary.Visible =true ;
+        StopWP.Visible =false ;
+        CallChanges .Visible =false ;
+        CrewMinerChanges .Visible =false  ;
+        MovePlanning .Visible =false ;
+        MiningMethod .Visible =false ;
+        NewWP .Visible =false ;
+        StartWP .Visible =true ;
+      }
+      
+    
+      
+      string logo =  ((String)Report.GetParameterValue(&quot;logo&quot;));
+      picLogo.ImageLocation = logo;
+      
+      string logoMineware =  ((String)Report.GetParameterValue(&quot;logoMineware&quot;));
+      picLogoMineware.ImageLocation = logoMineware;
+      
+      string logo1 =  ((String)Report.GetParameterValue(&quot;logo&quot;));
+      picLogo1.ImageLocation = logo1;
+      
+      string logoMineware1 =  ((String)Report.GetParameterValue(&quot;logoMineware&quot;));
+      picLogoMineware1.ImageLocation = logoMineware1;
+      
+      string logo2 =  ((String)Report.GetParameterValue(&quot;logo&quot;));
+      picLogo2.ImageLocation = logo2;
+      
+      string logoMineware2 =  ((String)Report.GetParameterValue(&quot;logoMineware&quot;));
+      picLogoMineware2.ImageLocation = logoMineware2;
+      
+      string logo3 =  ((String)Report.GetParameterValue(&quot;logo&quot;));
+      picLogo3.ImageLocation = logo3;
+      
+      string logoMineware3 =  ((String)Report.GetParameterValue(&quot;logoMineware&quot;));
+      picLogoMineware3.ImageLocation = logoMineware3;
+      
+      string logo4 =  ((String)Report.GetParameterValue(&quot;logo&quot;));
+      picLogo4.ImageLocation = logo4;
+      
+      string logoMineware4 =  ((String)Report.GetParameterValue(&quot;logoMineware&quot;));
+      picLogoMineware4.ImageLocation = logoMineware4;
+      
+      string logo5 =  ((String)Report.GetParameterValue(&quot;logo&quot;));
+      picLogo5.ImageLocation = logo5;
+      
+      string logoMineware5 =  ((String)Report.GetParameterValue(&quot;logoMineware&quot;));
+      picLogoMineware5.ImageLocation = logoMineware5;
+      
+      string logo6 =  ((String)Report.GetParameterValue(&quot;logo&quot;));
+      picLogo6.ImageLocation = logo6;
+      
+      string logoMineware6 =  ((String)Report.GetParameterValue(&quot;logoMineware&quot;));
+      picLogoMineware6.ImageLocation = logoMineware6;
+      
+      string logo7 =  ((String)Report.GetParameterValue(&quot;logo&quot;));
+      picLogo7.ImageLocation = logo7;
+      
+      string logoMineware7 =  ((String)Report.GetParameterValue(&quot;logoMineware&quot;));
+      picLogoMineware7.ImageLocation = logoMineware7;
+    }
+
+    private void Shape11_BeforePrint(object sender, EventArgs e)
+    {
+      ShapeObject temp = sender as ShapeObject;
+      if (  ((Int32)Report.GetColumnValue(&quot;RevisedStatus.Status&quot;)) == 0 )
+      {    
+        temp.FillColor = Color.Green;
+      } 
+      if(   ((Int32)Report.GetColumnValue(&quot;RevisedStatus.Status&quot;)) == 1 )
+        
+      {temp.FillColor = Color.Red;       }
+      if(   ((Int32)Report.GetColumnValue(&quot;RevisedStatus.Status&quot;)) == 2 )
+        
+      {temp.FillColor = Color.Yellow ;       }
+    }
+
+    private void Shape8_BeforePrint(object sender, EventArgs e)
+    {
+      
+    }
+
+    private void Shape_BeforePrint(object sender, EventArgs e)
+    {
+      ShapeObject temp = sender as ShapeObject;
+      if (  ((Int32)Report.GetColumnValue(&quot;RevisedStatus.Status&quot;)) == 0 )
+      {    
+        temp.FillColor = Color.Green;
+      } 
+      if(   ((Int32)Report.GetColumnValue(&quot;RevisedStatus.Status&quot;)) == 1 )
+        
+      {temp.FillColor = Color.Red;       }
+      if(   ((Int32)Report.GetColumnValue(&quot;RevisedStatus.Status&quot;)) == 2 )
+        
+      {temp.FillColor = Color.Yellow ;       }
+    }
+
+    private void Data1_BeforePrint(object sender, EventArgs e)
+    {
+ 
+      if(((String)Report.GetParameterValue(&quot;type&quot;))== &quot;All&quot;)
+      {                    // DataTable   rowData= new     DataTable();
+        //   Summary.Visible =true ;
+        DataSourceBase rowData = Report.GetDataSource(&quot;ChangeType&quot;);      
+        rowData.Init();
+            
+        while (rowData.HasMoreRows)
+        {
+          // if(dr[&quot;ChangeType&quot;].ToString ()== &quot;Stop Workplace&quot;)
+          if(((String)Report.GetColumnValue(&quot;ChangeType.ChangeType&quot;)) ==&quot;Stop Workplace&quot;)
+            StopWP.Visible =true ;
+          else
+            StopWP.Visible =false ; 
+          rowData.Next();
+        }
+        while (rowData.HasMoreRows)
+        {
+          if(((String)Report.GetColumnValue(&quot;ChangeType.ChangeType&quot;))== &quot;Call Changes&quot;)
+            //if(dr[&quot;ChangeType&quot;].ToString ()== &quot;Call Changes&quot;)
+            CallChanges .Visible =true ;
+          else
+            CallChanges .Visible =false ; 
+          rowData.Next();
+        }
+        while (rowData.HasMoreRows)
+        {
+          if(((String)Report.GetColumnValue(&quot;ChangeType.ChangeType&quot;))== &quot;Crew Miner Changes&quot;)
+            //if(dr[&quot;ChangeType&quot;].ToString ()== &quot;Crew Miner Changes&quot;)
+            CrewMinerChanges .Visible =true  ;
+          else
+            CrewMinerChanges .Visible =false  ;
+          rowData.Next();
+        }
+        while (rowData.HasMoreRows)
+        {
+          if( ((String)Report.GetColumnValue(&quot;ChangeType.ChangeType&quot;)) ==  &quot;Move Planning&quot;)
+            //if(dr[&quot;ChangeType&quot;].ToString ()== &quot;Move Planning&quot;)
+            MovePlanning .Visible =true ;
+          else
+            MovePlanning .Visible =false ;
+          rowData.Next();
+        }
+        while (rowData.HasMoreRows)
+        {
+          // if(dr[&quot;ChangeType&quot;].ToString ()== &quot;Mining Method Change&quot;)
+          if(((String)Report.GetColumnValue(&quot;ChangeType.ChangeType&quot;))== &quot;Mining Method Change&quot;)
+            MiningMethod .Visible =true ;
+          else
+            MiningMethod .Visible =false ;
+          rowData.Next();
+        }
+        while (rowData.HasMoreRows)
+        {
+          if(((String)Report.GetColumnValue(&quot;ChangeType.ChangeType&quot;))==&quot;New Workplace&quot;)
+            //if(dr[&quot;ChangeType&quot;].ToString ()== &quot;New Workplace&quot;)
+            NewWP .Visible =true ;
+          else
+            NewWP .Visible =false ;
+          rowData.Next();
+        }
+        while (rowData.HasMoreRows)
+        {
+          if(((String)Report.GetColumnValue(&quot;ChangeType.ChangeType&quot;))==&quot;Start Workplace&quot;)
+            // if(dr[&quot;ChangeType&quot;].ToString ()== &quot;Start Workplace&quot;)
+            StartWP .Visible =true ;
+          else
+            StartWP .Visible =false ;
+          rowData.Next();
+        }
+
+      }  
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="sect" ReferenceName="Data.sect" DataType="System.Int32" Enabled="true">
+      <Column Name="name" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="RevisedStatus" ReferenceName="Data.RevisedStatus" DataType="System.Int32" Enabled="true">
+      <Column Name="ChangeRequestID" DataType="System.Int32"/>
+      <Column Name="WorkplaceID" DataType="System.String"/>
+      <Column Name="FullName" DataType="System.String"/>
+      <Column Name="ChangeType" DataType="System.String"/>
+      <Column Name="ProdMonth" DataType="System.Decimal"/>
+      <Column Name="Workplace Name" DataType="System.String"/>
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Comments" DataType="System.String"/>
+      <Column Name="ChangeID" DataType="System.String"/>
+      <Column Name="DAYCREW" DataType="System.String"/>
+      <Column Name="NIGHTCREW" DataType="System.String"/>
+      <Column Name="AFTERNOONCREW" DataType="System.String"/>
+      <Column Name="ROVINGCREW" DataType="System.String"/>
+      <Column Name="REEFSQM" DataType="System.Decimal"/>
+      <Column Name="WASTESQM" DataType="System.Decimal"/>
+      <Column Name="METERS" DataType="System.Decimal"/>
+      <Column Name="METERSWASTE" DataType="System.Decimal"/>
+      <Column Name="CUBICMETERS" DataType="System.Decimal"/>
+      <Column Name="STOPDATE" DataType="System.DateTime"/>
+      <Column Name="STARTDATE" DataType="System.DateTime"/>
+      <Column Name="OLDWORKPLACEID" DataType="System.String"/>
+      <Column Name="Description" DataType="System.String"/>
+      <Column Name="FL" DataType="System.Decimal"/>
+      <Column Name="RequestDate" DataType="System.String"/>
+      <Column Name="Status" DataType="System.Int32"/>
+      <Column Name="Section" DataType="System.String"/>
+      <Column Name="LockMethod" DataType="System.String"/>
+      <Column Name="DrillRig" DataType="System.String"/>
+      <Column Name="LockDrillRig" DataType="System.String"/>
+      <Column Name="NAME_5" DataType="System.String"/>
+      <Column Name="Name1" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="RevisedStatusDetails" ReferenceName="Data.RevisedStatusDetails" DataType="System.Int32" Enabled="true">
+      <Column Name="ApprovedDeclinedDate" DataType="System.DateTime"/>
+      <Column Name="ApprovedDeclinedByUser" DataType="System.String"/>
+      <Column Name="FullName" DataType="System.String"/>
+      <Column Name="ChangeRequestID" DataType="System.Int32"/>
+      <Column Name="Department" DataType="System.String"/>
+      <Column Name="ProdMonth" DataType="System.Decimal"/>
+      <Column Name="Workplace Name" DataType="System.String"/>
+      <Column Name="Comments" DataType="System.String"/>
+      <Column Name="Status" DataType="System.Int32"/>
+    </TableDataSource>
+    <TableDataSource Name="RevisedSummarybet" ReferenceName="Data.RevisedSummarybet" DataType="System.Int32" Enabled="true">
+      <Column Name="maxdate" DataType="System.String"/>
+      <Column Name="Mindate" DataType="System.String"/>
+      <Column Name="New Workplace" DataType="System.Int32"/>
+      <Column Name="Call Changes" DataType="System.Int32"/>
+      <Column Name="Move Planning" DataType="System.Int32"/>
+      <Column Name="Stop Workplace" DataType="System.Int32"/>
+      <Column Name="Crew Miner Changes" DataType="System.Int32"/>
+      <Column Name="Start Workplace" DataType="System.Int32"/>
+      <Column Name="Mining Method Change" DataType="System.Int32"/>
+      <Column Name="SectName" DataType="System.String"/>
+      <Column Name="Drill Rig Change" DataType="System.Int32"/>
+      <Column Name="Delete Planning" DataType="System.Int32"/>
+      <Column Name="NAME_2" DataType="System.String"/>
+      <Column Name="ChangeType" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="RevisedSummarynotbet" ReferenceName="Data.RevisedSummarynotbet" DataType="System.Int32" Enabled="true">
+      <Column Name="maxdate" DataType="System.String"/>
+      <Column Name="Mindate" DataType="System.String"/>
+      <Column Name="New Workplace" DataType="System.Int32"/>
+      <Column Name="Call Changes" DataType="System.Int32"/>
+      <Column Name="Move Planning" DataType="System.Int32"/>
+      <Column Name="Stop Workplace" DataType="System.Int32"/>
+      <Column Name="Crew Miner Changes" DataType="System.Int32"/>
+      <Column Name="Start Workplace" DataType="System.Int32"/>
+      <Column Name="Mining Method Change" DataType="System.Int32"/>
+      <Column Name="SectName" DataType="System.String"/>
+      <Column Name="Drill Rig Change" DataType="System.Int32"/>
+      <Column Name="Delete Planning" DataType="System.Int32"/>
+      <Column Name="NAME_2" DataType="System.String"/>
+      <Column Name="ChangeType" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="ChangeType" ReferenceName="Data.ChangeType" DataType="System.Int32" Enabled="true">
+      <Column Name="ChangeType" DataType="System.String"/>
+    </TableDataSource>
+    <Relation Name="RevisedStatus_RevisedStatusDetails" ParentDataSource="RevisedStatus" ChildDataSource="RevisedStatusDetails" ParentColumns="ChangeRequestID" ChildColumns="ChangeRequestID" Enabled="true"/>
+    <Parameter Name="logo" DataType="System.String"/>
+    <Parameter Name="logoMineware" DataType="System.String"/>
+    <Parameter Name="type" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Summary" Landscape="true" PaperWidth="420.1" PaperHeight="296.9" RawPaperSize="8">
+    <ReportTitleBand Name="ReportTitle8" Width="1512.38" Height="179.55">
+      <PictureObject Name="picLogo7" Left="18.9" Top="9.45" Width="141.75" Height="75.6" Image=""/>
+      <LineObject Name="Line8" Left="170.1" Top="9.45" Height="85.05" Diagonal="true"/>
+      <PictureObject Name="picLogoMineware7" Left="604.8" Top="18.9" Width="103.95" Height="66.15" Image=""/>
+      <TextObject Name="Text535" Left="179.55" Top="9.45" Width="359.1" Height="28.35" Text="Revised Planning Audit Summary " Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text536" Left="179.55" Top="47.25" Width="160.65" Height="18.9" Text="Production Month :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text537" Left="349.65" Top="47.25" Width="189" Height="18.9" Text="[RevisedStatus.ProdMonth]"/>
+      <TextObject Name="Text538" Left="179.55" Top="66.15" Width="160.65" Height="18.9" Text="Section :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text539" Left="349.65" Top="66.15" Width="245.7" Height="37.8" Text="[sect.name]"/>
+      <TextObject Name="Text543" Left="9.45" Top="141.75" Width="85.05" Height="18.9" Text="Start Date :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text544" Left="103.95" Top="141.75" Width="170.1" Height="18.9" Text="[RevisedSummarybet.Mindate]"/>
+      <TextObject Name="Text545" Left="274.05" Top="141.75" Width="85.05" Height="18.9" Text="End Date :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text546" Left="368.55" Top="141.75" Width="170.1" Height="18.9" Text="[RevisedSummarybet.maxdate]"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader8" Top="182.25" Width="1512.38" Height="241.7">
+      <MatrixObject Name="Matrix1" Left="9.45" Width="446.81" Height="215.16" FixedRows="2" FixedColumns="2" DataSource="RevisedSummarybet" ShowTitle="true">
+        <MatrixColumns>
+          <Header Expression="[RevisedSummarybet.NAME_2]"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[RevisedSummarybet.SectName]" Totals="false"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[RevisedSummarybet.Stop Workplace]"/>
+          <Cell Expression="[RevisedSummarybet.New Workplace]"/>
+          <Cell Expression="[RevisedSummarybet.Crew Miner Changes]"/>
+          <Cell Expression="[RevisedSummarybet.Call Changes]"/>
+          <Cell Expression="[RevisedSummarybet.Move Planning]"/>
+          <Cell Expression="[RevisedSummarybet.Mining Method Change]"/>
+          <Cell Expression="[RevisedSummarybet.Start Workplace]"/>
+          <Cell Expression="[RevisedSummarybet.Drill Rig Change]"/>
+          <Cell Expression="[RevisedSummarybet.Delete Planning]"/>
+        </MatrixCells>
+        <TableColumn Name="Column1" Width="84.99" AutoSize="true"/>
+        <TableColumn Name="Column2" Width="160.51" AutoSize="true"/>
+        <TableColumn Name="Column3" Width="159.06" AutoSize="true"/>
+        <TableColumn Name="Column8" Width="42.25" AutoSize="true"/>
+        <TableRow Name="Row1" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell1" Border.Lines="Left, Top" HorzAlign="Center" VertAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell2"/>
+          <TableCell Name="Cell5" Border.Lines="Left, Right, Top" Text="Before Measurement" VertAlign="Center" Font="Arial, 10pt, style=Bold" ColSpan="2"/>
+          <TableCell Name="Cell143"/>
+        </TableRow>
+        <TableRow Name="Row2" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell3" Border.Lines="Left, Right, Top" Border.BottomLine.Style="Double" Text="Section" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell4" Border.Lines="Left, Right, Top" Border.BottomLine.Style="Double" Text="Revised Type" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell6" Border.Lines="Left, Right, Top" Border.BottomLine.Style="Double" Text="[NAME_2]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell144" Border.Lines="Right, Top" Border.LeftLine.Style="Double" Border.BottomLine.Style="Double" Text="Total" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        </TableRow>
+        <TableRow Name="Row3" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell7" Border.Lines="All" Text="[SectName]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold" RowSpan="9"/>
+          <TableCell Name="Cell8" Border.Lines="All" Text="Stop Workplace" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell9" Border.Lines="All" Text="[Stop Workplace]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell145" Border.Lines="Right, Top, Bottom" Border.LeftLine.Style="Double" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row4" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell10"/>
+          <TableCell Name="Cell11" Border.Lines="All" Text="New Workplace" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell12" Border.Lines="All" Text="[New Workplace]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell146" Border.Lines="Right, Top, Bottom" Border.LeftLine.Style="Double" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row5" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell86"/>
+          <TableCell Name="Cell87" Border.Lines="All" Text="Crew Miner Changes" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell88" Border.Lines="All" Text="[Crew Miner Changes]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell147" Border.Lines="Right, Top, Bottom" Border.LeftLine.Style="Double" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row6" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell91"/>
+          <TableCell Name="Cell92" Border.Lines="All" Text="Call Changes" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell93" Border.Lines="All" Text="[Call Changes]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell148" Border.Lines="Right, Top, Bottom" Border.LeftLine.Style="Double" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row7" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell96"/>
+          <TableCell Name="Cell97" Border.Lines="All" Text="Move Planning" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell98" Border.Lines="All" Text="[Move Planning]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell149" Border.Lines="Right, Top, Bottom" Border.LeftLine.Style="Double" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row8" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell101"/>
+          <TableCell Name="Cell102" Border.Lines="All" Text="Mining Method Change" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell103" Border.Lines="All" Text="[Mining Method Change]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell150" Border.Lines="Right, Top, Bottom" Border.LeftLine.Style="Double" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row9" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell104"/>
+          <TableCell Name="Cell105" Border.Lines="All" Text="Start Workplace" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell106" Border.Lines="All" Text="[Start Workplace]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell151" Border.Lines="Right, Top, Bottom" Border.LeftLine.Style="Double" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row19" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell152"/>
+          <TableCell Name="Cell153" Border.Lines="All" Text="Drill Rig Change" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell154" Border.Lines="All" Text="[Drill Rig Change]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell155" Border.Lines="Right, Top, Bottom" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row20" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell156"/>
+          <TableCell Name="Cell157" Border.Lines="All" Text="Delete Planning" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell158" Border.Lines="All" Text="[Delete Planning]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell159" Border.Lines="Right, Top, Bottom" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </MatrixObject>
+    </PageHeaderBand>
+    <DataBand Name="Data15" Top="426.66" Width="1512.38" Height="340.2">
+      <MatrixObject Name="Matrix2" Left="9.45" Top="9.45" Width="603.18" Height="215.16" Border.Lines="Right, Top" FixedRows="2" FixedColumns="2" DataSource="RevisedSummarybet" ShowTitle="true">
+        <MatrixColumns>
+          <Header Expression="[RevisedSummarybet.NAME_2]"/>
+        </MatrixColumns>
+        <MatrixRows>
+          <Header Expression="[RevisedSummarybet.SectName]" Totals="false"/>
+        </MatrixRows>
+        <MatrixCells>
+          <Cell Expression="[RevisedSummarynotbet.Stop Workplace]"/>
+          <Cell Expression="[RevisedSummarynotbet.New Workplace]"/>
+          <Cell Expression="[RevisedSummarynotbet.Crew Miner Changes]"/>
+          <Cell Expression="[RevisedSummarynotbet.Call Changes]"/>
+          <Cell Expression="[RevisedSummarynotbet.Move Planning]"/>
+          <Cell Expression="[RevisedSummarynotbet.Mining Method Change]"/>
+          <Cell Expression="[RevisedSummarynotbet.Start Workplace]"/>
+          <Cell Expression="[RevisedSummarynotbet.Drill Rig Change]"/>
+          <Cell Expression="[RevisedSummarynotbet.Delete Planning]"/>
+        </MatrixCells>
+        <TableColumn Name="Column4" Width="84.99" AutoSize="true"/>
+        <TableColumn Name="Column5" Width="160.51" AutoSize="true"/>
+        <TableColumn Name="Column6" Width="315.43" AutoSize="true"/>
+        <TableColumn Name="Column7" Width="42.25" AutoSize="true"/>
+        <TableRow Name="Row10" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell107" Border.Lines="All" HorzAlign="Center" VertAlign="Center" ColSpan="2"/>
+          <TableCell Name="Cell108"/>
+          <TableCell Name="Cell113" Border.Lines="All" Text="After Measurement" VertAlign="Center" Font="Arial, 10pt, style=Bold" ColSpan="2"/>
+          <TableCell Name="Cell131"/>
+        </TableRow>
+        <TableRow Name="Row11" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell109" Border.Lines="Left, Right, Top" Border.BottomLine.Style="Double" Text="Section" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell110" Border.Lines="Left, Right, Top" Border.BottomLine.Style="Double" Text="Revised Type" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell114" Border.Lines="Left, Right, Top" Border.BottomLine.Style="Double" Text="[NAME_2]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell132" Border.Lines="Right, Top" Border.LeftLine.Style="Double" Border.BottomLine.Style="Double" Text="Total" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+        </TableRow>
+        <TableRow Name="Row12" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell111" Border.Lines="All" Text="[SectName]" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold" RowSpan="9"/>
+          <TableCell Name="Cell112" Border.Lines="All" Text="Stop Workplace" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell115" Border.Lines="All" Text="[Stop Workplace]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell133" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row13" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell116"/>
+          <TableCell Name="Cell117" Border.Lines="All" Text="New Workplace" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell118" Border.Lines="All" Text="[New Workplace]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell134" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row14" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell119"/>
+          <TableCell Name="Cell120" Border.Lines="All" Text="Crew Miner Changes" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell121" Border.Lines="All" Text="[Crew Miner Changes]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell135" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row15" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell122"/>
+          <TableCell Name="Cell123" Border.Lines="All" Text="Call Changes" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell124" Border.Lines="All" Text="[Call Changes]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell136" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row16" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell125"/>
+          <TableCell Name="Cell126" Border.Lines="All" Text="Move Planning" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell127" Border.Lines="All" Text="[Move Planning]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell137" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row17" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell128"/>
+          <TableCell Name="Cell129" Border.Lines="All" Text="Mining Method Change" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell130" Border.Lines="All" Text="[Mining Method Change]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell138" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row18" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell139"/>
+          <TableCell Name="Cell140" Border.Lines="All" Text="Start Workplace" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell141" Border.Lines="All" Text="[Start Workplace]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell142" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row21" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell160"/>
+          <TableCell Name="Cell161" Border.Lines="All" Text="Drill Rig Change" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell162" Border.Lines="All" Text="[Drill Rig Change]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell163" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+        <TableRow Name="Row22" Height="19.56" AutoSize="true">
+          <TableCell Name="Cell164"/>
+          <TableCell Name="Cell165" Border.Lines="All" Text="Delete Planning" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TableCell Name="Cell166" Border.Lines="All" Text="[Delete Planning]" HorzAlign="Right" VertAlign="Center"/>
+          <TableCell Name="Cell167" Border.Lines="All" HorzAlign="Right" VertAlign="Center"/>
+        </TableRow>
+      </MatrixObject>
+    </DataBand>
+    <PageFooterBand Name="PageFooter8" Top="769.56" Width="1512.38" Height="18.9">
+      <TextObject Name="Text540" Left="529.2" Width="189" Height="18.9" Text="[Date]" HorzAlign="Right" Font="Arial, 8pt"/>
+      <TextObject Name="Text541" Left="189" Width="198.45" Height="18.9" Text="Page [Page] of [TotalPages#]" Font="Arial, 8pt" TextFill.Color="Silver"/>
+      <TextObject Name="Text542" Width="189" Height="18.9" Text="Revised Planning Audit Summary" Font="Arial, 8pt, style=Bold"/>
+    </PageFooterBand>
+  </ReportPage>
+  <ReportPage Name="StopWP" Landscape="true" PaperWidth="420.1" PaperHeight="296.9" RawPaperSize="8">
+    <ReportTitleBand Name="ReportTitle1" Width="1512.38" Height="113.4" BeforePrintEvent="ReportTitle_BeforePrint">
+      <PictureObject Name="picLogo2" Left="9.45" Top="9.45" Width="141.75" Height="75.6" Image=""/>
+      <LineObject Name="Line3" Left="160.65" Top="9.45" Height="85.05" Diagonal="true"/>
+      <PictureObject Name="picLogoMineware2" Left="548.1" Top="9.45" Width="103.95" Height="66.15" Image=""/>
+      <TextObject Name="Text319" Left="170.1" Top="9.45" Width="359.1" Height="28.35" Text="Revised Planning Audit Stop Workplace Report " Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text320" Left="170.1" Top="37.8" Width="160.65" Height="18.9" Text="Production Month :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text321" Left="330.75" Top="37.8" Width="170.1" Height="18.9" Text="[RevisedStatus.ProdMonth]"/>
+      <TextObject Name="Text322" Left="170.1" Top="66.15" Width="160.65" Height="18.9" Text="Section :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text323" Left="330.75" Top="66.15" Width="170.1" Height="18.9" Text="[sect.name]"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="116.85" Width="1512.38" Height="18.9" CanGrow="true">
+      <TextObject Name="Text324" Left="151.2" Width="151.2" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Workplace ID" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text325" Left="302.4" Width="141.75" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Workplace Name" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text326" Left="444.15" Width="113.4" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Stop Date" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text327" Left="557.55" Width="302.4" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Reason" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text328" Left="861.5" Width="160.65" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Requested By" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text329" Left="1022.15" Width="122.85" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Request Date" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text330" Width="151.2" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Section" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text331" Left="1145" Width="75.6" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Approved" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="139.2" Width="1512.38" Height="37.8" CanGrow="true" BeforePrintEvent="Data1_BeforePrint" DataSource="RevisedStatus" Filter="[RevisedStatus.ChangeType]==&quot;Stop Workplace&quot;">
+      <TextObject Name="Text332" Left="151.2" Width="151.2" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.WorkplaceID]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text333" Left="302.4" Width="141.75" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Workplace Name]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text334" Left="444.15" Width="113.4" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.STOPDATE]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text335" Left="557.55" Width="302.4" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Comments]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text336" Left="861.5" Width="160.65" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.FullName]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text337" Left="1022.15" Width="122.85" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.RequestDate]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text338" Left="1145" Width="75.6" Height="37.8" Border.Lines="All" Border.TopLine.Width="2"/>
+      <ShapeObject Name="Shape5" Left="1173.35" Top="9.45" Width="18.9" Height="18.9" Fill.Color="Red" Bookmark="[RevisedStatus.Status]" BeforePrintEvent="Shape11_BeforePrint" Shape="Ellipse"/>
+      <TextObject Name="Text339" Width="151.2" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Section]" VertAlign="Center" Font="Arial, 8pt"/>
+      <DataBand Name="Data2" Top="202.79" Width="1512.38" Height="37.8" DataSource="RevisedStatusDetails">
+        <ShapeObject Name="Shape6" Left="784.35" Top="9.45" Width="18.9" Height="18.9" Fill.Color="Red" Bookmark="[RevisedStatus.Status]" BeforePrintEvent="Shape_BeforePrint" Shape="Ellipse"/>
+        <TextObject Name="Text345" Left="737.1" Width="122.85" Height="37.8" Border.Lines="All"/>
+        <TextObject Name="Text18" Width="151.2" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.FullName]" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text253" Left="151.2" Width="151.2" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.ApprovedDeclinedDate]" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text346" Left="302.4" Width="321.3" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.Comments]" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text347" Left="623.7" Width="113.4" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.Department]" VertAlign="Center" Font="Arial, 8pt"/>
+        <DataHeaderBand Name="DataHeader1" Top="180.44" Width="1512.38" Height="18.9">
+          <TextObject Name="Text340" Width="151.2" Height="18.9" Border.Lines="All" Text="Approved\Declined" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text341" Left="151.2" Width="151.2" Height="18.9" Border.Lines="All" Text="Date" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text342" Left="302.4" Width="321.3" Height="18.9" Border.Lines="All" Text="Message" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text343" Left="623.7" Width="113.4" Height="18.9" Border.Lines="All" Text="Department" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text344" Left="737.1" Width="122.85" Height="18.9" Border.Lines="All" Text="Approved" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        </DataHeaderBand>
+      </DataBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="244.04" Width="1512.38" Height="18.9">
+      <TextObject Name="Text348" Left="529.2" Width="189" Height="18.9" Text="[Date]" HorzAlign="Right" Font="Arial, 8pt"/>
+      <TextObject Name="Text349" Left="226.8" Width="198.45" Height="18.9" Text="Page [Page] of [TotalPages#]" Font="Arial, 8pt" TextFill.Color="Silver"/>
+      <TextObject Name="Text350" Width="226.8" Height="18.9" Text="Revised Planning Stop Workplace Report" Font="Arial, 8pt, style=Bold"/>
+    </PageFooterBand>
+  </ReportPage>
+  <ReportPage Name="CallChanges" Landscape="true" PaperWidth="420.1" PaperHeight="296.9" RawPaperSize="8">
+    <ReportTitleBand Name="ReportTitle2" Width="1512.38" Height="132.3" BeforePrintEvent="ReportTitle2_BeforePrint">
+      <PictureObject Name="picLogo" Left="9.45" Top="9.45" Width="141.75" Height="75.6" Image=""/>
+      <LineObject Name="Line1" Left="160.65" Top="9.45" Height="85.05" Diagonal="true"/>
+      <TextObject Name="lblReport" Left="170.1" Top="9.45" Width="359.1" Height="28.35" Text="Revised Planning Call Value Changes Report " Font="Arial, 11pt, style=Bold"/>
+      <PictureObject Name="picLogoMineware" Left="548.1" Top="18.9" Width="103.95" Height="66.15" Image=""/>
+      <TextObject Name="Text16" Left="170.1" Top="47.25" Width="160.65" Height="18.9" Text="Production Month :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text248" Left="330.75" Top="47.25" Width="170.1" Height="18.9" Text="[RevisedStatus.ProdMonth]"/>
+      <TextObject Name="Text249" Left="170.1" Top="75.6" Width="160.65" Height="18.9" Text="Section :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text250" Left="330.75" Top="75.6" Width="170.1" Height="18.9" Text="[sect.name]"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader2" Top="136.3" Width="1512.38" Height="28.35" CanGrow="true">
+      <TextObject Name="Text5" Left="538.65" Width="113.4" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Requested By" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text1" Left="132.3" Width="122.85" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Workplace ID" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text2" Left="255.15" Width="141.75" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Workplace Name" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text4" Left="396.9" Width="141.75" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Reason" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text3" Left="982.8" Width="66.15" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="On Reef SQM" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text252" Left="1048.95" Width="66.15" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Off Reef SQM" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text254" Left="1115.1" Width="75.6" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="On Reef Meters" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text281" Width="132.3" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Section" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text25" Left="1323" Width="75.6" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Approved" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text257" Left="1190.7" Width="66.15" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Off Reef Meters" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text259" Left="1256.85" Width="66.15" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Cubic Meters" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text6" Left="652.05" Width="330.75" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Request Date" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data3" Top="168.65" Width="1512.38" Height="41.8" CanGrow="true" DataSource="RevisedStatus" Filter="[RevisedStatus.ChangeType]==&quot;Planning Value Changes&quot;">
+      <TextObject Name="Text7" Left="132.3" Top="4" Width="122.85" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.WorkplaceID]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text8" Left="255.15" Top="4" Width="141.75" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Workplace Name]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text9" Left="396.9" Top="4" Width="141.75" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Comments]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text10" Left="538.65" Top="4" Width="113.4" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.FullName]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text11" Left="652.05" Top="4" Width="330.75" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.RequestDate]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text12" Left="982.8" Top="4" Width="66.15" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.REEFSQM]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text282" Top="4" Width="132.3" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Section]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text283" Left="1048.95" Top="4" Width="66.15" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.WASTESQM]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text284" Left="1115.1" Top="4" Width="75.6" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.METERS]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text285" Left="1190.7" Top="4" Width="66.15" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.METERSWASTE]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text286" Left="1256.85" Top="4" Width="66.15" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.CUBICMETERS]" VertAlign="Center" Font="Arial, 8pt"/>
+      <ShapeObject Name="Shape1" Left="1351.35" Top="13.45" Width="18.9" Height="18.9" Fill.Color="Red" Bookmark="[RevisedStatus.Status]" BeforePrintEvent="Shape11_BeforePrint" Shape="Ellipse"/>
+      <TextObject Name="Text26" Left="1323" Top="4" Width="75.6" Height="37.8" Border.Lines="All" Border.TopLine.Width="2"/>
+      <DataBand Name="Data4" Top="237.35" Width="1512.38" Height="41.8" DataSource="RevisedStatusDetails">
+        <ShapeObject Name="Shape2" Left="841.05" Top="13.45" Width="18.9" Height="18.9" Fill.Color="Red" Bookmark="[RevisedStatus.Status]" BeforePrintEvent="Shape_BeforePrint" Shape="Ellipse"/>
+        <TextObject Name="Text271" Top="4" Width="132.3" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatusDetails.FullName]" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+        <TextObject Name="Text272" Left="132.3" Top="4" Width="122.85" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.RequestDate]" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+        <TextObject Name="Text273" Left="255.15" Top="4" Width="396.9" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatusDetails.Comments]" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+        <TextObject Name="Text274" Left="652.05" Top="4" Width="141.75" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatusDetails.Department]" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+        <TextObject Name="Text275" Left="793.8" Top="4" Width="113.4" Height="37.8" Border.Lines="All" Border.TopLine.Width="2"/>
+        <DataHeaderBand Name="DataHeader2" Top="214.45" Width="1512.38" Height="18.9">
+          <TextObject Name="Text276" Width="132.3" Height="18.9" Border.Lines="All" Text="Approved\Declined" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text277" Left="132.3" Width="122.85" Height="18.9" Border.Lines="All" Text="Date" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text278" Left="255.15" Width="396.9" Height="18.9" Border.Lines="All" Text="Message" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text279" Left="652.05" Width="141.75" Height="18.9" Border.Lines="All" Text="Department" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text280" Left="793.8" Width="113.4" Height="18.9" Border.Lines="All" Text="Approved" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        </DataHeaderBand>
+      </DataBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter2" Top="283.15" Width="1512.38" Height="18.9">
+      <TextObject Name="Text239" Left="529.2" Width="189" Height="18.9" Text="[Date]" HorzAlign="Right" Font="Arial, 8pt"/>
+      <TextObject Name="Text246" Left="245.7" Width="198.45" Height="18.9" Text="Page [Page] of [TotalPages#]" Font="Arial, 8pt" TextFill.Color="Silver"/>
+      <TextObject Name="Text247" Width="245.7" Height="18.9" Text="Revised Planning Call Value Changes Report " Font="Arial, 8pt, style=Bold"/>
+    </PageFooterBand>
+  </ReportPage>
+  <ReportPage Name="CrewMinerChanges" Landscape="true" PaperWidth="420.1" PaperHeight="296.9" RawPaperSize="8">
+    <ReportTitleBand Name="ReportTitle3" Width="1512.38" Height="122.85" BeforePrintEvent="ReportTitle_BeforePrint">
+      <PictureObject Name="picLogo1" Left="9.45" Top="9.45" Width="141.75" Height="75.6" Image=""/>
+      <LineObject Name="Line2" Left="160.65" Top="9.45" Height="85.05" Diagonal="true"/>
+      <PictureObject Name="picLogoMineware1" Left="567" Top="18.9" Width="103.95" Height="66.15" Image=""/>
+      <TextObject Name="Text287" Left="170.1" Top="9.45" Width="396.9" Height="28.35" Text="Revised Planning Audit Crew Miner Changes Report " Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text288" Left="170.1" Top="37.8" Width="160.65" Height="18.9" Text="Production Month :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text289" Left="330.75" Top="37.8" Width="170.1" Height="18.9" Text="[RevisedStatus.ProdMonth]"/>
+      <TextObject Name="Text290" Left="170.1" Top="66.15" Width="160.65" Height="18.9" Text="Section :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text291" Left="330.75" Top="66.15" Width="170.1" Height="18.9" Text="[sect.name]"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader3" Top="126.3" Width="1512.38" Height="28.35" CanGrow="true">
+      <TextObject Name="Text302" Left="793.8" Width="141.75" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Requested By" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text303" Left="132.3" Width="170.1" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Workplace ID" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text304" Left="302.4" Width="132.3" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Workplace Name" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text305" Left="434.7" Width="359.1" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Reason" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text306" Left="935.55" Width="75.6" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Request Date" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text262" Width="132.3" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Section" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text307" Left="1426.95" Width="75.6" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Approved" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text308" Left="1011.15" Width="85.05" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Day Crew" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text309" Left="1096.2" Width="94.5" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Afternoon Crew" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text310" Left="1266.3" Width="75.6" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Roving Crew" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text311" Left="1341.9" Width="85.05" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Miner" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text312" Left="1190.7" Width="75.6" Height="28.35" Border.Lines="All" Border.BottomLine.Width="3" Text="Night Crew" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data5" Top="158.1" Width="1512.38" Height="37.8" CanGrow="true" DataSource="RevisedStatus" Filter="[RevisedStatus.ChangeType]==&quot;Crew Miner Changes&quot;">
+      <ShapeObject Name="Shape4" Left="1455.3" Top="9.45" Width="18.9" Height="18.9" Fill.Color="Red" Bookmark="[RevisedStatus.Status]" BeforePrintEvent="Shape11_BeforePrint" Shape="Ellipse"/>
+      <TextObject Name="Text313" Left="1426.95" Width="75.6" Height="37.8" Border.Lines="All" Border.TopLine.Width="2"/>
+      <TextObject Name="Text251" Left="1011.15" Width="85.05" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.DAYCREW]" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+      <TextObject Name="Text255" Left="1096.2" Width="94.5" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.AFTERNOONCREW]" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+      <TextObject Name="Text256" Left="1190.7" Width="75.6" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.NIGHTCREW]" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+      <TextObject Name="Text260" Left="1266.3" Width="75.6" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.ROVINGCREW]" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+      <TextObject Name="Text261" Left="1341.9" Width="85.05" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.name]" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+      <TextObject Name="Text314" Left="132.3" Width="170.1" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.WorkplaceID]" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+      <TextObject Name="Text315" Left="302.4" Width="132.3" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Workplace Name]" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+      <TextObject Name="Text316" Left="434.7" Width="359.1" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Comments]" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+      <TextObject Name="Text317" Left="793.8" Width="141.75" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.FullName]" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+      <TextObject Name="Text318" Left="935.55" Width="75.6" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.RequestDate]" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+      <TextObject Name="Text263" Width="132.3" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Section]" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+      <DataBand Name="Data6" Top="224.24" Width="1512.38" Height="34.9" DataSource="RevisedStatusDetails">
+        <TextObject Name="Text19" Top="-2.9" Width="132.3" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.FullName]" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+        <TextObject Name="Text20" Left="132.3" Top="-2.9" Width="170.1" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.ApprovedDeclinedDate]" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+        <TextObject Name="Text21" Left="302.4" Top="-2.9" Width="349.65" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.Comments]" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+        <TextObject Name="Text23" Left="652.05" Top="-2.9" Width="141.75" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.Department]" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+        <TextObject Name="Text28" Left="793.8" Top="-2.9" Width="141.75" Height="37.8" Border.Lines="All"/>
+        <ShapeObject Name="Shape3" Left="850.5" Top="6.55" Width="18.9" Height="18.9" Fill.Color="Red" Bookmark="[RevisedStatus.Status]" BeforePrintEvent="Shape_BeforePrint" Shape="Ellipse"/>
+        <DataHeaderBand Name="DataHeader3" Top="199.34" Width="1512.38" Height="21.45">
+          <TextObject Name="Text13" Top="2.55" Width="132.3" Height="18.9" Border.Lines="All" Text="Approved\Declined" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text14" Left="132.3" Top="2.55" Width="170.1" Height="18.9" Border.Lines="All" Text="Date" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text15" Left="302.4" Top="2.55" Width="349.65" Height="18.9" Border.Lines="All" Text="Message" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text17" Left="652.05" Top="2.55" Width="141.75" Height="18.9" Border.Lines="All" Text="Department" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text27" Left="793.8" Top="2.55" Width="141.75" Height="18.9" Border.Lines="All" Text="Approved" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        </DataHeaderBand>
+      </DataBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter3" Top="262.59" Width="1512.38" Height="18.9">
+      <TextObject Name="Text547" Left="529.2" Width="189" Height="18.9" Text="[Date]" HorzAlign="Right" Font="Arial, 8pt"/>
+      <TextObject Name="Text548" Left="245.7" Width="198.45" Height="18.9" Text="Page [Page] of [TotalPages#]" Font="Arial, 8pt" TextFill.Color="Silver"/>
+      <TextObject Name="Text549" Width="245.7" Height="18.9" Text="Revised Planning Crew Miner Changes Report " Font="Arial, 8pt, style=Bold"/>
+    </PageFooterBand>
+  </ReportPage>
+  <ReportPage Name="MovePlanning" Landscape="true" PaperWidth="420.1" PaperHeight="296.9" RawPaperSize="8">
+    <ReportTitleBand Name="ReportTitle4" Width="1512.38" Height="141.75">
+      <PictureObject Name="picLogo3" Left="9.45" Top="9.45" Width="141.75" Height="75.6" Image=""/>
+      <LineObject Name="Line4" Left="160.65" Top="9.45" Height="85.05" Diagonal="true"/>
+      <TextObject Name="Text351" Left="170.1" Top="9.45" Width="359.1" Height="28.35" Text="Revised Planning Audit Move Planning Report " Font="Arial, 11pt, style=Bold"/>
+      <PictureObject Name="picLogoMineware3" Left="548.1" Top="18.9" Width="103.95" Height="66.15" Image=""/>
+      <TextObject Name="Text352" Left="170.1" Top="47.25" Width="160.65" Height="18.9" Text="Production Month :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text353" Left="330.75" Top="47.25" Width="189" Height="18.9" Text="[RevisedStatus.ProdMonth]"/>
+      <TextObject Name="Text354" Left="170.1" Top="66.15" Width="160.65" Height="18.9" Text="Section :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text355" Left="330.75" Top="66.15" Width="217.35" Height="28.35" Text="[sect.name]"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader4" Top="145.2" Width="1512.38" Height="18.9" CanGrow="true">
+      <TextObject Name="Text356" Left="132.3" Width="122.85" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Workplace ID" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text357" Left="255.15" Width="141.75" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Workplace Name" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text358" Left="396.9" Width="330.75" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Reason" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text258" Width="132.3" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Section" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text359" Left="727.65" Width="132.3" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Requested By" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text360" Left="859.95" Width="122.85" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Request Date" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text361" Left="982.8" Width="113.4" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="From Workplace" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text362" Left="1096.2" Width="113.4" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="To Workplace" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text363" Left="1209.6" Width="122.85" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Mining Method" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text364" Left="1417.5" Width="85.05" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Approved" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text365" Left="1332.45" Width="85.05" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Facelength" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data7" Top="167.55" Width="1512.38" Height="37.8" CanGrow="true" DataSource="RevisedStatus" Filter="[RevisedStatus.ChangeType]==&quot;Move Planning&quot;">
+      <TextObject Name="Text366" Left="132.3" Width="122.85" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.WorkplaceID]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text367" Left="255.15" Width="141.75" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Workplace Name]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text368" Left="396.9" Width="330.75" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Comments]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text374" Width="132.3" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Section]" VertAlign="Center" Font="Arial, 8pt"/>
+      <ShapeObject Name="Shape7" Left="1455.3" Top="9.45" Width="18.9" Height="18.9" Fill.Color="Red" Bookmark="[RevisedStatus.Status]" BeforePrintEvent="Shape11_BeforePrint" Shape="Ellipse"/>
+      <TextObject Name="Text369" Left="727.65" Width="132.3" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.FullName]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text370" Left="859.95" Width="122.85" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.RequestDate]" VertAlign="Center"/>
+      <TextObject Name="Text371" Left="982.8" Width="113.4" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.OLDWORKPLACEID]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text372" Left="1096.2" Width="113.4" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Workplace Name]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text373" Left="1209.6" Width="122.85" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Description]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text375" Left="1417.5" Width="85.05" Height="37.8" Border.Lines="All" Border.TopLine.Width="2"/>
+      <TextObject Name="Text376" Left="1332.45" Width="85.05" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.FL]" VertAlign="Center" Font="Arial, 8pt"/>
+      <DataBand Name="Data8" Top="231.14" Width="1512.38" Height="37.8" DataSource="RevisedStatusDetails">
+        <TextObject Name="Text382" Width="132.3" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.FullName]" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text383" Left="132.3" Width="122.85" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.ApprovedDeclinedDate]" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text384" Left="255.15" Width="292.95" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.Comments]" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text385" Left="548.1" Width="141.75" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.Department]" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text386" Left="689.85" Width="132.3" Height="37.8" Border.Lines="All"/>
+        <ShapeObject Name="Shape8" Left="746.55" Top="9.45" Width="18.9" Height="18.9" Fill.Color="Red" Bookmark="[RevisedStatus.Status]" BeforePrintEvent="Shape_BeforePrint" Shape="Ellipse"/>
+        <DataHeaderBand Name="DataHeader4" Top="208.79" Width="1512.38" Height="18.9">
+          <TextObject Name="Text377" Left="548.1" Width="141.75" Height="18.9" Border.Lines="All" Text="Department" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text378" Left="689.85" Width="132.3" Height="18.9" Border.Lines="All" Text="Approved" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text379" Left="255.15" Width="292.95" Height="18.9" Border.Lines="All" Text="Message" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text380" Width="132.3" Height="18.9" Border.Lines="All" Text="Approved\Declined" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text381" Left="132.3" Width="122.85" Height="18.9" Border.Lines="All" Text="Date" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        </DataHeaderBand>
+      </DataBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter4" Top="272.39" Width="1512.38" Height="18.9">
+      <TextObject Name="Text387" Left="529.2" Width="189" Height="18.9" Text="[Date]" HorzAlign="Right" Font="Arial, 8pt"/>
+      <TextObject Name="Text388" Left="226.8" Width="198.45" Height="18.9" Text="Page [Page] of [TotalPages#]" Font="Arial, 8pt" TextFill.Color="Silver"/>
+      <TextObject Name="Text389" Width="226.8" Height="18.9" Text="Revised Planning Move Planning Report" Font="Arial, 8pt, style=Bold"/>
+    </PageFooterBand>
+  </ReportPage>
+  <ReportPage Name="StartWP" Landscape="true" PaperWidth="420.1" PaperHeight="296.9" RawPaperSize="8">
+    <ReportTitleBand Name="ReportTitle5" Width="1512.38" Height="103.95">
+      <PictureObject Name="picLogo5" Left="9.45" Top="9.45" Width="141.75" Height="75.6" Image=""/>
+      <LineObject Name="Line5" Left="160.65" Top="9.45" Height="85.05" Diagonal="true"/>
+      <PictureObject Name="picLogoMineware5" Left="548.1" Top="9.45" Width="103.95" Height="66.15" Image=""/>
+      <TextObject Name="Text390" Left="170.1" Top="9.45" Width="359.1" Height="28.35" Text="Revised Planning Audit Start Workplace Report " Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text391" Left="170.1" Top="37.8" Width="160.65" Height="18.9" Text="Production Month :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text392" Left="330.75" Top="37.8" Width="170.1" Height="18.9" Text="[RevisedStatus.ProdMonth]"/>
+      <TextObject Name="Text393" Left="170.1" Top="66.15" Width="160.65" Height="18.9" Text="Section :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text394" Left="330.75" Top="66.15" Width="170.1" Height="18.9" Text="[sect.name]"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader5" Top="107.4" Width="1512.38" Height="18.9" CanGrow="true">
+      <TextObject Name="Text395" Left="151.2" Width="151.2" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Workplace ID" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text396" Left="302.4" Width="141.75" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Workplace Name" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text397" Left="444.15" Width="113.4" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Start Date" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text398" Left="557.55" Width="349.65" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Reason" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text399" Left="907.2" Width="160.65" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Requested By" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text400" Left="1067.85" Width="122.85" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Request Date" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text401" Width="151.2" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Section" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text402" Left="1190.7" Width="75.6" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Approved" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data9" Top="129.75" Width="1512.38" Height="37.8" CanGrow="true" DataSource="RevisedStatus" Filter="[RevisedStatus.ChangeType]==&quot;Start Workplace&quot;">
+      <TextObject Name="Text403" Left="151.2" Width="151.2" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.WorkplaceID]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text404" Left="302.4" Width="141.75" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Workplace Name]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text405" Left="444.15" Width="113.4" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.STARTDATE]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text406" Left="557.55" Width="349.65" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Comments]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text407" Left="907.2" Width="160.65" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.FullName]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text408" Left="1067.85" Width="122.85" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.RequestDate]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text409" Width="151.2" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Section]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text410" Left="1190.7" Width="75.6" Height="37.8" Border.Lines="All" Border.TopLine.Width="2"/>
+      <ShapeObject Name="Shape9" Left="1219.05" Top="9.45" Width="18.9" Height="18.9" Fill.Color="Red" Bookmark="[RevisedStatus.Status]" BeforePrintEvent="Shape11_BeforePrint" Shape="Ellipse"/>
+      <DataBand Name="Data10" Top="193.34" Width="1512.38" Height="37.8" DataSource="RevisedStatusDetails">
+        <ShapeObject Name="Shape10" Left="718.2" Top="9.45" Width="18.9" Height="18.9" Fill.Color="Red" Bookmark="[RevisedStatus.Status]" BeforePrintEvent="Shape_BeforePrint" Shape="Ellipse"/>
+        <TextObject Name="Text416" Left="670.95" Width="122.85" Height="37.8" Border.Lines="All"/>
+        <TextObject Name="Text417" Width="151.2" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.FullName]" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text418" Left="151.2" Width="151.2" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.ApprovedDeclinedDate]" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text419" Left="302.4" Width="255.15" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.Comments]" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text420" Left="557.55" Width="113.4" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.Department]" VertAlign="Center" Font="Arial, 8pt"/>
+        <DataHeaderBand Name="DataHeader5" Top="170.99" Width="1512.38" Height="18.9">
+          <TextObject Name="Text411" Width="151.2" Height="18.9" Border.Lines="All" Text="Approved\Declined" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text412" Left="151.2" Width="151.2" Height="18.9" Border.Lines="All" Text="Date" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text413" Left="302.4" Width="255.15" Height="18.9" Border.Lines="All" Text="Message" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text414" Left="557.55" Width="113.4" Height="18.9" Border.Lines="All" Text="Department" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text415" Left="670.95" Width="122.85" Height="18.9" Border.Lines="All" Text="Approved" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        </DataHeaderBand>
+      </DataBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter5" Top="234.59" Width="1512.38" Height="18.9">
+      <TextObject Name="Text421" Left="529.2" Width="189" Height="18.9" Text="[Date]" HorzAlign="Right" Font="Arial, 8pt"/>
+      <TextObject Name="Text422" Left="226.8" Width="198.45" Height="18.9" Text="Page [Page] of [TotalPages#]" Font="Arial, 8pt" TextFill.Color="Silver"/>
+      <TextObject Name="Text423" Width="226.8" Height="18.9" Text="Revised Planning Start Workplace Report" Font="Arial, 8pt, style=Bold"/>
+    </PageFooterBand>
+  </ReportPage>
+  <ReportPage Name="MiningMethod" Landscape="true" PaperWidth="420.1" PaperHeight="296.9" RawPaperSize="8">
+    <ReportTitleBand Name="ReportTitle6" Width="1512.38" Height="122.85">
+      <PictureObject Name="picLogo4" Left="9.45" Top="9.45" Width="141.75" Height="75.6" Image=""/>
+      <LineObject Name="Line6" Left="160.65" Top="9.45" Height="85.05" Diagonal="true"/>
+      <PictureObject Name="picLogoMineware4" Left="548.1" Top="18.9" Width="103.95" Height="66.15" Image=""/>
+      <TextObject Name="Text424" Left="170.1" Top="9.45" Width="359.1" Height="28.35" Text="Revised Planning Audit Mining Method Report " Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text425" Left="170.1" Top="47.25" Width="160.65" Height="18.9" Text="Production Month :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text426" Left="330.75" Top="47.25" Width="189" Height="18.9" Text="[RevisedStatus.ProdMonth]"/>
+      <TextObject Name="Text427" Left="170.1" Top="66.15" Width="160.65" Height="18.9" Text="Section :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text428" Left="330.75" Top="66.15" Width="217.35" Height="28.35" Text="[sect.name]"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader6" Top="126.3" Width="1512.38" Height="18.9" CanGrow="true">
+      <TextObject Name="Text429" Left="132.3" Width="122.85" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Workplace ID" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text430" Left="255.15" Width="141.75" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Workplace Name" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text431" Left="396.9" Width="406.35" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Reason" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text432" Left="803.25" Width="132.3" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Requested By" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text433" Left="935.55" Width="122.85" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Request Date" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text436" Left="1058.4" Width="122.85" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Mining Method" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text437" Width="132.3" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Section" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text460" Left="1323" Width="85.05" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Approved" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text550" Left="1181.25" Width="141.75" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Locked Mining Method" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data11" Top="148.65" Width="1512.38" Height="37.8" CanGrow="true" DataSource="RevisedStatus" Filter="[RevisedStatus.ChangeType]==&quot;Mining Method Change&quot;">
+      <TextObject Name="Text438" Left="132.3" Width="122.85" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.WorkplaceID]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text439" Left="255.15" Width="141.75" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Workplace Name]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text440" Left="396.9" Width="406.35" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Comments]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text441" Left="803.25" Width="132.3" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.FullName]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text442" Left="935.55" Width="122.85" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.RequestDate]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text445" Left="1058.4" Width="122.85" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Description]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text446" Width="132.3" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Section]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text461" Left="1323" Width="85.05" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" HorzAlign="Center" VertAlign="Center"/>
+      <ShapeObject Name="Shape12" Left="1357.02" Top="9.45" Width="18.9" Height="18.9" Fill.Color="Red" Bookmark="[RevisedStatus.Status]" BeforePrintEvent="Shape11_BeforePrint" Shape="Ellipse"/>
+      <TextObject Name="Text551" Left="1181.25" Width="141.75" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.LockMethod]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <DataBand Name="Data12" Top="212.24" Width="1512.38" Height="37.8" DataSource="RevisedStatusDetails">
+        <TextObject Name="Text452" Width="132.3" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.FullName]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text453" Left="132.3" Width="122.85" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.ApprovedDeclinedDate]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text454" Left="255.15" Width="274.05" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.Comments]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text455" Left="529.2" Width="141.75" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.Department]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text456" Left="670.95" Width="132.3" Height="37.8" Border.Lines="All" HorzAlign="Center"/>
+        <ShapeObject Name="Shape11" Left="727.65" Top="9.45" Width="18.9" Height="18.9" Fill.Color="Red" Bookmark="[RevisedStatus.Status]" BeforePrintEvent="Shape_BeforePrint" Shape="Ellipse"/>
+        <DataHeaderBand Name="DataHeader6" Top="189.89" Width="1512.38" Height="18.9">
+          <TextObject Name="Text447" Left="529.2" Width="141.75" Height="18.9" Border.Lines="All" Text="Department" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text448" Left="670.95" Width="132.3" Height="18.9" Border.Lines="All" Text="Approved" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text449" Left="255.15" Width="274.05" Height="18.9" Border.Lines="All" Text="Message" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text450" Width="132.3" Height="18.9" Border.Lines="All" Text="Approved\Declined" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text451" Left="132.3" Width="122.85" Height="18.9" Border.Lines="All" Text="Date" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        </DataHeaderBand>
+      </DataBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter6" Top="253.49" Width="1512.38" Height="18.9">
+      <TextObject Name="Text457" Left="529.2" Width="189" Height="18.9" Text="[Date]" HorzAlign="Right" Font="Arial, 8pt"/>
+      <TextObject Name="Text458" Left="226.8" Width="198.45" Height="18.9" Text="Page [Page] of [TotalPages#]" Font="Arial, 8pt" TextFill.Color="Silver"/>
+      <TextObject Name="Text459" Width="226.8" Height="18.9" Text="Revised Planning Mining Method Report" Font="Arial, 8pt, style=Bold"/>
+    </PageFooterBand>
+  </ReportPage>
+  <ReportPage Name="NewWP" PaperWidth="420" RawPaperSize="8">
+    <ReportTitleBand Name="ReportTitle7" Width="1512" Height="113.4">
+      <PictureObject Name="picLogo6" Left="9.45" Top="9.45" Width="141.75" Height="75.6" Image=""/>
+      <LineObject Name="Line7" Left="160.65" Top="9.45" Height="85.05" Diagonal="true"/>
+      <PictureObject Name="picLogoMineware6" Left="548.1" Top="18.9" Width="103.95" Height="66.15" Image=""/>
+      <TextObject Name="Text462" Left="170.1" Top="9.45" Width="359.1" Height="28.35" Text="Revised Planning Audit New Workplace Report " Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text463" Left="170.1" Top="47.25" Width="160.65" Height="18.9" Text="Production Month :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text464" Left="330.75" Top="47.25" Width="189" Height="18.9" Text="[RevisedStatus.ProdMonth]"/>
+      <TextObject Name="Text465" Left="170.1" Top="66.15" Width="160.65" Height="18.9" Text="Section :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text466" Left="330.75" Top="66.15" Width="217.35" Height="28.35" Text="[sect.name]"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader7" Top="116.85" Width="1512" Height="37.8" CanGrow="true">
+      <TextObject Name="Text467" Left="113.4" Width="66.15" Height="37.8" Border.Lines="All" Border.BottomLine.Width="3" Text="Workplace ID" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text468" Left="179.55" Width="113.4" Height="37.8" Border.Lines="All" Border.BottomLine.Width="3" Text="Workplace Name" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text469" Left="292.95" Width="122.85" Height="37.8" Border.Lines="All" Border.BottomLine.Width="3" Text="Reason" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text470" Left="415.8" Width="113.4" Height="37.8" Border.Lines="All" Border.BottomLine.Width="3" Text="Requested By" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text471" Left="529.2" Width="75.6" Height="37.8" Border.Lines="All" Border.BottomLine.Width="3" Text="Request Date" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text472" Left="604.8" Width="75.6" Height="37.8" Border.Lines="All" Border.BottomLine.Width="3" Text="Start Date" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text474" Left="680.4" Width="122.85" Height="37.8" Border.Lines="All" Border.BottomLine.Width="3" Text="Mining Method" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text475" Width="113.4" Height="37.8" Border.Lines="All" Border.BottomLine.Width="3" Text="Section" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text476" Left="803.25" Width="85.05" Height="37.8" Border.Lines="All" Border.BottomLine.Width="3" Text="Day Crew" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text477" Left="888.3" Width="75.6" Height="37.8" Border.Lines="All" Border.BottomLine.Width="3" Text="Afternoon Crew" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text478" Left="1039.5" Width="66.15" Height="37.8" Border.Lines="All" Border.BottomLine.Width="3" Text="Roving Crew" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text479" Left="963.9" Width="75.6" Height="37.8" Border.Lines="All" Border.BottomLine.Width="3" Text="Night Crew" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text480" Left="1105.65" Width="56.7" Height="37.8" Border.Lines="All" Border.BottomLine.Width="3" Text="Miner" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text481" Left="1445.85" Width="66.15" Height="37.8" Border.Lines="All" Border.BottomLine.Width="3" Text="Approved" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text482" Left="1162.35" Width="47.25" Height="37.8" Border.Lines="All" Border.BottomLine.Width="3" Text="On Reef SQM" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text483" Left="1209.6" Width="47.25" Height="37.8" Border.Lines="All" Border.BottomLine.Width="3" Text="Off Reef SQM" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text484" Left="1256.85" Width="47.25" Height="37.8" Border.Lines="All" Border.BottomLine.Width="3" Text="On Reef Meters" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text485" Left="1304.1" Width="47.25" Height="37.8" Border.Lines="All" Border.BottomLine.Width="3" Text="Off Reef Meters" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text486" Left="1351.35" Width="47.25" Height="37.8" Border.Lines="All" Border.BottomLine.Width="3" Text="Cubic Meters" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+      <TextObject Name="Text499" Left="1398.6" Width="47.25" Height="37.8" Border.Lines="All" Border.BottomLine.Width="3" Text="Face Length" HorzAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data13" Top="158.1" Width="1512" Height="37.8" CanGrow="true" DataSource="RevisedStatus" Filter="[RevisedStatus.ChangeType]==&quot;New Workplace&quot;">
+      <TextObject Name="Text487" Left="113.4" Width="66.15" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.WorkplaceID]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text488" Left="179.55" Width="113.4" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Workplace Name]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text489" Left="292.95" Width="122.85" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Comments]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text490" Left="415.8" Width="113.4" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.FullName]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text491" Left="529.2" Width="75.6" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.RequestDate]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text492" Width="113.4" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Section]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <ShapeObject Name="Shape13" Left="1474.2" Top="9.45" Width="18.9" Height="18.9" Fill.Color="Red" Bookmark="[RevisedStatus.Status]" BeforePrintEvent="Shape11_BeforePrint" Shape="Ellipse"/>
+      <TextObject Name="Text493" Left="1445.85" Width="66.15" Height="37.8" Border.Lines="All" Border.TopLine.Width="2"/>
+      <TextObject Name="Text494" Left="1162.35" Width="47.25" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.REEFSQM]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text495" Left="1209.6" Width="47.25" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.WASTESQM]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text496" Left="1256.85" Width="47.25" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.METERS]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text497" Left="1304.1" Width="47.25" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.METERSWASTE]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text498" Left="1351.35" Width="47.25" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.CUBICMETERS]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text500" Left="1398.6" Width="47.25" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.CUBICMETERS]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text501" Left="803.25" Width="85.05" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.DAYCREW]" HorzAlign="Center" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+      <TextObject Name="Text502" Left="888.3" Width="75.6" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.AFTERNOONCREW]" HorzAlign="Center" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+      <TextObject Name="Text503" Left="963.9" Width="75.6" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.NIGHTCREW]" HorzAlign="Center" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+      <TextObject Name="Text504" Left="1039.5" Width="66.15" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.ROVINGCREW]" HorzAlign="Center" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+      <TextObject Name="Text505" Left="1105.65" Width="56.7" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.name]" HorzAlign="Center" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+      <TextObject Name="Text506" Left="680.4" Width="122.85" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Description]" HorzAlign="Center" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+      <TextObject Name="Text507" Left="604.8" Width="75.6" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.STARTDATE]" HorzAlign="Center" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+      <DataBand Name="Data14" Top="221.69" Width="1512" Height="37.8" DataSource="RevisedStatusDetails">
+        <ShapeObject Name="Shape14" Left="585.9" Top="9.45" Width="18.9" Height="18.9" Fill.Color="Red" Bookmark="[RevisedStatus.Status]" BeforePrintEvent="Shape_BeforePrint" Shape="Ellipse"/>
+        <TextObject Name="Text513" Width="113.4" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatusDetails.FullName]" HorzAlign="Center" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+        <TextObject Name="Text514" Left="113.4" Width="66.15" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.RequestDate]" HorzAlign="Center" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+        <TextObject Name="Text515" Left="179.55" Width="236.25" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatusDetails.Comments]" HorzAlign="Center" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+        <TextObject Name="Text516" Left="415.8" Width="122.85" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatusDetails.Department]" HorzAlign="Center" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt"/>
+        <TextObject Name="Text517" Left="538.65" Width="113.4" Height="37.8" Border.Lines="All" Border.TopLine.Width="2"/>
+        <DataHeaderBand Name="DataHeader7" Top="199.34" Width="1512" Height="18.9">
+          <TextObject Name="Text508" Width="113.4" Height="18.9" Border.Lines="All" Text="Approved\Declined" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text509" Left="113.4" Width="66.15" Height="18.9" Border.Lines="All" Text="Date" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text510" Left="179.55" Width="236.25" Height="18.9" Border.Lines="All" Text="Message" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text511" Left="415.8" Width="122.85" Height="18.9" Border.Lines="All" Text="Department" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text512" Left="538.65" Width="113.4" Height="18.9" Border.Lines="All" Text="Approved" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        </DataHeaderBand>
+      </DataBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter7" Top="262.94" Width="1512" Height="18.9">
+      <TextObject Name="Text518" Left="529.2" Width="189" Height="18.9" Text="[Date]" HorzAlign="Right" Font="Arial, 8pt"/>
+      <TextObject Name="Text519" Left="245.7" Width="198.45" Height="18.9" Text="Page [Page] of [TotalPages#]" Font="Arial, 8pt" TextFill.Color="Silver"/>
+      <TextObject Name="Text520" Width="245.7" Height="18.9" Text="Revised Planning New Workplace Report " Font="Arial, 8pt, style=Bold"/>
+    </PageFooterBand>
+  </ReportPage>
+  <ReportPage Name="Drillrig" Landscape="true" PaperWidth="420.1" PaperHeight="296.9" RawPaperSize="8">
+    <ReportTitleBand Name="ReportTitle9" Width="1512.38" Height="103.95">
+      <PictureObject Name="Picture3" Left="10" Top="5" Width="141.75" Height="75.6" Image=""/>
+      <LineObject Name="Line10" Left="161.2" Top="5" Height="85.05" Diagonal="true"/>
+      <PictureObject Name="Picture4" Left="548.65" Top="5" Width="103.95" Height="66.15" Image=""/>
+      <TextObject Name="Text586" Left="170.65" Top="5" Width="359.1" Height="28.35" Text="Revised Planning Audit Drill Rig Change Report " Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text587" Left="170.65" Top="23.9" Width="160.65" Height="18.9" Text="Production Month :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text588" Left="331.3" Top="23.9" Width="170.1" Height="18.9" Text="[RevisedStatus.ProdMonth]"/>
+      <TextObject Name="Text589" Left="170.65" Top="52.25" Width="160.65" Height="18.9" Text="Section :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text590" Left="331.3" Top="52.25" Width="170.1" Height="18.9" Text="[sect.name]"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader9" Top="107.4" Width="1512.38" Height="18.9">
+      <TextObject Name="Text594" Left="132.3" Width="122.85" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Workplace ID" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text595" Left="255.15" Width="141.75" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Workplace Name" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text596" Left="396.9" Width="141.75" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Reason" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text597" Left="538.65" Width="132.3" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Requested By" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text598" Left="670.95" Width="122.85" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Request Date" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text599" Left="793.8" Width="122.85" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Mining Method" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text600" Width="132.3" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Section" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text601" Left="1058.4" Width="85.05" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Approved" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text602" Left="916.65" Width="141.75" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Locked Mining Method" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data16" Top="129.75" Width="1512.38" Height="41.25" DataSource="RevisedStatus">
+      <TextObject Name="Text603" Left="132.3" Top="3.45" Width="122.85" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.WorkplaceID]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text604" Left="255.15" Top="3.45" Width="141.75" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Workplace Name]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text605" Left="396.9" Top="3.45" Width="141.75" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Comments]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text606" Left="538.65" Top="3.45" Width="132.3" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.FullName]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text607" Left="670.95" Top="3.45" Width="122.85" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.RequestDate]" VertAlign="Center"/>
+      <TextObject Name="Text608" Left="793.8" Top="3.45" Width="122.85" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Description]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text609" Top="3.45" Width="132.3" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Section]" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text610" Left="1058.4" Top="3.45" Width="85.05" Height="37.8" Border.Lines="All" Border.TopLine.Width="2"/>
+      <ShapeObject Name="Shape17" Left="1092.42" Top="12.9" Width="18.9" Height="18.9" Fill.Color="Red" Bookmark="[RevisedStatus.Status]" BeforePrintEvent="Shape11_BeforePrint" Shape="Ellipse"/>
+      <TextObject Name="Text611" Left="916.65" Top="3.45" Width="141.75" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.LockMethod]" VertAlign="Center" Font="Arial, 8pt"/>
+      <DataBand Name="Data19" Top="196.79" Width="1512.38" Height="37.8" DataSource="RevisedStatusDetails" Filter="[RevisedStatus.ChangeType]==&quot;Drill Rig Change&quot;">
+        <ShapeObject Name="Shape18" Left="737.1" Top="9.45" Width="18.9" Height="18.9" Fill.Color="Red" Bookmark="[RevisedStatus.Status]" BeforePrintEvent="Shape_BeforePrint" Shape="Ellipse"/>
+        <TextObject Name="Text612" Width="132.3" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.FullName]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text613" Left="132.3" Width="122.85" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.ApprovedDeclinedDate]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text614" Left="255.15" Width="283.5" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.Comments]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text615" Left="538.65" Width="141.75" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.Department]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text616" Left="680.4" Width="132.3" Height="37.8" Border.Lines="All" HorzAlign="Center"/>
+        <DataHeaderBand Name="DataHeader9" Top="174.44" Width="1512.38" Height="18.9">
+          <TextObject Name="Text617" Left="538.65" Width="141.75" Height="18.9" Border.Lines="All" Text="Department" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text618" Left="680.4" Width="132.3" Height="18.9" Border.Lines="All" Text="Approved" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text619" Left="255.15" Width="283.5" Height="18.9" Border.Lines="All" Text="Message" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text620" Width="132.3" Height="18.9" Border.Lines="All" Text="Approved\Declined" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text621" Left="132.3" Width="122.85" Height="18.9" Border.Lines="All" Text="Date" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        </DataHeaderBand>
+      </DataBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter9" Top="238.04" Width="1512.38" Height="18.9">
+      <TextObject Name="Text591" Left="529.2" Width="189" Height="18.9" Text="[Date]" HorzAlign="Right" Font="Arial, 8pt"/>
+      <TextObject Name="Text592" Left="226.8" Width="198.45" Height="18.9" Text="Page [Page] of [TotalPages#]" Font="Arial, 8pt" TextFill.Color="Silver"/>
+      <TextObject Name="Text593" Width="226.8" Height="18.9" Text="Revised Planning Drill Rig Change Report" Font="Arial, 8pt, style=Bold"/>
+    </PageFooterBand>
+  </ReportPage>
+  <ReportPage Name="DeleteWP" Landscape="true" PaperWidth="420.1" PaperHeight="296.9" RawPaperSize="8" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5">
+    <ReportTitleBand Name="ReportTitle10" Width="1550.18" Height="103.95">
+      <PictureObject Name="Picture1" Width="141.75" Height="75.6" Image=""/>
+      <LineObject Name="Line9" Left="151.2" Height="85.05" Diagonal="true"/>
+      <PictureObject Name="Picture2" Left="538.65" Width="103.95" Height="66.15" Image=""/>
+      <TextObject Name="Text578" Left="160.65" Width="359.1" Height="28.35" Text="Revised Planning Audit Delete Planning Report " Font="Arial, 11pt, style=Bold"/>
+      <TextObject Name="Text579" Left="160.65" Top="18.9" Width="160.65" Height="18.9" Text="Production Month :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text580" Left="321.3" Top="18.9" Width="170.1" Height="18.9" Text="[RevisedStatus.ProdMonth]"/>
+      <TextObject Name="Text581" Left="160.65" Top="47.25" Width="160.65" Height="18.9" Text="Section :" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text582" Left="321.3" Top="47.25" Width="170.1" Height="18.9" Text="[sect.name]"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader10" Top="107.4" Width="1550.18" Height="18.9" FirstRowStartsNewPage="true">
+      <TextObject Name="Text552" Left="151.2" Width="151.2" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Workplace ID" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text553" Left="302.4" Width="141.75" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Workplace Name" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text555" Left="443.55" Width="359.1" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Reason" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text556" Left="802.65" Width="160.65" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Requested By" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text557" Left="963.3" Width="122.85" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Request Date" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text558" Width="151.2" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Section" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text559" Left="1086.15" Width="75.6" Height="18.9" Border.Lines="All" Border.BottomLine.Width="3" Text="Approved" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data17" Top="129.75" Width="1550.18" Height="41.37" DataSource="RevisedStatus" Filter="[RevisedStatus.ChangeType]==&quot;Delete Planning&quot;">
+      <TextObject Name="Text560" Left="151.2" Top="3.57" Width="151.2" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.WorkplaceID]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text561" Left="302.4" Top="3.57" Width="141.75" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Workplace Name]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text563" Left="443.55" Top="3.57" Width="359.1" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Comments]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text564" Left="802.65" Top="3.57" Width="160.65" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.FullName]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text565" Left="963.3" Top="3.57" Width="122.85" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.RequestDate]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text566" Top="3.57" Width="151.2" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" Text="[RevisedStatus.Section]" HorzAlign="Center" VertAlign="Center" Font="Arial, 8pt"/>
+      <TextObject Name="Text567" Left="1086.15" Top="3.57" Width="75.6" Height="37.8" Border.Lines="All" Border.TopLine.Width="2" HorzAlign="Center" VertAlign="Center"/>
+      <ShapeObject Name="Shape15" Left="1114.5" Top="13.02" Width="18.9" Height="18.9" Fill.Color="Red" Bookmark="[RevisedStatus.Status]" BeforePrintEvent="Shape11_BeforePrint" Shape="Ellipse"/>
+      <DataBand Name="Data18" Top="196.91" Width="1550.18" Height="37.8" DataSource="RevisedStatusDetails">
+        <ShapeObject Name="Shape16" Left="784.35" Top="9.45" Width="18.9" Height="18.9" Fill.Color="Red" Bookmark="[RevisedStatus.Status]" BeforePrintEvent="Shape_BeforePrint" Shape="Ellipse"/>
+        <TextObject Name="Text568" Left="737.1" Width="113.4" Height="37.8" Border.Lines="All" VertAlign="Center"/>
+        <TextObject Name="Text569" Width="151.2" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.FullName]" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text570" Left="151.2" Width="151.2" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.ApprovedDeclinedDate]" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text571" Left="302.4" Width="311.85" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.Comments]" VertAlign="Center" Font="Arial, 8pt"/>
+        <TextObject Name="Text572" Left="614.25" Width="122.85" Height="37.8" Border.Lines="All" Text="[RevisedStatusDetails.Department]" VertAlign="Center" Font="Arial, 8pt"/>
+        <DataHeaderBand Name="DataHeader8" Top="174.56" Width="1550.18" Height="18.9">
+          <TextObject Name="Text573" Width="151.2" Height="18.9" Border.Lines="All" Text="Approved\Declined" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text574" Left="151.2" Width="151.2" Height="18.9" Border.Lines="All" Text="Date" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text575" Left="302.4" Width="311.85" Height="18.9" Border.Lines="All" Text="Message" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text576" Left="614.25" Width="122.85" Height="18.9" Border.Lines="All" Text="Department" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+          <TextObject Name="Text577" Left="737.1" Width="113.4" Height="18.9" Border.Lines="All" Text="Approved" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+        </DataHeaderBand>
+      </DataBand>
+    </DataBand>
+    <PageFooterBand Name="PageFooter10" Top="238.16" Width="1550.18" Height="18.9">
+      <TextObject Name="Text583" Left="529.2" Width="189" Height="18.9" Text="[Date]" HorzAlign="Right" Font="Arial, 8pt"/>
+      <TextObject Name="Text584" Left="226.8" Width="198.45" Height="18.9" Text="Page [Page] of [TotalPages#]" Font="Arial, 8pt" TextFill.Color="Silver"/>
+      <TextObject Name="Text585" Width="226.8" Height="18.9" Text="Revised Planning Delete Planning Report" Font="Arial, 8pt, style=Bold"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

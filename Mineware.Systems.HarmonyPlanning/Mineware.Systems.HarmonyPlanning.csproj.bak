@@ -1,0 +1,638 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{273BAFFF-73A0-488A-BBD6-12D396B3A681}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mineware.Systems.HarmonyPlanning</RootNamespace>
+    <AssemblyName>Mineware.Systems.HarmonyPlanning</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\MIMSHARMONYDOORNKOP\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <LangVersion>4</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>4</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Images.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v18.1.Export, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FastReport, Version=2018.3.43.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\MIMSHARMONYDOORNKOP\Bin\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="Mineware.Menu.Structure, Version=18.2.2.17412, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\MIMSHARMONYDOORNKOP\Bin\Mineware.Menu.Structure.dll</HintPath>
+    </Reference>
+    <Reference Include="Mineware.Plugin.Interface, Version=1.4.5992.25667, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\MIMSHARMONYDOORNKOP\Bin\Mineware.Plugin.Interface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mineware.Systems.Global, Version=1.4.6002.34067, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\MIMSHARMONYDOORNKOP\Bin\Mineware.Systems.Global.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mineware.Systems.GlobalConnect, Version=1.5.6416.20284, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\MIMSHARMONYDOORNKOP\Bin\Mineware.Systems.GlobalConnect.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mineware.Systems.GlobalExtensions, Version=18.2.2.17410, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\MIMSHARMONYDOORNKOP\Bin\Mineware.Systems.GlobalExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PlanningProtocolCapture\dsHRPlanning.cs" />
+    <Compile Include="PlanningProtocolCapture\dsHRPlanning.designer.cs">
+      <DependentUpon>dsHRPlanning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\ucDeleteWorkplace.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\ucDeleteWorkplace.designer.cs">
+      <DependentUpon>ucDeleteWorkplace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\ucDrillRiggChanges.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\ucDrillRiggChanges.designer.cs">
+      <DependentUpon>ucDrillRiggChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\RevisedPlanning_Security\frmUpdateRevicedRecords.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\RevisedPlanning_Security\frmUpdateRevicedRecords.Designer.cs">
+      <DependentUpon>frmUpdateRevicedRecords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\RevisedPlanning_Security\ileRevisedPlanningSecurity.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\RevisedPlanning_Security\ileRevisedPlanningSecurity.Designer.cs">
+      <DependentUpon>ileRevisedPlanningSecurity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\RevisedPlanning_Security\RevisedSecurityDB.cs" />
+    <Compile Include="PrePlanning\RevisedPlanning_Security\ucRevisedPlanningSecurity.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\RevisedPlanning_Security\ucRevisedPlanningSecurity.Designer.cs">
+      <DependentUpon>ucRevisedPlanningSecurity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HR\frmHRDesignations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HR\frmHRDesignations.designer.cs">
+      <DependentUpon>frmHRDesignations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HR\frmHRStandardsAndNorms.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HR\frmHRStandardsAndNorms.designer.cs">
+      <DependentUpon>frmHRStandardsAndNorms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MiningMethodsInPlanningSetup\ucMiningMethodsPlanningSetup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MiningMethodsInPlanningSetup\ucMiningMethodsPlanningSetup.Designer.cs">
+      <DependentUpon>ucMiningMethodsPlanningSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlanningProtocolCapture\frmLockUnlockData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlanningProtocolCapture\frmLockUnlockData.designer.cs">
+      <DependentUpon>frmLockUnlockData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlanningProtocolCapture\ucPlanProtCapture.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlanningProtocolCapture\ucPlanProtCapture.designer.cs">
+      <DependentUpon>ucPlanProtCapture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlanningProtocolCapture\ucHRPlanning.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlanningProtocolCapture\ucHRPlanning.designer.cs">
+      <DependentUpon>ucHRPlanning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlanningProtocolCapture\ucPlanProtDataView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlanningProtocolCapture\ucPlanProtDataView.designer.cs">
+      <DependentUpon>ucPlanProtDataView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlanningProtocolCapture\ucUnapproveWorkplaceList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlanningProtocolCapture\ucUnapproveWorkplaceList.designer.cs">
+      <DependentUpon>ucUnapproveWorkplaceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlanningProtocolTemplates\clsPlanProtTemplateData.cs" />
+    <Compile Include="PlanningProtocolTemplates\dsTemplateSecurity.cs">
+      <DependentUpon>dsTemplateSecurity.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PlanningProtocolTemplates\dsTemplateSecurity.designer.cs">
+      <DependentUpon>dsTemplateSecurity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlanningProtocolTemplates\dsTemplateSecurity1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsTemplateSecurity.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PlanningProtocolTemplates\frmFieldSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlanningProtocolTemplates\frmFieldSetup.designer.cs">
+      <DependentUpon>frmFieldSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlanningProtocolTemplates\ucPlanProtTemplates.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlanningProtocolTemplates\ucPlanProtTemplates.designer.cs">
+      <DependentUpon>ucPlanProtTemplates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlanningProtocolTemplates\frmPlanProtTemplateSetup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlanningProtocolTemplates\frmPlanProtTemplateSetup.designer.cs">
+      <DependentUpon>frmPlanProtTemplateSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlanningProtocolTemplates\ucPlanProtTemplateList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlanningProtocolTemplates\ucPlanProtTemplateList.designer.cs">
+      <DependentUpon>ucPlanProtTemplateList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\DataClass\clChangeOfPlanData.cs" />
+    <Compile Include="PrePlanning\ChangeOfPlan\dsPrePlanningNotification.cs">
+      <DependentUpon>dsPrePlanningNotification.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\dsPrePlanningNotification.designer.cs">
+      <DependentUpon>dsPrePlanningNotification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\dsPrePlanningNotification1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPrePlanningNotification.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\frmChangeControlMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\frmChangeControlMain.designer.cs">
+      <DependentUpon>frmChangeControlMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\frmDeclineApproveChnageOfPLan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\frmDeclineApproveChnageOfPLan.Designer.cs">
+      <DependentUpon>frmDeclineApproveChnageOfPLan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\frmManageChangeOfPlann.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\frmManageChangeOfPlann.designer.cs">
+      <DependentUpon>frmManageChangeOfPlann.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\frmPrePlanningNotification.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\frmPrePlanningNotification.designer.cs">
+      <DependentUpon>frmPrePlanningNotification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\frmStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\frmStatus.designer.cs">
+      <DependentUpon>frmStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\MoveBookings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\MoveBookings.Designer.cs">
+      <DependentUpon>MoveBookings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\StartWorkplace.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\StartWorkplace.Designer.cs">
+      <DependentUpon>StartWorkplace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\ucAddWorkplace.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\ucAddWorkplace.Designer.cs">
+      <DependentUpon>ucAddWorkplace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\ucCrewMinerChange.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\ucCrewMinerChange.Designer.cs">
+      <DependentUpon>ucCrewMinerChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\ucMiningMethodChange.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\ucMiningMethodChange.Designer.cs">
+      <DependentUpon>ucMiningMethodChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\ucPlanningValueChanges.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\ucPlanningValueChanges.Designer.cs">
+      <DependentUpon>ucPlanningValueChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\ucRequeststatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\ucRequeststatus.Designer.cs">
+      <DependentUpon>ucRequeststatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\ucStopWorkplace.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\ChangeOfPlan\ucStopWorkplace.Designer.cs">
+      <DependentUpon>ucStopWorkplace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\clsPlanning.cs" />
+    <Compile Include="PrePlanning\ChangeOfPlan\Helper\GridRadioGroupColumnHelper.cs" />
+    <Compile Include="PrePlanning\ucPrePlanningMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\ucPrePlanningMain.designer.cs">
+      <DependentUpon>ucPrePlanningMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ucApprovePlanning.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\frmResavePlanningProtocol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\frmResavePlanningProtocol.Designer.cs">
+      <DependentUpon>frmResavePlanningProtocol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ucApprovePlanning.Designer.cs">
+      <DependentUpon>ucApprovePlanning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ucPreplanning.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\ucPreplanning.designer.cs">
+      <DependentUpon>ucPreplanning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrePlanning\ucUnApprovePlanning.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrePlanning\ucUnApprovePlanning.Designer.cs">
+      <DependentUpon>ucUnApprovePlanning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RevisedPlanning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RevisedPlanning.designer.cs">
+      <DependentUpon>RevisedPlanning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StatusDetails.cs">
+      <DependentUpon>StatusDetails.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StatusDetails.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatusDetails.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SundryMiningMeasurements\ucSundryMiningMeasurements.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SundryMiningMeasurements\ucSundryMiningMeasurements.Designer.cs">
+      <DependentUpon>ucSundryMiningMeasurements.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="HR\frmHRDesignations.resx">
+      <DependentUpon>frmHRDesignations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HR\frmHRStandardsAndNorms.resx">
+      <DependentUpon>frmHRStandardsAndNorms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MiningMethodsInPlanningSetup\ucMiningMethodsPlanningSetup.resx">
+      <DependentUpon>ucMiningMethodsPlanningSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlanningProtocolCapture\frmLockUnlockData.resx">
+      <DependentUpon>frmLockUnlockData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlanningProtocolCapture\ucPlanProtCapture.resx">
+      <DependentUpon>ucPlanProtCapture.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlanningProtocolCapture\ucHRPlanning.resx">
+      <DependentUpon>ucHRPlanning.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlanningProtocolCapture\ucPlanProtDataView.resx">
+      <DependentUpon>ucPlanProtDataView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlanningProtocolCapture\ucUnapproveWorkplaceList.resx">
+      <DependentUpon>ucUnapproveWorkplaceList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlanningProtocolTemplates\frmFieldSetup.resx">
+      <DependentUpon>frmFieldSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlanningProtocolTemplates\ucPlanProtTemplates.resx">
+      <DependentUpon>ucPlanProtTemplates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlanningProtocolTemplates\frmPlanProtTemplateSetup.resx">
+      <DependentUpon>frmPlanProtTemplateSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlanningProtocolTemplates\ucPlanProtTemplateList.resx">
+      <DependentUpon>ucPlanProtTemplateList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\ChangeOfPlan\frmChangeControlMain.resx">
+      <DependentUpon>frmChangeControlMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\ChangeOfPlan\frmDeclineApproveChnageOfPLan.resx">
+      <DependentUpon>frmDeclineApproveChnageOfPLan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\ChangeOfPlan\frmManageChangeOfPlann.resx">
+      <DependentUpon>frmManageChangeOfPlann.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\ChangeOfPlan\frmPrePlanningNotification.resx">
+      <DependentUpon>frmPrePlanningNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\ChangeOfPlan\frmStatus.resx">
+      <DependentUpon>frmStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\ChangeOfPlan\MoveBookings.resx">
+      <DependentUpon>MoveBookings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\ChangeOfPlan\StartWorkplace.resx">
+      <DependentUpon>StartWorkplace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\ChangeOfPlan\ucAddWorkplace.resx">
+      <DependentUpon>ucAddWorkplace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\ChangeOfPlan\ucCrewMinerChange.resx">
+      <DependentUpon>ucCrewMinerChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\ChangeOfPlan\ucDeleteWorkplace.resx">
+      <DependentUpon>ucDeleteWorkplace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\ChangeOfPlan\ucDrillRiggChanges.resx">
+      <DependentUpon>ucDrillRiggChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\ChangeOfPlan\ucMiningMethodChange.resx">
+      <DependentUpon>ucMiningMethodChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\ChangeOfPlan\ucPlanningValueChanges.resx">
+      <DependentUpon>ucPlanningValueChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\ChangeOfPlan\ucRequeststatus.resx">
+      <DependentUpon>ucRequeststatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\ChangeOfPlan\ucStopWorkplace.resx">
+      <DependentUpon>ucStopWorkplace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\RevisedPlanning_Security\frmUpdateRevicedRecords.resx">
+      <DependentUpon>frmUpdateRevicedRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\RevisedPlanning_Security\ileRevisedPlanningSecurity.resx">
+      <DependentUpon>ileRevisedPlanningSecurity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\RevisedPlanning_Security\ucRevisedPlanningSecurity.resx">
+      <DependentUpon>ucRevisedPlanningSecurity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\ucPrePlanningMain.resx">
+      <DependentUpon>ucPrePlanningMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\frmResavePlanningProtocol.resx">
+      <DependentUpon>frmResavePlanningProtocol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\ucApprovePlanning.resx">
+      <DependentUpon>ucApprovePlanning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\ucPreplanning.resx">
+      <DependentUpon>ucPreplanning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrePlanning\ucUnApprovePlanning.resx">
+      <DependentUpon>ucUnApprovePlanning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RevisedPlanning.resx">
+      <DependentUpon>RevisedPlanning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SundryMiningMeasurements\ucSundryMiningMeasurements.resx">
+      <DependentUpon>ucSundryMiningMeasurements.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="PlanningProtocolTemplates\dsTemplateSecurity.xsc">
+      <DependentUpon>dsTemplateSecurity.xsd</DependentUpon>
+    </None>
+    <None Include="PlanningProtocolTemplates\dsTemplateSecurity.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsTemplateSecurity1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PlanningProtocolTemplates\dsTemplateSecurity.xss">
+      <DependentUpon>dsTemplateSecurity.xsd</DependentUpon>
+    </None>
+    <None Include="PrePlanning\ChangeOfPlan\dsPrePlanningNotification.xsc">
+      <DependentUpon>dsPrePlanningNotification.xsd</DependentUpon>
+    </None>
+    <None Include="PrePlanning\ChangeOfPlan\dsPrePlanningNotification.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPrePlanningNotification1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PrePlanning\ChangeOfPlan\dsPrePlanningNotification.xss">
+      <DependentUpon>dsPrePlanningNotification.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="StatusDetails.xsc">
+      <DependentUpon>StatusDetails.xsd</DependentUpon>
+    </None>
+    <None Include="StatusDetails.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StatusDetails.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StatusDetails.xss">
+      <DependentUpon>StatusDetails.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\approved.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\approvedNot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar_view_week.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\map_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\map_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PrePlanning\SQL\NewVersionSQL\Functions\" />
+    <Folder Include="PrePlanning\SQL\NewVersionSQL\SP\" />
+    <Folder Include="PrePlanning\SQL\NewVersionSQL\Tables\" />
+    <Folder Include="PrePlanning\SQL\NewVersionSQL\TableUpdates\" />
+    <Folder Include="PrePlanning\SQL\NewVersionSQL\Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PlanningProtocolTemplates\EMialTemplates\DataApprovalRequest.htm" />
+    <Content Include="PrePlanning\ChangeOfPlan\HTML\ApproveUnapproveRequest.htm" />
+    <Content Include="PrePlanning\ChangeOfPlan\HTML\NewRequest.htm" />
+    <Content Include="PrePlanning\Resources\accept.png" />
+    <Content Include="PrePlanning\Resources\approved.png" />
+    <Content Include="PrePlanning\Resources\approvedNot.png" />
+    <Content Include="PrePlanning\Resources\calendar_view_week.png" />
+    <Content Include="PrePlanning\Resources\delete.png" />
+    <Content Include="PrePlanning\Resources\error.png" />
+    <Content Include="PrePlanning\Resources\map_add.png" />
+    <Content Include="PrePlanning\Resources\map_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mineware.Systems.HarmonyPASGlobal\Mineware.Systems.HarmonyPASGlobal.csproj">
+      <Project>{8ee252b3-b366-494e-ac03-35ece9b8d64a}</Project>
+      <Name>Mineware.Systems.HarmonyPASGlobal</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

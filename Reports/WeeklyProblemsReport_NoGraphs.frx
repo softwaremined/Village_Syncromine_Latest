@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/20/2011 11:23:14" ReportInfo.Modified="06/08/2017 13:51:46" ReportInfo.CreatorVersion="2016.3.0.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void PageHeader1_BeforePrint(object sender, EventArgs e)
+    {
+      string logo =  ((String)Report.GetParameterValue(&quot;logo&quot;));
+      picClient.ImageLocation = logo;
+      
+      string logoMineware =  ((String)Report.GetParameterValue(&quot;logoMineware&quot;));
+      picMineware.ImageLocation = logoMineware;
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Detail_Problem_Data" ReferenceName="Data.Detail_Problem_Data" DataType="System.Int32" Enabled="true">
+      <Column Name="Type" DataType="System.String"/>
+      <Column Name="Shaft" DataType="System.String"/>
+      <Column Name="OrderBy" DataType="System.Int32"/>
+      <Column Name="Week4" DataType="System.Int32"/>
+      <Column Name="Week3" DataType="System.Int32"/>
+      <Column Name="Week2" DataType="System.Int32"/>
+      <Column Name="Week1" DataType="System.Int32"/>
+      <Column Name="Month2" DataType="System.Int32"/>
+      <Column Name="Month1" DataType="System.Int32"/>
+      <Column Name="Month" DataType="System.Int32"/>
+    </TableDataSource>
+    <TableDataSource Name="Problem_Report_Headings" ReferenceName="Data.Problem_Report_Headings" DataType="System.Int32" Enabled="true">
+      <Column Name="Week1" DataType="System.String"/>
+      <Column Name="Week2" DataType="System.String"/>
+      <Column Name="Week3" DataType="System.String"/>
+      <Column Name="Week4" DataType="System.String"/>
+      <Column Name="MONTH" DataType="System.String"/>
+      <Column Name="MONTH1" DataType="System.String"/>
+      <Column Name="MONTH2" DataType="System.String"/>
+      <Column Name="Quater" DataType="System.String"/>
+    </TableDataSource>
+    <Parameter Name="Banner" DataType="System.String"/>
+    <Parameter Name="TheDate" DataType="System.DateTime"/>
+    <Parameter Name="TheShaft" DataType="System.String" Expression="&quot;Shaft Manager 3#&quot;"/>
+    <Parameter Name="theDate" DataType="System.String"/>
+    <Parameter Name="logo" DataType="System.String"/>
+    <Parameter Name="logoMineware" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15">
+    <PageHeaderBand Name="PageHeader1" Width="756" Height="75.6" BeforePrintEvent="PageHeader1_BeforePrint">
+      <TextObject Name="Text5" Left="132.3" Top="18.9" Width="510.3" Height="18.9" Text="[Detail_Problem_Data.Shaft]" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text31" Left="132.3" Width="510.3" Height="18.9" Text="[Banner]" HorzAlign="Center" Font="Arial, 10pt, style=Bold"/>
+      <TextObject Name="Text32" Left="236.25" Top="56.7" Width="94.5" Height="18.9" Text="[TheDate]" Format="Custom" Format.Format="yyyy-MM-dd" HorzAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text33" Left="132.3" Top="56.7" Width="122.85" Height="18.9" Text="For week ending: " HorzAlign="Right" Font="Arial, 8pt, style=Bold"/>
+      <PictureObject Name="picClient" Width="132.3" Height="75.6" Image=""/>
+      <PictureObject Name="picMineware" Left="642.6" Width="113.4" Height="56.7" Image=""/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupHeader1" Top="79.6" Width="756" Height="37.8" Fill.Color="224, 224, 224" StartNewPage="true" Condition="[Detail_Problem_Data.Shaft]">
+      <TextObject Name="Text2" Left="231.55" Width="56.7" Height="37.8" Fill.Color="Silver" Text="[Problem_Report_Headings.Week4]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text4" Left="288.25" Width="56.7" Height="37.8" Fill.Color="Silver" Text="[Problem_Report_Headings.Week3]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text8" Left="344.95" Width="56.7" Height="37.8" Fill.Color="Silver" Text="[Problem_Report_Headings.Week2]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text10" Left="401.65" Width="56.7" Height="37.8" Fill.Color="Silver" Text="[Problem_Report_Headings.Week1]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text12" Left="458.35" Width="56.7" Height="37.8" Fill.Color="Silver" Text="[Problem_Report_Headings.MONTH2]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text18" Left="515.05" Width="56.7" Height="37.8" Fill.Color="Silver" Text="[Problem_Report_Headings.MONTH1]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <TextObject Name="Text34" Left="571.75" Width="56.7" Height="37.8" Fill.Color="Silver" Text="[Problem_Report_Headings.MONTH]" HorzAlign="Right" VertAlign="Center" Font="Arial, 8pt, style=Bold"/>
+      <DataBand Name="Data1" Top="121.4" Width="756" Height="18.9" DataSource="Detail_Problem_Data">
+        <TextObject Name="Text1" Width="226.8" Height="18.9" Text="[Detail_Problem_Data.Type]" Font="Arial, 8pt"/>
+        <TextObject Name="Text3" Left="231.55" Width="56.7" Height="18.9" Text="[Detail_Problem_Data.Week4]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Arial, 8pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text7" Left="288.25" Width="56.7" Height="18.9" Text="[Detail_Problem_Data.Week3]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Arial, 8pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text9" Left="344.95" Width="56.7" Height="18.9" Text="[Detail_Problem_Data.Week2]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Arial, 8pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text11" Left="401.65" Width="56.7" Height="18.9" Text="[Detail_Problem_Data.Week1]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator=" " Format.NegativePattern="1" HorzAlign="Right" WordWrap="false" Font="Arial, 8pt" Trimming="EllipsisCharacter"/>
+        <TextObject Name="Text17" Left="458.35" Width="56.7" Height="18.9" Text="[Detail_Problem_Data.Month2]" HorzAlign="Right" Font="Arial, 8pt"/>
+        <TextObject Name="Text20" Left="515.05" Width="56.7" Height="18.9" Text="[Detail_Problem_Data.Month1]" HorzAlign="Right" Font="Arial, 8pt"/>
+        <TextObject Name="Text22" Left="571.75" Width="56.7" Height="18.9" Text="[Detail_Problem_Data.Month]" HorzAlign="Right" Font="Arial, 8pt"/>
+        <Sort>
+          <Sort Expression="[Detail_Problem_Data.OrderBy]"/>
+        </Sort>
+      </DataBand>
+    </GroupHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="144.3" Width="756" Height="18.9">
+      <TextObject Name="Text36" Width="189" Height="18.9" Text="[Date]" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text35" Left="680.4" Width="75.6" Height="18.9" Text="Page [Page] of [TotalPages#]" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text83" Left="491.4" Width="189" Height="18.9" Text="Mineware - CPM Generated Report" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt" TextFill.Color="Gray"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

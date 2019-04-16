@@ -1,0 +1,1652 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="09/05/2014 11:57:41" ReportInfo.Modified="06/01/2017 16:30:41" ReportInfo.CreatorVersion="2016.3.0.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void PageHeader1_BeforePrint(object sender, EventArgs e)
+    {
+      DataSourceBase rowData = Report.GetDataSource(&quot;Table1&quot;);
+      
+      string prodsupervisor= ((String)Report.GetColumnValue(&quot;Table1.ProdSupervisor&quot;));
+      if(prodsupervisor ==&quot;N&quot;  )
+      {
+        Text230.Width = Text230.Width - Text69 .Width;
+        Text69 .Width =0;
+        Text115 .Width =0;
+        //Text133 .Width =0;
+      }
+      
+      string miner= ((String)Report.GetColumnValue(&quot;Table1.Miner&quot;))  ;
+      if(miner ==&quot;N&quot;  )
+      {
+        Text230.Width = Text230.Width - Text70 .Width;
+        Text70 .Width =0;
+        Text116 .Width =0;
+        //Text291 .Width =0;
+      }
+      
+      string workplace= ((String)Report.GetColumnValue(&quot;Table1.Workplace&quot;))   ;
+      if(workplace ==&quot;N&quot;  )
+      {
+        Text230.Width = Text230.Width - Text71 .Width;
+        Text71 .Width =0;
+        Text117 .Width =0;
+        //Text290 .Width =0;
+      }
+      
+      string workplaceid= ((String)Report.GetColumnValue(&quot;Table1.Workplaceid&quot;)) ;
+      if(workplaceid ==&quot;N&quot;  )
+      {
+        Text230.Width = Text230.Width - Text72 .Width;
+        Text72 .Width =0;
+        Text118 .Width =0;
+        //Text289 .Width =0;
+      }
+      
+      string stopped= ((String)Report.GetColumnValue(&quot;Table1.Stopped&quot;))    ;
+      if(stopped ==&quot;N&quot;  )
+      {
+        Text230.Width = Text230.Width - Text73 .Width;
+        Text73 .Width =0;
+        Text119 .Width =0;
+        //Text288 .Width =0;
+      }
+      
+      string daycrew= ((String)Report.GetColumnValue(&quot;Table1.DayCrew&quot;))   ;
+      if(daycrew ==&quot;N&quot;  )
+      {
+        Text230.Width = Text230.Width - Text74 .Width;
+        Text74 .Width =0;
+        Text120 .Width =0;
+        //Text287 .Width =0;
+      }
+      
+      string afternooncrew=  ((String)Report.GetColumnValue(&quot;Table1.AfternoonCrew&quot;)) ;
+      if(afternooncrew ==&quot;N&quot;  )
+      {
+        Text230.Width = Text230.Width - Text75 .Width;
+        Text75 .Width =0;
+        Text121 .Width =0;
+        //Text286 .Width =0;
+      }
+      
+      string nightcrew= ((String)Report.GetColumnValue(&quot;Table1.NightCrew&quot;))  ;
+      if(nightcrew ==&quot;N&quot;  )
+      {
+        Text230.Width = Text230.Width - Text76 .Width;
+        Text76 .Width =0;
+        Text122 .Width =0;
+        //Text285 .Width =0;
+      }
+      
+      string rovingtcrew= ((String)Report.GetColumnValue(&quot;Table1.CrewStrength&quot;)) ;
+      if(rovingtcrew ==&quot;N&quot;  )
+      {
+        Text230.Width = Text230.Width - Text77 .Width;
+        Text77 .Width =0;
+        Text123 .Width =0;
+        //Text284 .Width =0;
+      }
+      
+      string crewstrength= ((String)Report.GetColumnValue(&quot;Table1.PrimSec&quot;))   ;
+      if(crewstrength ==&quot;N&quot;  )
+        
+      {
+        Text230.Width = Text230.Width - Text78 .Width;
+        Text78 .Width =0;
+        Text124 .Width =0;
+        //Text283.Width  =0;     
+      }
+      
+      string MiningMethod= ((String)Report.GetColumnValue(&quot;Table1.MiningMethod&quot;))   ;
+      if(MiningMethod ==&quot;N&quot;  )
+        
+      {
+        Text230.Width = Text230.Width - Text106 .Width;
+        Text106 .Width =0;
+        Text113 .Width =0;
+        //Text283.Width  =0;     
+      }
+      
+      
+      Text64.Width = Text230.Width;
+      
+      string TotalMetersIncl= ((string)Report.GetColumnValue (&quot;Table1.TotalMetersIncl&quot;));
+      if(TotalMetersIncl == &quot;N&quot;)
+      {
+        Text2 .Width =0;
+        Text32 .Width =0;
+        //Text162 .Width =0;
+        
+        Text79 .Width =0;
+        Text125 .Width =0;
+        Text204 .Width =0;
+        Text241 .Width =0;
+      }
+      
+      string TotalMetresExcl= ((string)Report.GetColumnValue (&quot;Table1.TotalMetresExcl&quot;));
+      if(TotalMetresExcl == &quot;N&quot;)
+      {
+        Text3 .Width =0;
+        Text33 .Width =0;
+        //Text163 .Width =0;
+        
+        Text80 .Width =0;
+        Text126 .Width =0;
+        Text205 .Width =0;
+         Text242 .Width =0;
+      }
+      
+      string OnReefMetres= ((string)Report.GetColumnValue (&quot;Table1.OnReefMetres&quot;));
+      if(OnReefMetres == &quot;N&quot;)
+      {
+        Text4 .Width =0;
+        Text34 .Width =0;
+        //Text164 .Width =0;
+        
+        Text81 .Width =0;
+        Text127 .Width =0;
+        Text206 .Width =0;
+         Text243 .Width =0;
+      }
+      
+      string OffReefMetres= ((string)Report.GetColumnValue (&quot;Table1.OffReefMetres&quot;));
+      if(OffReefMetres == &quot;N&quot;)
+      {
+        Text5 .Width =0;
+        Text35 .Width =0;
+        //Text165 .Width =0;
+        
+        Text82.Width =0;
+        Text128 .Width =0;
+        Text207 .Width =0;
+         Text244 .Width =0;
+      }
+      
+     
+      
+      string MainOnReefMetres= ((string)Report.GetColumnValue (&quot;Table1.MainOnReefMetres&quot;));
+      if(MainOnReefMetres == &quot;N&quot;)
+      {
+        Text6 .Width =0;
+        Text36 .Width =0;
+        //Text166 .Width =0;
+        
+        Text83 .Width =0;
+        Text129 .Width =0;
+        Text208 .Width =0;
+        Text245 .Width =0;     
+      }
+      
+      string MainOffReefMetres= ((string)Report.GetColumnValue (&quot;Table1.MainOffReefMetres&quot;));
+      if(MainOffReefMetres == &quot;N&quot;)
+      {
+        Text7 .Width =0;
+        Text37 .Width =0;
+        //Text167 .Width =0;
+        
+        Text84 .Width =0;
+        Text130 .Width =0;
+        Text209 .Width =0;
+        Text246 .Width =0; 
+      }
+      
+      string MainAdvance= ((string)Report.GetColumnValue (&quot;Table1.MainAdvance&quot;));
+      if(MainAdvance == &quot;N&quot;)
+      {
+        Text8 .Width =0;
+        Text38 .Width =0;
+        //Text168 .Width =0;          
+                   
+        Text85 .Width =0;
+        Text131 .Width =0;
+        Text210 .Width =0;
+        Text247 .Width =0;
+      }
+      
+      
+      
+      string SecOnReefMetres= ((string)Report.GetColumnValue (&quot;Table1.SecOnReefMetres&quot;));
+      if(SecOnReefMetres == &quot;N&quot;)
+      {
+        Text9 .Width =0;
+        Text39 .Width =0;
+        //Text169 .Width =0;
+                            
+        Text86 .Width =0;
+        Text132 .Width =0;
+        Text211 .Width =0;
+        Text248 .Width =0;
+      }
+      
+      string SecOffReefMetres= ((string)Report.GetColumnValue (&quot;Table1.SecOffReefMetres&quot;));
+      if(SecOffReefMetres == &quot;N&quot;)
+      {
+        Text10 .Width =0;
+        Text40 .Width =0;
+        //Text170 .Width =0;
+                           
+        Text87 .Width =0;
+        Text133 .Width =0;
+        Text212 .Width =0;
+        Text249 .Width =0;
+      }
+      
+      string SecMetres= ((string)Report.GetColumnValue (&quot;Table1.SecMetres&quot;));
+      if(SecMetres == &quot;N&quot;)
+      { 
+        Text11 .Width =0;
+        Text41 .Width =0;
+        //Text171 .Width =0;
+                           
+        Text88 .Width =0;
+        Text134 .Width =0;
+        Text213 .Width =0;
+        Text250 .Width =0;
+      }         
+      
+      string CapitalOnReefMetres= ((string)Report.GetColumnValue (&quot;Table1.CapitalOnReefMetres&quot;));
+      if(CapitalOnReefMetres == &quot;N&quot;)
+      {
+        Text12 .Width =0;
+        Text42 .Width =0;
+        //Text172 .Width =0;
+                
+        Text89 .Width =0;
+        Text135 .Width =0;
+        Text214 .Width =0;
+        Text251 .Width =0;
+          
+      }
+      
+      string CapitalOffReefMetres= ((string)Report.GetColumnValue (&quot;Table1.CapitalOffReefMetres&quot;));
+      if(CapitalOffReefMetres == &quot;N&quot;)
+      {
+        Text13 .Width =0;
+        Text43 .Width =0;
+       // Text173 .Width =0;
+                
+        
+        Text90 .Width =0;
+        Text136 .Width =0;
+        Text215 .Width =0;
+        Text252 .Width =0;               
+      }
+      
+      string CapitalMetres= ((string)Report.GetColumnValue (&quot;Table1.CapitalMetres&quot;));
+      if(CapitalMetres == &quot;N&quot;)
+      {
+        Text14 .Width =0;
+        Text44 .Width =0;
+        //Text174 .Width =0;
+                      
+        Text91 .Width =0;
+        Text137 .Width =0;
+        Text216 .Width =0;
+        Text253 .Width =0;        
+      }        
+      
+      string EquivOnReefMetres= ((string)Report.GetColumnValue (&quot;Table1.EquivOnReefMetres&quot;));
+      if(EquivOnReefMetres == &quot;N&quot;)
+      {
+        Text15 .Width =0;
+        Text45 .Width =0;
+       // Text175 .Width =0;
+                  
+        Text92 .Width =0;
+        Text138 .Width =0;
+        Text217 .Width =0;
+        Text254 .Width =0;
+      }
+      
+      string EquivOffReefMetres= ((string)Report.GetColumnValue (&quot;Table1.EquivOffReefMetres&quot;));
+      if(EquivOffReefMetres == &quot;N&quot;)
+      {
+        Text16 .Width =0;
+        Text46 .Width =0;
+       // Text176 .Width =0;
+                            
+        Text93 .Width =0;
+        Text139 .Width =0;
+        Text218 .Width =0;
+        Text255 .Width =0; 
+      }
+      
+      string EquivMetres= ((string)Report.GetColumnValue (&quot;Table1.EquivMetres&quot;));
+      if(EquivMetres == &quot;N&quot;)
+      {
+        Text17 .Width =0;
+        Text47 .Width =0;
+        //Text177 .Width =0;
+                           
+        Text94 .Width =0;
+        Text140 .Width =0;
+        Text219 .Width =0;
+        Text256 .Width =0;  
+      }
+      
+      string ReefTons = ((string)Report.GetColumnValue (&quot;Table1.OnReefTons&quot;));
+      if(ReefTons == &quot;N&quot;)
+      {
+        Text18 .Width =0;
+        Text48 .Width =0;
+        //Text178 .Width =0;
+                           
+        Text95 .Width =0;
+        Text142 .Width =0;
+        Text220 .Width =0;
+        Text257 .Width =0;  
+      }
+      
+      string OffReefTons = ((string)Report.GetColumnValue (&quot;Table1.OffReefTons&quot;));
+      if(OffReefTons == &quot;N&quot;)
+      {
+        Text19 .Width =0;
+        Text49 .Width =0;
+        //Text179 .Width =0;
+                           
+        Text96 .Width =0;
+        Text143 .Width =0;
+        Text221 .Width =0;
+        Text258 .Width =0;  
+      }
+      
+      string Tons = ((string)Report.GetColumnValue (&quot;Table1.Tons&quot;));
+      if(Tons == &quot;N&quot;)
+      {
+        Text20 .Width =0;
+        Text50 .Width =0;
+        //Text180 .Width =0;
+                           
+        Text97 .Width =0;
+        Text144 .Width =0;
+        Text222 .Width =0;
+        Text259 .Width =0;  
+      }
+      
+      string gt= ((string)Report.GetColumnValue (&quot;Table1.gt&quot;));
+      if(gt == &quot;N&quot;)
+      {
+        Text21 .Width =0;
+        Text51 .Width =0;
+        //Text181 .Width =0;
+        
+        Text98 .Width =0;
+        Text144 .Width =0;
+        Text223 .Width =0;
+         Text260 .Width =0;
+      }
+      
+      string cmgt= ((string)Report.GetColumnValue (&quot;Table1.cmgt&quot;));
+      if(cmgt == &quot;N&quot;)
+      {
+        Text22 .Width =0;
+        Text52 .Width =0;
+        //Text182 .Width =0;
+        
+        Text99 .Width =0;
+        Text145 .Width =0;
+        Text224 .Width =0;
+         Text261 .Width =0;
+      }
+      
+      string kg= ((string)Report.GetColumnValue (&quot;Table1.kg&quot;));
+      if(kg == &quot;N&quot;)
+      {
+        Text23 .Width =0;
+        Text53 .Width =0;
+        //Text183 .Width =0;
+        
+        Text100 .Width =0;
+        Text146 .Width =0;
+        Text225 .Width =0;
+         Text262 .Width =0;
+      }
+      
+      string CubicMetres= ((string)Report.GetColumnValue (&quot;Table1.CubicMetres&quot;));
+      if(CubicMetres == &quot;N&quot;)
+      {
+        Text24 .Width =0;
+        Text54 .Width =0;
+        //Text184 .Width =0;
+                
+        Text101 .Width =0;
+        Text147 .Width =0;
+        Text226 .Width =0;
+        Text263 .Width =0;
+      }
+      
+      string CubicTons= ((string)Report.GetColumnValue (&quot;Table1.CubicTons&quot;));
+      if(CubicTons == &quot;N&quot;)
+      {
+        Text25 .Width =0;
+        Text55 .Width =0;
+        //Text185 .Width =0;
+        
+        Text102 .Width =0;
+        Text148 .Width =0;
+        Text227 .Width =0;
+        Text264 .Width =0;
+      }
+      
+      string CubicKg= ((string)Report.GetColumnValue (&quot;Table1.CubicKg&quot;));
+      if(CubicKg == &quot;N&quot;)
+      {
+        Text26 .Width =0;
+        Text56 .Width =0;
+        //Text186 .Width =0;
+                
+        Text103 .Width =0;
+        Text149 .Width =0;
+        Text228 .Width =0;
+        Text265 .Width =0;
+      }
+      
+      string CubicGt= ((string)Report.GetColumnValue (&quot;Table1.CubicGt&quot;));
+      if(CubicGt == &quot;N&quot;)
+      {
+        Text27 .Width =0;
+        Text57 .Width =0;
+        //Text187 .Width =0;
+        
+        Text104 .Width =0;
+        Text150 .Width =0;
+        Text229 .Width =0;
+        Text266 .Width =0;
+      }
+      
+      string DrillRigg= ((string)Report.GetColumnValue (&quot;Table1.DrillRigg&quot;));
+      if(DrillRigg == &quot;N&quot;)
+      {
+//        Text2 .Width =0;
+//        Text32 .Width =0;
+//        Text162 .Width =0;
+        
+        Text105.Width =0;
+        Text151 .Width =0;
+        Text68 .Width =0;
+        Text267 .Width =0;
+      }
+      
+     
+    }
+
+    private void ReportTitle1_BeforePrint(object sender, EventArgs e)
+    {
+      string logo =  ((String)Report.GetParameterValue(&quot;logo&quot;));
+      picLogo.ImageLocation = logo;
+      
+      string logoMineware =  ((String)Report.GetParameterValue(&quot;logoMineware&quot;));
+      picLogoMineware.ImageLocation = logoMineware;
+      
+      string logo1 =  ((String)Report.GetParameterValue(&quot;logo&quot;));
+      picLogo1.ImageLocation = logo1;
+      
+      string logoMineware1 =  ((String)Report.GetParameterValue(&quot;logoMineware&quot;));
+      picLogoMineware1.ImageLocation = logoMineware1;
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="PlanningReportDevSummary" ReferenceName="Data.PlanningReportDevSummary" DataType="System.Int32" Enabled="true">
+      <Column Name="GroupSec" DataType="System.String"/>
+      <Column Name="Prim" DataType="System.String"/>
+      <Column Name="OrgUnitday" DataType="System.String"/>
+      <Column Name="OrgUnitAfterNoon" DataType="System.String"/>
+      <Column Name="OrgUnitNight" DataType="System.String"/>
+      <Column Name="remarks" DataType="System.String"/>
+      <Column Name="TotalAdvance" DataType="System.Decimal"/>
+      <Column Name="MetresAdvance" DataType="System.Decimal"/>
+      <Column Name="OnReefAdv" DataType="System.Decimal"/>
+      <Column Name="OffReefAdv" DataType="System.Decimal"/>
+      <Column Name="SecTot_M" DataType="System.Decimal"/>
+      <Column Name="SecOn_M" DataType="System.Decimal"/>
+      <Column Name="SecOff_M" DataType="System.Decimal"/>
+      <Column Name="MainTot_M" DataType="System.Decimal"/>
+      <Column Name="MainOn_M" DataType="System.Decimal"/>
+      <Column Name="MainOff_M" DataType="System.Decimal"/>
+      <Column Name="Capital_M" DataType="System.Decimal"/>
+      <Column Name="CapitalOn_M" DataType="System.Decimal"/>
+      <Column Name="CapitalOff_M" DataType="System.Decimal"/>
+      <Column Name="Converted_M" DataType="System.Decimal"/>
+      <Column Name="ConvertedOn_M" DataType="System.Decimal"/>
+      <Column Name="ConvertedOff_M" DataType="System.Decimal"/>
+      <Column Name="DrillRig" DataType="System.String"/>
+      <Column Name="Tons" DataType="System.Decimal"/>
+      <Column Name="OnReefTons" DataType="System.Decimal"/>
+      <Column Name="OffReefTons" DataType="System.Decimal"/>
+      <Column Name="Grams" DataType="System.Decimal"/>
+      <Column Name="cmgt" DataType="System.Int32"/>
+      <Column Name="kg" DataType="System.Decimal"/>
+      <Column Name="OnReefSQM" DataType="System.Decimal"/>
+      <Column Name="Height" DataType="System.Decimal"/>
+      <Column Name="gt" DataType="System.Decimal"/>
+      <Column Name="ShaftPayLimit" DataType="System.Decimal"/>
+      <Column Name="CMGTGramsCalc" DataType="System.Decimal"/>
+      <Column Name="labourstrength" DataType="System.Decimal"/>
+      <Column Name="Cubicmetres" DataType="System.Decimal"/>
+      <Column Name="CubicTons" DataType="System.Decimal"/>
+      <Column Name="CubicGrams" DataType="System.Decimal"/>
+      <Column Name="CubicGT" DataType="System.Int32"/>
+      <Column Name="Bus_Plan_TotalAdv" DataType="System.Decimal"/>
+      <Column Name="Bus_Plan_Adv" DataType="System.Decimal"/>
+      <Column Name="Bus_Plan_OnreefAdv" DataType="System.Decimal"/>
+      <Column Name="Bus_Plan_OffreefAdv" DataType="System.Decimal"/>
+      <Column Name="Bus_Plan_DevCubics" DataType="System.Decimal"/>
+      <Column Name="Bus_Plan_Cap_Adv" DataType="System.Decimal"/>
+      <Column Name="Grams1" DataType="System.Decimal"/>
+      <Column Name="UraniumKG" DataType="System.Decimal"/>
+      <Column Name="Cmkgt" DataType="System.Int32"/>
+      <Column Name="Bus_Plan_Adv_Sec" DataType="System.Decimal"/>
+      <Column Name="Bus_Plan_OnreefAdv_Sec" DataType="System.Decimal"/>
+      <Column Name="Bus_Plan_OffreefAdv_Sec" DataType="System.Decimal"/>
+      <Column Name="Bus_Plan_Adv_Main" DataType="System.Decimal"/>
+      <Column Name="Bus_Plan_OnreefAdv_Main" DataType="System.Decimal"/>
+      <Column Name="Bus_Plan_OffreefAdv_Main" DataType="System.Decimal"/>
+      <Column Name="Volume" DataType="System.Int32"/>
+      <Column Name="OnReefVolume" DataType="System.Int32"/>
+      <Column Name="OffReefVolume" DataType="System.Int32"/>
+    </TableDataSource>
+    <TableDataSource Name="Table1" ReferenceName="Data.Table1" DataType="System.Int32" Enabled="true">
+      <Column Name="PrimSec" DataType="System.String"/>
+      <Column Name="TotalMetersIncl" DataType="System.String"/>
+      <Column Name="TotalMetresExcl" DataType="System.String"/>
+      <Column Name="OnReefMetres" DataType="System.String"/>
+      <Column Name="OffReefMetres" DataType="System.String"/>
+      <Column Name="MainAdvance" DataType="System.String"/>
+      <Column Name="OffReefFL" DataType="System.String"/>
+      <Column Name="Advance" DataType="System.String"/>
+      <Column Name="MainOnReefMetres" DataType="System.String"/>
+      <Column Name="MainOffReefMetres" DataType="System.String"/>
+      <Column Name="SecMetres" DataType="System.String"/>
+      <Column Name="SecOnReefMetres" DataType="System.String"/>
+      <Column Name="SecOffReefMetres" DataType="System.String"/>
+      <Column Name="CapitalMetres" DataType="System.String"/>
+      <Column Name="CapitalOnReefMetres" DataType="System.String"/>
+      <Column Name="CapitalOffReefMetres" DataType="System.String"/>
+      <Column Name="EquivMetres" DataType="System.String"/>
+      <Column Name="EquivOnReefMetres" DataType="System.String"/>
+      <Column Name="EquivOffReefMetres" DataType="System.String"/>
+      <Column Name="gt" DataType="System.String"/>
+      <Column Name="cmgt" DataType="System.String"/>
+      <Column Name="KG" DataType="System.String"/>
+      <Column Name="CubicMetres" DataType="System.String"/>
+      <Column Name="CubicTons" DataType="System.String"/>
+      <Column Name="CubicKg" DataType="System.String"/>
+      <Column Name="CubicGt" DataType="System.String"/>
+      <Column Name="DrillRigg" DataType="System.String"/>
+      <Column Name="Miner" DataType="System.String"/>
+      <Column Name="Workplace" DataType="System.String"/>
+      <Column Name="Workplaceid" DataType="System.String"/>
+      <Column Name="Stopped" DataType="System.String"/>
+      <Column Name="DayCrew" DataType="System.String"/>
+      <Column Name="AfternoonCrew" DataType="System.String"/>
+      <Column Name="NightCrew" DataType="System.String"/>
+      <Column Name="RovingCrew" DataType="System.String"/>
+      <Column Name="CrewStrength" DataType="System.String"/>
+      <Column Name="ProdSupervisor" DataType="System.String"/>
+      <Column Name="Tons" DataType="System.String"/>
+      <Column Name="OnReefTons" DataType="System.String"/>
+      <Column Name="OffReefTons" DataType="System.String"/>
+      <Column Name="MiningMethod" DataType="System.String"/>
+      <Column Name="cmkgt" DataType="System.String"/>
+      <Column Name="UraniumKg" DataType="System.String"/>
+      <Column Name="ShowAuth" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="PlanningReportDev" ReferenceName="Data.PlanningReportDev" DataType="System.Int32" Enabled="true">
+      <Column Name="Name_1" DataType="System.String"/>
+      <Column Name="isStopped" DataType="System.String"/>
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Workplace" DataType="System.String"/>
+      <Column Name="BeginDate" DataType="System.DateTime"/>
+      <Column Name="EndDate" DataType="System.DateTime"/>
+      <Column Name="TotalShifts" DataType="System.Int32"/>
+      <Column Name="ShaftPayLimit" DataType="System.Int32"/>
+      <Column Name="TotalAdvance" DataType="System.Decimal"/>
+      <Column Name="MetresAdvance" DataType="System.Decimal"/>
+      <Column Name="OnReefAdv" DataType="System.Decimal"/>
+      <Column Name="OffReefAdv" DataType="System.Decimal"/>
+      <Column Name="SecTot_M" DataType="System.Decimal"/>
+      <Column Name="SecOn_M" DataType="System.Decimal"/>
+      <Column Name="SecOff_M" DataType="System.Decimal"/>
+      <Column Name="MainTot_M" DataType="System.Decimal"/>
+      <Column Name="MainOn_M" DataType="System.Decimal"/>
+      <Column Name="MainOff_M" DataType="System.Decimal"/>
+      <Column Name="Capital_M" DataType="System.Decimal"/>
+      <Column Name="CapitalOn_M" DataType="System.Decimal"/>
+      <Column Name="CapitalOff_M" DataType="System.Decimal"/>
+      <Column Name="Converted_M" DataType="System.Decimal"/>
+      <Column Name="ConvertedOn_M" DataType="System.Decimal"/>
+      <Column Name="ConvertedOff_M" DataType="System.Decimal"/>
+      <Column Name="DrillRig" DataType="System.String"/>
+      <Column Name="Tons" DataType="System.Decimal"/>
+      <Column Name="OnReefTons" DataType="System.Decimal"/>
+      <Column Name="OffReefTons" DataType="System.Decimal"/>
+      <Column Name="gt" DataType="System.Decimal"/>
+      <Column Name="cmgt" DataType="System.Decimal"/>
+      <Column Name="Kg" DataType="System.Decimal"/>
+      <Column Name="OrgUnitday" DataType="System.String"/>
+      <Column Name="OrgUnitAfterNoon" DataType="System.String"/>
+      <Column Name="OrgUnitNight" DataType="System.String"/>
+      <Column Name="Remarks" DataType="System.String"/>
+      <Column Name="CrewStrength" DataType="System.Decimal"/>
+      <Column Name="CubicMetres" DataType="System.Decimal"/>
+      <Column Name="CubicTons" DataType="System.Decimal"/>
+      <Column Name="CubicGrams" DataType="System.Decimal"/>
+      <Column Name="CubicGT" DataType="System.Int32"/>
+      <Column Name="Bus_Plan_TotalAdv" DataType="System.Int32"/>
+      <Column Name="Bus_Plan_Adv" DataType="System.Int32"/>
+      <Column Name="Bus_Plan_OnreefAdv" DataType="System.Int32"/>
+      <Column Name="Bus_Plan_OffreefAdv" DataType="System.Int32"/>
+      <Column Name="Bus_Plan_DevCubics" DataType="System.Int32"/>
+      <Column Name="Bus_Plan_Cap_Adv" DataType="System.Int32"/>
+      <Column Name="Workplaceid" DataType="System.String"/>
+      <Column Name="Description" DataType="System.String"/>
+      <Column Name="Miner" DataType="System.String"/>
+      <Column Name="Prim" DataType="System.String"/>
+      <Column Name="Column" DataType="System.Int32" Calculated="true" Expression=""/>
+      <Column Name="UraniumKG" DataType="System.Decimal"/>
+      <Column Name="Cmkgt" DataType="System.Int32"/>
+      <Column Name="MiningMethod" DataType="System.String"/>
+      <Column Name="Bus_Plan_Adv_Sec" DataType="System.Decimal"/>
+      <Column Name="Bus_Plan_OnreefAdv_Sec" DataType="System.Decimal"/>
+      <Column Name="Bus_Plan_OffreefAdv_Sec" DataType="System.Decimal"/>
+      <Column Name="Bus_Plan_Adv_Main" DataType="System.Decimal"/>
+      <Column Name="Bus_Plan_OnreefAdv_Main" DataType="System.Decimal"/>
+      <Column Name="Bus_Plan_OffreefAdv_Main" DataType="System.Decimal"/>
+      <Column Name="Volume" DataType="System.Int32"/>
+      <Column Name="OnReefVolume" DataType="System.Int32"/>
+      <Column Name="OffReefVolume" DataType="System.Int32"/>
+    </TableDataSource>
+    <Parameter Name="Type" DataType="System.String"/>
+    <Parameter Name="Summary" DataType="System.String"/>
+    <Parameter Name="logo" DataType="System.String"/>
+    <Parameter Name="logoMineware" DataType="System.String"/>
+    <Parameter Name="Banner" DataType="System.String"/>
+    <Parameter Name="Prodmonth" DataType="System.String"/>
+    <Parameter Name="SumLevel" DataType="System.Int32"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="500" PaperHeight="296.9" FirstPageSource="15" OtherPagesSource="15" Guides="113.4">
+    <ReportTitleBand Name="ReportTitle1" Width="1814.4" Height="151.2" BeforePrintEvent="ReportTitle1_BeforePrint" OutlineExpression="[Summary]">
+      <TextObject Name="Text269" Left="113.4" Top="28.35" Width="340.2" Height="28.35" Text="Development [Type]" Font="Arial, 16pt, style=Bold"/>
+      <TextObject Name="Text271" Left="113.4" Top="56.7" Width="340.2" Height="18.9" Text="[Summary]" Font="Arial, 10pt, style=Bold"/>
+      <PictureObject Name="picLogo" Width="113.4" Height="75.6" Image=""/>
+      <PictureObject Name="picLogoMineware" Top="75.6" Width="113.4" Height="37.8" Image=""/>
+      <TextObject Name="Text109" Left="113.4" Width="340.2" Height="28.35" Text="[Banner]" Font="Arial, 16pt, style=Bold"/>
+      <TextObject Name="Text110" Left="113.4" Top="75.6" Width="340.2" Height="18.9" Text="[Prodmonth]" Font="Arial, 10pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="155.2" Width="1814.4" Height="56.7" BeforePrintEvent="PageHeader1_BeforePrint" Guides="56.7,56.7">
+      <TextObject Name="Text1" Width="151.2" Height="56.7" Dock="Left" Border.Lines="All" Text="Sections" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text2" Left="151.2" Width="37.8" Height="56.7" Dock="Left" Border.Lines="All" Text="Total Metres(Incl Equiv)" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text3" Left="189" Width="37.8" Height="56.7" Dock="Left" Border.Lines="All" Text="Total Metres(Excl Equiv)" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text4" Left="226.8" Width="37.8" Height="56.7" Dock="Left" Border.Lines="All" Text="On Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text5" Left="264.6" Width="47.25" Height="56.7" Dock="Left" Border.Lines="All" Text="Off Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text6" Left="311.85" Width="37.8" Height="56.7" Dock="Left" Border.Lines="All" Text="Main On Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text7" Left="349.65" Width="37.8" Height="56.7" Dock="Left" Border.Lines="All" Text="Main Off Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text8" Left="387.45" Width="37.8" Height="56.7" Dock="Left" Border.Lines="All" Text="Main Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text9" Left="425.25" Width="37.8" Height="56.7" Dock="Left" Border.Lines="All" Text="Sec On Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text10" Left="463.05" Width="37.8" Height="56.7" Dock="Left" Border.Lines="All" Text="Sec Off Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text11" Left="500.85" Width="37.8" Height="56.7" Dock="Left" Border.Lines="All" Text="Sec Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text12" Left="538.65" Width="37.8" Height="56.7" Dock="Left" Border.Lines="All" Text="Cap On Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text13" Left="576.45" Width="37.8" Height="56.7" Dock="Left" Border.Lines="All" Text="Cap Off Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text14" Left="614.25" Width="37.8" Height="56.7" Dock="Left" Border.Lines="All" Text="Cap Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text15" Left="652.05" Width="37.8" Height="56.7" Dock="Left" Border.Lines="All" Text="Equiv On Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text16" Left="689.85" Width="47.25" Height="56.7" Dock="Left" Border.Lines="All" Text="Equiv Off Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text17" Left="737.1" Width="37.8" Height="56.7" Dock="Left" Border.Lines="All" Text="Equiv Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text18" Left="774.9" Width="37.8" Height="56.7" Dock="Left" Border.Lines="All" Text="On Reef Tons" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text19" Left="812.7" Width="37.8" Height="56.7" Dock="Left" Border.Lines="All" Text="Off Reef Tons" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text20" Left="850.5" Width="47.25" Height="56.7" Dock="Left" Border.Lines="All" Text="Tons" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text21" Left="897.75" Width="47.25" Height="56.7" Dock="Left" Border.Lines="All" Text="Value gt" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text22" Left="945" Width="47.25" Height="56.7" Dock="Left" Border.Lines="All" Text="cmgt" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text23" Left="992.25" Width="47.25" Height="56.7" Dock="Left" Border.Lines="All" Text="Kg's" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text24" Left="1039.5" Width="47.25" Height="56.7" Dock="Left" Border.Lines="All" Text="Cubic Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text25" Left="1086.75" Width="47.25" Height="56.7" Dock="Left" Border.Lines="All" Text="Cubic Tons" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt, style=Bold"/>
+      <TextObject Name="Text26" Left="1134" Width="37.8" Height="56.7" Dock="Left" Border.Lines="All" Text="Cubic Kg's" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text27" Left="1171.8" Width="47.25" Height="56.7" Dock="Left" Border.Lines="All" Text="Cubic g/t" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+      <TextObject Name="Text28" Left="1219.05" Width="47.25" Height="56.7" Dock="Left" Border.Lines="All" Text="Bus Total Metres(Incl Equiv)" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text29" Left="1266.3" Width="47.25" Height="56.7" Dock="Left" Border.Lines="All" Text="Bus Plan Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text30" Left="1313.55" Width="47.25" Height="56.7" Dock="Left" Border.Lines="All" Text="Bus Plan On Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text61" Left="1360.8" Width="47.25" Height="56.7" Dock="Left" Border.Lines="All" Text="Bus Plan Off Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text62" Left="1408.05" Width="47.25" Height="56.7" Dock="Left" Border.Lines="All" Text="Bus Plan Capital Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text63" Left="1455.3" Width="47.25" Height="56.7" Dock="Left" Border.Lines="All" Text="Bus Plan Equiv Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text114" Left="1502.55" Width="47.25" Height="56.7" Dock="Left" Border.Lines="All" Text="Bus Plan Main Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text294" Left="1549.8" Width="47.25" Height="56.7" Dock="Left" Border.Lines="All" Text="Bus Plan Main Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text295" Left="1597.05" Width="47.25" Height="56.7" Dock="Left" Border.Lines="All" Text="Bus Plan Main Off Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text296" Left="1644.3" Width="47.25" Height="56.7" Dock="Left" Border.Lines="All" Text="Bus Plan Sec Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text297" Left="1691.55" Width="47.25" Height="56.7" Dock="Left" Border.Lines="All" Text="Bus Plan Sec Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text298" Left="1738.8" Width="47.25" Height="56.7" Dock="Left" Border.Lines="All" Text="Bus Plan Sec Off Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+        </Highlight>
+      </TextObject>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="215.9" Width="1814.4" Height="18.9" DataSource="PlanningReportDevSummary">
+      <TextObject Name="Text31" Width="151.2" Height="18.9" Dock="Left" Border.Lines="All" Text="[IIf([PlanningReportDevSummary.GroupSec]!=&quot;&quot;,[PlanningReportDevSummary.GroupSec],&quot;Total&quot;)]" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text32" Left="151.2" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.TotalAdvance]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text33" Left="189" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.MetresAdvance]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text34" Left="226.8" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.OnReefAdv]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text35" Left="264.6" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.OffReefAdv]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text36" Left="311.85" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.MainOn_M]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text37" Left="349.65" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.MainOff_M]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text38" Left="387.45" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.MainTot_M]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text39" Left="425.25" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.SecOn_M]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text40" Left="463.05" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.SecOff_M]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text41" Left="500.85" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.SecTot_M]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text42" Left="538.65" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.CapitalOn_M]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text43" Left="576.45" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.CapitalOff_M]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text44" Left="614.25" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.Capital_M]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text45" Left="652.05" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.ConvertedOn_M]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text46" Left="689.85" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.ConvertedOff_M]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text47" Left="737.1" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.Converted_M]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text48" Left="774.9" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.OnReefTons]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text49" Left="812.7" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.OffReefTons]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text50" Left="850.5" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.Tons]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text51" Left="897.75" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.gt]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text52" Left="945" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.cmgt]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text53" Left="992.25" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.kg]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="3" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text54" Left="1039.5" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.Cubicmetres]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text55" Left="1086.75" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.CubicTons]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text56" Left="1134" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.CubicGrams]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="3" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text57" Left="1171.8" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.CubicGT]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text58" Left="1219.05" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.Bus_Plan_TotalAdv]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text59" Left="1266.3" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.Bus_Plan_Adv]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text60" Left="1313.55" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.Bus_Plan_OnreefAdv]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text65" Left="1360.8" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.Bus_Plan_OffreefAdv]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text66" Left="1408.05" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.Bus_Plan_Cap_Adv]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text67" Left="1455.3" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.Bus_Plan_DevCubics]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 7pt">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text299" Left="1502.55" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.Bus_Plan_Adv_Main]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text300" Left="1549.8" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.Bus_Plan_OnreefAdv_Main]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text301" Left="1597.05" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.Bus_Plan_OffreefAdv_Main]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text302" Left="1644.3" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.Bus_Plan_Adv_Sec]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text303" Left="1691.55" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.Bus_Plan_OnreefAdv_Sec]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+      <TextObject Name="Text304" Left="1738.8" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDevSummary.Bus_Plan_OffreefAdv_Sec]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt">
+        <Highlight>
+          <Condition Expression="[SumLevel]&gt;5" Visible="false" ApplyTextFill="false"/>
+          <Condition Expression="[PlanningReportDevSummary.GroupSec]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+        </Highlight>
+      </TextObject>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="238.8" Width="1814.4" Height="330.75">
+      <TextObject Name="Text293" Left="9.45" Top="132.3" Width="935.55" Height="18.9" Text="MRM Name ________________________________   MRM Signature ________________________________ Date _________________" Font="Arial, 8pt"/>
+      <TextObject Name="Text292" Left="9.45" Top="203.55" Width="935.55" Height="18.9" Text="Mine Manager Name ________________________________   Mine Manager Signature _______________________________ Date _________________" Font="Arial, 8pt"/>
+      <TextObject Name="Text282" Left="9.45" Top="257.9" Width="935.55" Height="18.9" Text="Mine Planner Name ________________________________   Mine Planner Signature ________________________________ Date _________________" Font="Arial, 8pt"/>
+    </PageFooterBand>
+  </ReportPage>
+  <ReportPage Name="Page2" Landscape="true" PaperWidth="510" PaperHeight="296.9" LeftMargin="5" TopMargin="5" RightMargin="5" BottomMargin="5" FirstPageSource="15" OtherPagesSource="15" ExtraDesignWidth="true" UnlimitedHeight="true" UnlimitedWidth="true">
+    <GroupHeaderBand Name="GroupHeader2" Width="1890" Height="113.4" StartNewPage="true" OutlineExpression="[PlanningReportDev.Miner]" RepeatOnEveryPage="true" Condition="[PlanningReportDev.Miner]">
+      <TextObject Name="Text108" Left="66.15" Top="56.7" Width="1483.65" Height="18.9" Text="[PlanningReportDev.Miner]" Font="Arial, 12pt, style=Bold"/>
+      <TextObject Name="Text272" Left="66.15" Top="28.35" Width="1483.65" Height="28.35" Text="Development [Type]" Font="Arial, 16pt, style=Bold"/>
+      <PictureObject Name="picLogo1" Width="66.15" Height="47.25" Image=""/>
+      <PictureObject Name="picLogoMineware1" Left="1871.1" Top="18.9" Width="189" Height="75.6" Image=""/>
+      <TextObject Name="Text111" Left="66.15" Width="1483.65" Height="28.35" Text="[Banner]" Font="Arial, 16pt, style=Bold"/>
+      <TextObject Name="Text112" Left="66.15" Top="75.6" Width="1483.65" Height="37.8" Text="[Prodmonth]&#13;&#10;Period [FormatDateTime([PlanningReportDev.BeginDate],&quot;yyyy/MM/dd&quot;)] - [FormatDateTime([PlanningReportDev.EndDate],&quot;yyyy/MM/dd&quot;)]" Font="Arial, 10pt, style=Bold"/>
+      <GroupHeaderBand Name="GroupHeader1" Top="117.4" Width="1890" Height="47.25" RepeatOnEveryPage="true" Condition="[PlanningReportDev.Miner]" SortOrder="None" KeepTogether="true">
+        <TextObject Name="Text69" Width="113.4" Height="47.25" Dock="Left" Border.Lines="All" Text="Production Supervisor" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text70" Left="113.4" Width="113.4" Height="47.25" Dock="Left" Border.Lines="All" Text="Miner&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text71" Left="226.8" Width="122.85" Height="47.25" Dock="Left" Border.Lines="All" Text="Workplace" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text72" Left="349.65" Width="94.5" Height="47.25" Dock="Left" Border.Lines="All" Text="WP ID" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text73" Left="444.15" Width="37.8" Height="47.25" Dock="Left" Border.Lines="All" Text="Stopped" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text74" Left="481.95" Width="94.5" Height="47.25" Dock="Left" Border.Lines="All" Text="Day Crew" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text75" Left="576.45" Width="66.15" Height="47.25" Dock="Left" Border.Lines="All" Text="Afternoon Crew" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text76" Left="642.6" Width="66.15" Height="47.25" Dock="Left" Border.Lines="All" Text="Night Crew" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text77" Left="708.75" Width="47.25" Height="47.25" Dock="Left" Border.Lines="All" Text="Crew Strength" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text78" Left="756" Width="28.35" Height="47.25" Dock="Left" Border.Lines="All" Text="P&#13;&#10;/&#13;&#10;S" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text106" Left="784.35" Width="141.75" Height="47.25" Dock="Left" Border.Lines="All" Text="Mining Method" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text79" Left="926.1" Width="37.8" Height="47.25" Dock="Left" Border.Lines="All" Text="Total Metres(Incl Equiv)" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text80" Left="963.9" Width="37.8" Height="47.25" Dock="Left" Border.Lines="All" Text="Total Metres(Excl Equiv)" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text81" Left="1001.7" Width="37.8" Height="47.25" Dock="Left" Border.Lines="All" Text="On Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text82" Left="1039.5" Width="47.25" Height="47.25" Dock="Left" Border.Lines="All" Text="Off Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text83" Left="1086.75" Width="47.25" Height="47.25" Dock="Left" Border.Lines="All" Text="Main On Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text84" Left="1134" Width="47.25" Height="47.25" Dock="Left" Border.Lines="All" Text="Main Off Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text85" Left="1181.25" Width="47.25" Height="47.25" Dock="Left" Border.Lines="All" Text="Main Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text86" Left="1228.5" Width="47.25" Height="47.25" Dock="Left" Border.Lines="All" Text="Sec On Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text87" Left="1275.75" Width="47.25" Height="47.25" Dock="Left" Border.Lines="All" Text="Sec Off Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text88" Left="1323" Width="37.8" Height="47.25" Dock="Left" Border.Lines="All" Text="Sec Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text89" Left="1360.8" Width="56.7" Height="47.25" Dock="Left" Border.Lines="All" Text="Capital On Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text90" Left="1417.5" Width="56.7" Height="47.25" Dock="Left" Border.Lines="All" Text="Capital Off Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text91" Left="1474.2" Width="47.25" Height="47.25" Dock="Left" Border.Lines="All" Text="Capital Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text92" Left="1521.45" Width="37.8" Height="47.25" Dock="Left" Border.Lines="All" Text="Equiv On Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text93" Left="1559.25" Width="47.25" Height="47.25" Dock="Left" Border.Lines="All" Text="Equiv Off Reef Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text94" Left="1606.5" Width="47.25" Height="47.25" Dock="Left" Border.Lines="All" Text="Equiv Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text95" Left="1653.75" Width="37.8" Height="47.25" Dock="Left" Border.Lines="All" Text="On Reef Tons" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text96" Left="1691.55" Width="37.8" Height="47.25" Dock="Left" Border.Lines="All" Text="Off Reef Tons" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text97" Left="1729.35" Width="37.8" Height="47.25" Dock="Left" Border.Lines="All" Text="Tons" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text98" Left="1767.15" Width="37.8" Height="47.25" Dock="Left" Border.Lines="All" Text="Value g/t" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text99" Left="1804.95" Width="37.8" Height="47.25" Dock="Left" Border.Lines="All" Text="cmgt" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text100" Left="1842.75" Width="37.8" Height="47.25" Dock="Left" Border.Lines="All" Text="Kg's" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text101" Left="1880.55" Width="37.8" Height="47.25" Dock="Left" Border.Lines="All" Text="Cubic Metres" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text102" Left="1918.35" Width="37.8" Height="47.25" Dock="Left" Border.Lines="All" Text="Cubic Tons" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text103" Left="1956.15" Width="37.8" Height="47.25" Dock="Left" Border.Lines="All" Text="Cubic Kg's" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text104" Left="1993.95" Width="37.8" Height="47.25" Dock="Left" Border.Lines="All" Text="Cubic g/t" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <TextObject Name="Text105" Left="2031.75" Width="37.8" Height="47.25" Dock="Left" Border.Lines="All" Text="Drill Rigg" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt, style=Bold"/>
+        <DataBand Name="Data2" Top="168.65" Width="1890" Height="18.9" DataSource="PlanningReportDev">
+          <TextObject Name="Text115" Width="113.4" Height="18.9" Dock="Left" Border.Lines="All" Text="[IIf([PlanningReportDev.Name_1]!=&quot;&quot;,[PlanningReportDev.Name_1],&quot;&quot;)]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt">
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Border.Lines="Left, Top, Bottom" ApplyBorder="true" ApplyTextFill="false"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text116" Left="113.4" Width="113.4" Height="18.9" Dock="Left" Border.Lines="All" Text="[IIf([PlanningReportDev.Name_1]!=&quot;&quot;,[PlanningReportDev.Name],&quot;&quot;)]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt">
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Border.Lines="Top, Bottom" ApplyBorder="true" ApplyTextFill="false"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text117" Left="226.8" Width="122.85" Height="18.9" Dock="Left" Border.Lines="All" Text="[IIf([PlanningReportDev.Name_1]!=&quot;&quot;,[PlanningReportDev.Description],&quot;&quot;)]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt">
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Border.Lines="Top, Bottom" ApplyBorder="true" ApplyTextFill="false"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text118" Left="349.65" Width="94.5" Height="18.9" Dock="Left" Border.Lines="All" Text="[IIf([PlanningReportDev.Name_1]!=&quot;&quot;,[PlanningReportDev.Workplaceid],&quot;&quot;)]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt">
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Border.Lines="Top, Bottom" ApplyBorder="true" ApplyTextFill="false"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text119" Left="444.15" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[IIf([PlanningReportDev.Name_1]!=&quot;&quot;,[PlanningReportDev.isStopped],&quot;&quot;)]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt">
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Border.Lines="Top, Bottom" ApplyBorder="true" ApplyTextFill="false"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text120" Left="481.95" Width="94.5" Height="18.9" Dock="Left" Border.Lines="All" Text="[IIf([PlanningReportDev.Name_1]!=&quot;&quot;,[PlanningReportDev.OrgUnitday],&quot;&quot;)]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt">
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Border.Lines="Top, Bottom" ApplyBorder="true" ApplyTextFill="false"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text121" Left="576.45" Width="66.15" Height="18.9" Dock="Left" Border.Lines="All" Text="[IIf([PlanningReportDev.Name_1]!=&quot;&quot;,[PlanningReportDev.OrgUnitAfterNoon],&quot;&quot;)]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt">
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Border.Lines="Top, Bottom" ApplyBorder="true" ApplyTextFill="false"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text122" Left="642.6" Width="66.15" Height="18.9" Dock="Left" Border.Lines="All" Text="[IIf([PlanningReportDev.Name_1]!=&quot;&quot;,[PlanningReportDev.OrgUnitNight],&quot;&quot;)]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt">
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Border.Lines="Top, Bottom" ApplyBorder="true" ApplyTextFill="false"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text123" Left="708.75" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" DecimalDigits="0" DecimalSeparator="," GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Border.Lines="Top, Bottom" ApplyBorder="true" ApplyTextFill="false"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text124" Left="756" Width="28.35" Height="18.9" Dock="Left" Border.Lines="All" Text="[IIf([PlanningReportDev.Name_1]!=&quot;&quot;,[PlanningReportDev.Prim],&quot;&quot;)]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt">
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Border.Lines="Right, Top, Bottom" ApplyBorder="true" ApplyTextFill="false"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text113" Left="784.35" Width="141.75" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.MiningMethod]" HorzAlign="Center" VertAlign="Center" Font="Arial, 6.75pt">
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Visible="false" Border.Lines="Right, Top, Bottom" ApplyBorder="true" ApplyTextFill="false"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text125" Left="926.1" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.TotalAdvance]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" DecimalDigits="1" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text126" Left="963.9" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.MetresAdvance]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" DecimalDigits="1" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text127" Left="1001.7" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.OnReefAdv]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" DecimalDigits="1" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text128" Left="1039.5" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.OffReefAdv]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" DecimalDigits="1" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text129" Left="1086.75" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.MainOn_M]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" DecimalDigits="1" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text130" Left="1134" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.MainOff_M]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" DecimalDigits="1" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text131" Left="1181.25" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.MainTot_M]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" DecimalDigits="1" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text132" Left="1228.5" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.SecOn_M]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" DecimalDigits="1" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text133" Left="1275.75" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.SecOff_M]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" DecimalDigits="1" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text134" Left="1323" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.SecTot_M]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" DecimalDigits="1" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text135" Left="1360.8" Width="56.7" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.CapitalOn_M]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" DecimalDigits="1" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text136" Left="1417.5" Width="56.7" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.CapitalOff_M]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" DecimalDigits="1" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text137" Left="1474.2" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.Capital_M]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" DecimalDigits="1" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text138" Left="1521.45" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.ConvertedOn_M]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" DecimalDigits="1" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text139" Left="1559.25" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.ConvertedOff_M]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" DecimalDigits="1" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text140" Left="1606.5" Width="47.25" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.Converted_M]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" DecimalDigits="1" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text141" Left="1653.75" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.OnReefTons]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text142" Left="1691.55" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.OffReefTons]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text143" Left="1729.35" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.Tons]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text144" Left="1767.15" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.gt]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text145" Left="1804.95" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.cmgt]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text146" Left="1842.75" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.Kg]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text147" Left="1880.55" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.CubicMetres]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text148" Left="1918.35" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.CubicTons]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text149" Left="1956.15" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.CubicGrams]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text150" Left="1993.95" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.CubicGT]" HorzAlign="Right" VertAlign="Center" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <TextObject Name="Text151" Left="2031.75" Width="37.8" Height="18.9" Dock="Left" Border.Lines="All" Text="[PlanningReportDev.DrillRig]" HorzAlign="Right" Font="Arial, 6.75pt">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+            <Highlight>
+              <Condition Expression="[PlanningReportDev.Name_1]==&quot;&quot;" Fill.Color="Bisque" Font="Arial, 6.75pt, style=Bold" ApplyFill="true" ApplyTextFill="false" ApplyFont="true"/>
+            </Highlight>
+          </TextObject>
+          <Sort>
+            <Sort Expression="[PlanningReportDev.Name]" Descending="true"/>
+          </Sort>
+        </DataBand>
+        <GroupFooterBand Name="GroupFooter1" Top="191.55" Width="1890" Height="75.6">
+          <TextObject Name="Text212" Left="1842.75" Width="47.25" Height="75.6" Dock="Right" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text213" Left="1804.95" Width="37.8" Height="75.6" Dock="Right" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text214" Left="1748.25" Width="56.7" Height="75.6" Dock="Right" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text215" Left="1691.55" Width="56.7" Height="75.6" Dock="Right" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text216" Left="1644.3" Width="47.25" Height="75.6" Dock="Right" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text217" Left="1606.5" Width="37.8" Height="75.6" Dock="Right" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text218" Left="1559.25" Width="47.25" Height="75.6" Dock="Right" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text219" Left="1512" Width="47.25" Height="75.6" Dock="Right" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TextObject Name="Text220" Left="1474.2" Width="37.8" Height="75.6" Dock="Right" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text221" Left="1436.4" Width="37.8" Height="75.6" Dock="Right" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text222" Left="1398.6" Width="37.8" Height="75.6" Dock="Right" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text223" Left="1360.8" Width="37.8" Height="75.6" Dock="Right" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text224" Left="1323" Width="37.8" Height="75.6" Dock="Right" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text225" Left="1285.2" Width="37.8" Height="75.6" Dock="Right" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text226" Left="1247.4" Width="37.8" Height="75.6" Dock="Right" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text227" Left="1209.6" Width="37.8" Height="75.6" Dock="Right" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text228" Left="1171.8" Width="37.8" Height="75.6" Dock="Right" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text229" Left="1134" Width="37.8" Height="75.6" Dock="Right" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text68" Left="1096.2" Width="37.8" Height="75.6" Dock="Right" Border.Lines="All" Fill.Color="Bisque" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text107" Left="1058.4" Width="37.8" Height="75.6" Dock="Right" Border.Lines="All" Fill.Color="Bisque" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text64" Width="926.1" Height="75.6" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="TOTAL" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TextObject Name="Text204" Left="926.1" Width="37.8" Height="75.6" Dock="Left" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TextObject Name="Text205" Left="963.9" Width="37.8" Height="75.6" Dock="Left" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text206" Left="1001.7" Width="37.8" Height="75.6" Dock="Left" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold"/>
+          <TextObject Name="Text207" Left="1039.5" Width="47.25" Height="75.6" Dock="Left" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text208" Left="1086.75" Width="47.25" Height="75.6" Dock="Left" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text209" Left="1134" Width="47.25" Height="75.6" Dock="Left" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text210" Left="1181.25" Width="47.25" Height="75.6" Dock="Left" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+          <TextObject Name="Text211" Left="1228.5" Width="47.25" Height="75.6" Dock="Left" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt, style=Bold">
+            <Formats>
+              <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+              <GeneralFormat/>
+            </Formats>
+          </TextObject>
+        </GroupFooterBand>
+      </GroupHeaderBand>
+      <GroupFooterBand Name="GroupFooter2" Top="271.15" Width="1890" Height="17.01">
+        <TextObject Name="Text230" Width="926.1" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="Business Plan Total" HorzAlign="Center" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold"/>
+        <TextObject Name="Text241" Left="926.1" Width="37.8" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="[PlanningReportDev.Bus_Plan_TotalAdv]" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" DecimalDigits="1" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text242" Left="963.9" Width="37.8" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="[PlanningReportDev.Bus_Plan_Adv]" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" DecimalDigits="1" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text243" Left="1001.7" Width="37.8" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="[PlanningReportDev.Bus_Plan_OnreefAdv]" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" DecimalDigits="1" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text244" Left="1039.5" Width="47.25" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="[PlanningReportDev.Bus_Plan_OffreefAdv]" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" DecimalDigits="1" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text245" Left="1086.75" Width="47.25" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="[PlanningReportDev.Bus_Plan_OnreefAdv_Main]" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text246" Left="1134" Width="47.25" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="[PlanningReportDev.Bus_Plan_OffreefAdv_Main]" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text247" Left="1181.25" Width="47.25" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="[PlanningReportDev.Bus_Plan_Adv_Main]" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text248" Left="1228.5" Width="47.25" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="[PlanningReportDev.Bus_Plan_OnreefAdv_Sec]" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text249" Left="1275.75" Width="47.25" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="[PlanningReportDev.Bus_Plan_OffreefAdv_Sec]" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text250" Left="1323" Width="37.8" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="[PlanningReportDev.Bus_Plan_Adv_Sec]" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text251" Left="1360.8" Width="56.7" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text252" Left="1417.5" Width="56.7" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text253" Left="1474.2" Width="47.25" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="[PlanningReportDev.Bus_Plan_Cap_Adv]" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" DecimalDigits="1" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text254" Left="1521.45" Width="37.8" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text255" Left="1559.25" Width="47.25" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text256" Left="1606.5" Width="47.25" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text257" Left="1653.75" Width="37.8" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold"/>
+        <TextObject Name="Text258" Left="1691.55" Width="37.8" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold"/>
+        <TextObject Name="Text259" Left="1729.35" Width="37.8" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold"/>
+        <TextObject Name="Text260" Left="1767.15" Width="37.8" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text261" Left="1804.95" Width="37.8" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text262" Left="1842.75" Width="37.8" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text263" Left="1880.55" Width="37.8" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" Text="[PlanningReportDev.Bus_Plan_DevCubics]" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text264" Left="1918.35" Width="37.8" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text265" Left="1956.15" Width="37.8" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text266" Left="1993.95" Width="37.8" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+        <TextObject Name="Text267" Left="2031.75" Width="37.8" Height="17.01" Dock="Left" Border.Lines="All" Fill.Color="Bisque" HorzAlign="Right" Font="Microsoft Sans Serif, 7pt, style=Bold">
+          <Formats>
+            <NumberFormat UseLocale="false" GroupSeparator=" " NegativePattern="1"/>
+            <GeneralFormat/>
+          </Formats>
+        </TextObject>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+    <ReportSummaryBand Name="ReportSummary2" Top="292.16" Width="1890"/>
+    <PageFooterBand Name="PageFooter2" Top="296.16" Width="1890"/>
+  </ReportPage>
+</Report>

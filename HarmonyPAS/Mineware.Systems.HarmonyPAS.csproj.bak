@@ -1,0 +1,1238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{54FC5B79-6283-43DE-8B5C-06319D7B4196}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mineware.Systems.HarmonyPAS</RootNamespace>
+    <AssemblyName>Mineware.Systems.HarmonyPAS</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\MIMSHARMONYDOORNKOP\Plugin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>4</LangVersion>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Plugin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>4</LangVersion>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>4</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>4</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v18.1.UI, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Images.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v18.1.Drawing, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v18.1.Export, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPdfViewer.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v18.1.Reporting.Extensions, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v18.1.Core, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FastReport, Version=2018.3.43.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\MIMSHARMONYDOORNKOP\Bin\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\MIMSHarmony\bin\Microsoft.VisualBasic.PowerPacks.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mineware.Menu.Structure">
+      <HintPath>..\..\..\..\MIMSHARMONYDOORNKOP\Bin\Mineware.Menu.Structure.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mineware.Plugin.Interface">
+      <HintPath>..\..\..\..\MIMSHARMONYDOORNKOP\Bin\Mineware.Plugin.Interface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mineware.Systems.Global">
+      <HintPath>..\..\..\..\MIMSHARMONYDOORNKOP\Bin\Mineware.Systems.Global.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mineware.Systems.GlobalConnect">
+      <HintPath>..\..\..\..\MIMSHARMONYDOORNKOP\Bin\Mineware.Systems.GlobalConnect.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mineware.Systems.GlobalExtensions">
+      <HintPath>..\..\..\..\MIMSHARMONYDOORNKOP\Bin\Mineware.Systems.GlobalExtensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mineware.Systems.HarmonyPASGlobal">
+      <HintPath>..\..\..\..\MIMSHARMONYDOORNKOP\Bin\Mineware.Systems.HarmonyPASGlobal.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\BookingsABS\BookingReconForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\BookingsABS\BookingReconForm.Designer.cs">
+      <DependentUpon>BookingReconForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BookingsABS\clsBookingsABS.cs" />
+    <Compile Include="Controls\BookingsABS\frmCloseActions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\BookingsABS\frmCloseActions.Designer.cs">
+      <DependentUpon>frmCloseActions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BookingsABS\frmProblemBookCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\BookingsABS\frmProblemBookCode.Designer.cs">
+      <DependentUpon>frmProblemBookCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BookingsABS\ReconBookingModel.cs" />
+    <Compile Include="Controls\BookingsABS\ucBookingsABS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BookingsABS\ucBookingsABS.Designer.cs">
+      <DependentUpon>ucBookingsABS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BookingsABS\ucBookingsABSChoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\BookingsABS\ucBookingsABSChoice.Designer.cs">
+      <DependentUpon>ucBookingsABSChoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BookingsABS\ucBookingsABSForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\BookingsABS\ucBookingsABSForm1.Designer.cs">
+      <DependentUpon>ucBookingsABSForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BookingsABS\ucBookingsABSPlanStop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\BookingsABS\ucBookingsABSPlanStop.Designer.cs">
+      <DependentUpon>ucBookingsABSPlanStop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BookingsABS\ucBookingsABSProblems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\BookingsABS\ucBookingsABSProblems.Designer.cs">
+      <DependentUpon>ucBookingsABSProblems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BusinessPlanImport\clsBusinessPlanImport.cs" />
+    <Compile Include="Controls\BusinessPlanImport\ucBusinessPlanImport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\BusinessPlanImport\ucBusinessPlanImport.Designer.cs">
+      <DependentUpon>ucBusinessPlanImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Kriging\clsKriging.cs" />
+    <Compile Include="Controls\Kriging\ucKriging.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Kriging\ucKriging.Designer.cs">
+      <DependentUpon>ucKriging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SICCapture\clsSICCapture.cs" />
+    <Compile Include="Controls\SICCapture\ucSICCapture.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SICCapture\ucSICCapture.Designer.cs">
+      <DependentUpon>ucSICCapture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Survey\clsSurvey.cs" />
+    <Compile Include="Controls\Survey\ucSurvey.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Survey\ucSurvey.Designer.cs">
+      <DependentUpon>ucSurvey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Survey\ucSurveyDev.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\Survey\ucSurveyDev.Designer.cs">
+      <DependentUpon>ucSurveyDev.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Survey\ucSurveyStp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\Survey\ucSurveyStp.Designer.cs">
+      <DependentUpon>ucSurveyStp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Survey\ucWorkplaceAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\Survey\ucWorkplaceAdd.Designer.cs">
+      <DependentUpon>ucWorkplaceAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HarmonyPas.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="resHarmonyPAS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resHarmonyPAS.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\AMISSetup\clsAMISSetupData.cs" />
+    <Compile Include="SysAdminScreens\AMISSetup\ileCourseBlankSample.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\AMISSetup\ileCourseBlankSample.designer.cs">
+      <DependentUpon>ileCourseBlankSample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\AMISSetup\ileStandardCRM.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\AMISSetup\ileStandardCRM.designer.cs">
+      <DependentUpon>ileStandardCRM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\AMISSetup\ucAMISSetup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\AMISSetup\ucAMISSetup.Designer.cs">
+      <DependentUpon>ucAMISSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\AuthLockPlan\clsAuthLockPlanData.cs" />
+    <Compile Include="SysAdminScreens\AuthLockPlan\ucAuthLockPlan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\AuthLockPlan\ucAuthLockPlan.designer.cs">
+      <DependentUpon>ucAuthLockPlan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\BonusCapture\clsBonusCaptureData.cs" />
+    <Compile Include="SysAdminScreens\BonusCapture\ucBonusCapture.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\BonusCapture\ucBonusCapture.designer.cs">
+      <DependentUpon>ucBonusCapture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\Calendars\clsCalendarsData.cs" />
+    <Compile Include="SysAdminScreens\Calendars\ileCalendars.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\Calendars\ileCalendars.designer.cs">
+      <DependentUpon>ileCalendars.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\Calendars\ucCalendars.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\Calendars\ucCalendars.designer.cs">
+      <DependentUpon>ucCalendars.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\Dashboards\ucMainDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\Dashboards\ucMainDashboard.Designer.cs">
+      <DependentUpon>ucMainDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\Dashboards\ucToLoadDashBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\Dashboards\ucToLoadDashBoard.Designer.cs">
+      <DependentUpon>ucToLoadDashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\clsDeptCapt.cs" />
+    <Compile Include="SysAdminScreens\DepartmentalCapture\frmAddOldWp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\frmAddOldWp.Designer.cs">
+      <DependentUpon>frmAddOldWp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\frmMONote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\frmMONote.Designer.cs">
+      <DependentUpon>frmMONote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\frmSampleSched.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\frmSampleSched.Designer.cs">
+      <DependentUpon>frmSampleSched.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\frmSamplingChecklistAdditInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\frmSamplingChecklistAdditInfo.Designer.cs">
+      <DependentUpon>frmSamplingChecklistAdditInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\frmVampingBookingProp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\frmVampingBookingProp.Designer.cs">
+      <DependentUpon>frmVampingBookingProp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\frmVampingProp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\frmVampingProp.Designer.cs">
+      <DependentUpon>frmVampingProp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\ucGeology.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\ucGeology.Designer.cs">
+      <DependentUpon>ucGeology.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\ucMinersNotes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\ucMinersNotes.Designer.cs">
+      <DependentUpon>ucMinersNotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\ucMinersReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\ucMinersReport.Designer.cs">
+      <DependentUpon>ucMinersReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\ucRockEng.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\ucRockEng.Designer.cs">
+      <DependentUpon>ucRockEng.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\ucSampling.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\ucSampling.Designer.cs">
+      <DependentUpon>ucSampling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\ucSurvey.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\ucSurvey.Designer.cs">
+      <DependentUpon>ucSurvey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\ucVamping.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\ucVamping.Designer.cs">
+      <DependentUpon>ucVamping.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\ucVampingBooking.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\ucVampingBooking.Designer.cs">
+      <DependentUpon>ucVampingBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\ucVampPlanning.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\ucVampPlanning.Designer.cs">
+      <DependentUpon>ucVampPlanning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\ucVentilation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\DepartmentalCapture\ucVentilation.Designer.cs">
+      <DependentUpon>ucVentilation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\EndTypes\clsEndTypes.cs" />
+    <Compile Include="SysAdminScreens\EndTypes\ileEndTypes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\EndTypes\ileEndTypes.Designer.cs">
+      <DependentUpon>ileEndTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\EndTypes\ucEndTypes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\EndTypes\ucEndTypes.Designer.cs">
+      <DependentUpon>ucEndTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\GangNo\clsGangNoScreenData.cs" />
+    <Compile Include="SysAdminScreens\GangNo\ucGangNoScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\GangNo\ucGangNoScreen.designer.cs">
+      <DependentUpon>ucGangNoScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\HoistingBooking\clsHoistingBookingData.cs" />
+    <Compile Include="SysAdminScreens\HoistingBooking\ucHoistingBooking.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\HoistingBooking\ucHoistingBooking.designer.cs">
+      <DependentUpon>ucHoistingBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\Level\clsLevel.cs" />
+    <Compile Include="SysAdminScreens\Level\ileLevel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\Level\ileLevel.Designer.cs">
+      <DependentUpon>ileLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\Level\ucLevel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\Level\ucLevel.Designer.cs">
+      <DependentUpon>ucLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\LockMonth\clsLockMonthData.cs" />
+    <Compile Include="SysAdminScreens\LockMonth\ucLockMonth.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\LockMonth\ucLockMonth.Designer.cs">
+      <DependentUpon>ucLockMonth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\MillingBooking\clsMillingBookingData.cs" />
+    <Compile Include="SysAdminScreens\MillingBooking\ucMillingBooking.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\MillingBooking\ucMillingBooking.designer.cs">
+      <DependentUpon>ucMillingBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\OCRScheduling\AddWorkplaceOCR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\OCRScheduling\AddWorkplaceOCR.Designer.cs">
+      <DependentUpon>AddWorkplaceOCR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\OCRScheduling\clsOCRScheduling.cs" />
+    <Compile Include="SysAdminScreens\OCRScheduling\frmBulkPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\OCRScheduling\frmBulkPrint.Designer.cs">
+      <DependentUpon>frmBulkPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\OCRScheduling\frmDaysChecklists.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\OCRScheduling\frmDaysChecklists.Designer.cs">
+      <DependentUpon>frmDaysChecklists.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\OCRScheduling\frmSelectDefaultPrinter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\OCRScheduling\frmSelectDefaultPrinter.Designer.cs">
+      <DependentUpon>frmSelectDefaultPrinter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\OCRScheduling\LoadingPrintFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\OCRScheduling\LoadingPrintFrm.Designer.cs">
+      <DependentUpon>LoadingPrintFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\OCRScheduling\ucOCRSchedulingMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\OCRScheduling\ucOCRSchedulingMain.Designer.cs">
+      <DependentUpon>ucOCRSchedulingMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\OreBody\ucOreBody.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\OreBody\ucOreBody.designer.cs">
+      <DependentUpon>ucOreBody.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\OreflowStorages\clsOreflowStoragesData.cs" />
+    <Compile Include="SysAdminScreens\OreflowStorages\ucOreflowStorages.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\OreflowStorages\ucOreflowStorages.designer.cs">
+      <DependentUpon>ucOreflowStorages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\Pegs\clsPegs.cs" />
+    <Compile Include="SysAdminScreens\Pegs\ilePegs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\Pegs\ilePegs.designer.cs">
+      <DependentUpon>ilePegs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\Pegs\ucPegs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\Pegs\ucPegs.designer.cs">
+      <DependentUpon>ucPegs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\ProblemSetup\clsProblemSetupData.cs" />
+    <Compile Include="SysAdminScreens\ProblemSetup\ileProblemSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\ProblemSetup\ileProblemSetup.Designer.cs">
+      <DependentUpon>ileProblemSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\ProblemSetup\ucProblemSetup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\ProblemSetup\ucProblemSetup.Designer.cs">
+      <DependentUpon>ucProblemSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\OreBody\clsOreBody.cs" />
+    <Compile Include="SysAdminScreens\OreBody\ileOreBody.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\OreBody\ileOreBody.Designer.cs">
+      <DependentUpon>ileOreBody.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\ProcessCodes\ucProcessCodes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\ProcessCodes\ucProcessCodes.Designer.cs">
+      <DependentUpon>ucProcessCodes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\QAQC\clsQAQCData.cs" />
+    <Compile Include="SysAdminScreens\QAQC\ileCourseBlank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\QAQC\ileCourseBlank.designer.cs">
+      <DependentUpon>ileCourseBlank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\QAQC\ileCRM.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\QAQC\ileCRM.designer.cs">
+      <DependentUpon>ileCRM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\QAQC\ileDuplicate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\QAQC\ileDuplicate.designer.cs">
+      <DependentUpon>ileDuplicate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\QAQC\ucQAQC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\QAQC\ucQAQC.designer.cs">
+      <DependentUpon>ucQAQC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SamplingCapture\ileSamplingCapture.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SamplingCapture\ileSamplingCapture.Designer.cs">
+      <DependentUpon>ileSamplingCapture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SamplingCapture\ucSamplingCapture.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SamplingCapture\ucSamplingCapture.Designer.cs">
+      <DependentUpon>ucSamplingCapture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SectionScreen\frmUpdateSection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SectionScreen\frmUpdateSection.Designer.cs">
+      <DependentUpon>frmUpdateSection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SectionScreen\ucOtherSections.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SectionScreen\ucOtherSections.Designer.cs">
+      <DependentUpon>ucOtherSections.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SetupCycles\clsSetupCycles.cs" />
+    <Compile Include="SysAdminScreens\SetupCycles\frmDepartmentMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SetupCycles\frmDepartmentMain.designer.cs">
+      <DependentUpon>frmDepartmentMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SetupCycles\FrmNotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SetupCycles\FrmNotes.Designer.cs">
+      <DependentUpon>FrmNotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SetupCycles\GeoInspFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SetupCycles\GeoInspFrm.Designer.cs">
+      <DependentUpon>GeoInspFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SetupCycles\RockEngFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SetupCycles\RockEngFrm.Designer.cs">
+      <DependentUpon>RockEngFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SetupCycles\ucSetupCycles.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SetupCycles\ucSetupCycles.Designer.cs">
+      <DependentUpon>ucSetupCycles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SetupCycles\VentInspection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SetupCycles\VentInspection.Designer.cs">
+      <DependentUpon>VentInspection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SystemSettings\frmAddExtendedBreak.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SystemSettings\frmAddExtendedBreak.Designer.cs">
+      <DependentUpon>frmAddExtendedBreak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SystemSettings\ucExtendedBreak.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SystemSettings\ucExtendedBreak.Designer.cs">
+      <DependentUpon>ucExtendedBreak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\TrammingProblems\clsTrammingProblemsData.cs" />
+    <Compile Include="SysAdminScreens\TrammingProblems\ileTrammingProblems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\TrammingProblems\ileTrammingProblems.designer.cs">
+      <DependentUpon>ileTrammingProblems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\TrammingProblems\ucTrammingProblems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\TrammingProblems\ucTrammingProblems.designer.cs">
+      <DependentUpon>ucTrammingProblems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SectionScreen\ileSectionScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SectionScreen\ileSectionScreen.Designer.cs">
+      <DependentUpon>ileSectionScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\TopPanels\clsTopPanelsData.cs" />
+    <Compile Include="SysAdminScreens\TopPanels\ucTopPanels.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\TopPanels\ucTopPanels.designer.cs">
+      <DependentUpon>ucTopPanels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\TrammingBooking\clsTrammingBookingData.cs" />
+    <Compile Include="SysAdminScreens\TrammingBooking\ucTrammingBooking.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\TrammingBooking\ucTrammingBooking.designer.cs">
+      <DependentUpon>ucTrammingBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\TrammingBoxholes\clsTrammingBoxholesData.cs" />
+    <Compile Include="SysAdminScreens\TrammingBoxholes\ileTrammingBoxholes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\TrammingBoxholes\ileTrammingBoxholes.designer.cs">
+      <DependentUpon>ileTrammingBoxholes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\TrammingBoxholes\ucTrammingBoxholes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\TrammingBoxholes\ucTrammingBoxholes.designer.cs">
+      <DependentUpon>ucTrammingBoxholes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\TrammingPlanning\clsTrammingPlanningData.cs" />
+    <Compile Include="SysAdminScreens\TrammingPlanning\ucTrammingPlanning.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\TrammingPlanning\ucTrammingPlanning.designer.cs">
+      <DependentUpon>ucTrammingPlanning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\Users\clsUserProductionSettings.cs" />
+    <Compile Include="SysAdminScreens\Users\ucUserProductionSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\Users\ucUserProductionSettings.designer.cs">
+      <DependentUpon>ucUserProductionSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\Workplaces\clsWorkplaces.cs" />
+    <Compile Include="SysAdminScreens\Workplaces\ileWorkplaceEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\Workplaces\ileWorkplaceEdit.Designer.cs">
+      <DependentUpon>ileWorkplaceEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\Workplaces\ucWorkplaces.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\Workplaces\ucWorkplaces.Designer.cs">
+      <DependentUpon>ucWorkplaces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\Workplace_Codes\clsWorkplaceCodes.cs" />
+    <Compile Include="SysAdminScreens\Workplace_Codes\ileGridEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\Workplace_Codes\ileGridEdit.Designer.cs">
+      <DependentUpon>ileGridEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\Workplace_Codes\ucWorkplace_Codes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\Workplace_Codes\ucWorkplace_Codes.Designer.cs">
+      <DependentUpon>ucWorkplace_Codes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\CalendarTypes\clsCalTypeData.cs" />
+    <Compile Include="SysAdminScreens\CalendarTypes\ucCalendarTypes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\CalendarTypes\ucCalendarTypes.designer.cs">
+      <DependentUpon>ucCalendarTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\CalendarTypes\ucCalTypeEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\CalendarTypes\ucCalTypeEdit.designer.cs">
+      <DependentUpon>ucCalTypeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SamplingCapture\clsSamplingCaptureData.cs" />
+    <Compile Include="SysAdminScreens\SectionCalendar\clsSectionCalendarData.cs" />
+    <Compile Include="SysAdminScreens\SectionCalendar\ileSectionCalendar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SectionCalendar\ileSectionCalendar.designer.cs">
+      <DependentUpon>ileSectionCalendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SectionCalendar\ucSectionCalendar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SectionCalendar\ucSectionCalendar.designer.cs">
+      <DependentUpon>ucSectionCalendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SectionScreen\clsSectionScreenData.cs" />
+    <Compile Include="SysAdminScreens\SectionScreen\ucSectionScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SectionScreen\ucSectionScreen.designer.cs">
+      <DependentUpon>ucSectionScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SystemSettings\clsSystemSettings.cs" />
+    <Compile Include="SysAdminScreens\SystemSettings\ucSystemSettingsBookings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SystemSettings\ucSystemSettingsBookings.Designer.cs">
+      <DependentUpon>ucSystemSettingsBookings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SystemSettings\ucSystemSettingsCurrent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SystemSettings\ucSystemSettingsCurrent.Designer.cs">
+      <DependentUpon>ucSystemSettingsCurrent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SystemSettings\ucSystemSettingsDates.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SystemSettings\ucSystemSettingsDates.Designer.cs">
+      <DependentUpon>ucSystemSettingsDates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SystemSettings\ucSystemSettingsFactors.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SystemSettings\ucSystemSettingsFactors.Designer.cs">
+      <DependentUpon>ucSystemSettingsFactors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SystemSettings\ucSystemSettingsInterfaces.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SystemSettings\ucSystemSettingsInterfaces.Designer.cs">
+      <DependentUpon>ucSystemSettingsInterfaces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SysAdminScreens\SystemSettings\ucSystemSettingsMines.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SysAdminScreens\SystemSettings\ucSystemSettingsMines.Designer.cs">
+      <DependentUpon>ucSystemSettingsMines.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="SysAdminScreens\AuthLockPlan\ucAuthLockPlan.resx.bak" />
+    <None Include="SysAdminScreens\CalendarTypes\ucCalendarTypes.Designer.cs.bak" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\BookingsABS\BookingReconForm.resx">
+      <DependentUpon>BookingReconForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BookingsABS\frmCloseActions.resx">
+      <DependentUpon>frmCloseActions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BookingsABS\frmProblemBookCode.resx">
+      <DependentUpon>frmProblemBookCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BookingsABS\ucBookingsABS.resx">
+      <DependentUpon>ucBookingsABS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BookingsABS\ucBookingsABSChoice.resx">
+      <DependentUpon>ucBookingsABSChoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BookingsABS\ucBookingsABSForm1.resx">
+      <DependentUpon>ucBookingsABSForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BookingsABS\ucBookingsABSPlanStop.resx">
+      <DependentUpon>ucBookingsABSPlanStop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BookingsABS\ucBookingsABSProblems.resx">
+      <DependentUpon>ucBookingsABSProblems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BusinessPlanImport\ucBusinessPlanImport.resx">
+      <DependentUpon>ucBusinessPlanImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Kriging\ucKriging.resx">
+      <DependentUpon>ucKriging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SICCapture\ucSICCapture.resx">
+      <DependentUpon>ucSICCapture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Survey\ucSurvey.resx">
+      <DependentUpon>ucSurvey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Survey\ucSurveyDev.resx">
+      <DependentUpon>ucSurveyDev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Survey\ucSurveyStp.resx">
+      <DependentUpon>ucSurveyStp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Survey\ucWorkplaceAdd.resx">
+      <DependentUpon>ucWorkplaceAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="resHarmonyPAS.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>resHarmonyPAS.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\AMISSetup\ileCourseBlankSample.resx">
+      <DependentUpon>ileCourseBlankSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\AMISSetup\ileStandardCRM.resx">
+      <DependentUpon>ileStandardCRM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\AMISSetup\ucAMISSetup.resx">
+      <DependentUpon>ucAMISSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\AuthLockPlan\ucAuthLockPlan.resx">
+      <DependentUpon>ucAuthLockPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\BonusCapture\ucBonusCapture.resx">
+      <DependentUpon>ucBonusCapture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\Calendars\ileCalendars.resx">
+      <DependentUpon>ileCalendars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\Calendars\ucCalendars.resx">
+      <DependentUpon>ucCalendars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\Dashboards\ucMainDashboard.resx">
+      <DependentUpon>ucMainDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\Dashboards\ucToLoadDashBoard.resx">
+      <DependentUpon>ucToLoadDashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\DepartmentalCapture\frmAddOldWp.resx">
+      <DependentUpon>frmAddOldWp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\DepartmentalCapture\frmMONote.resx">
+      <DependentUpon>frmMONote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\DepartmentalCapture\frmSampleSched.resx">
+      <DependentUpon>frmSampleSched.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\DepartmentalCapture\frmSamplingChecklistAdditInfo.resx">
+      <DependentUpon>frmSamplingChecklistAdditInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\DepartmentalCapture\frmVampingBookingProp.resx">
+      <DependentUpon>frmVampingBookingProp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\DepartmentalCapture\frmVampingProp.resx">
+      <DependentUpon>frmVampingProp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\DepartmentalCapture\ucGeology.resx">
+      <DependentUpon>ucGeology.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\DepartmentalCapture\ucMinersNotes.resx">
+      <DependentUpon>ucMinersNotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\DepartmentalCapture\ucMinersReport.resx">
+      <DependentUpon>ucMinersReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\DepartmentalCapture\ucRockEng.resx">
+      <DependentUpon>ucRockEng.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\DepartmentalCapture\ucSampling.resx">
+      <DependentUpon>ucSampling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\DepartmentalCapture\ucSurvey.resx">
+      <DependentUpon>ucSurvey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\DepartmentalCapture\ucVamping.resx">
+      <DependentUpon>ucVamping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\DepartmentalCapture\ucVampingBooking.resx">
+      <DependentUpon>ucVampingBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\DepartmentalCapture\ucVampPlanning.resx">
+      <DependentUpon>ucVampPlanning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\DepartmentalCapture\ucVentilation.resx">
+      <DependentUpon>ucVentilation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\EndTypes\ileEndTypes.resx">
+      <DependentUpon>ileEndTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\EndTypes\ucEndTypes.resx">
+      <DependentUpon>ucEndTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\GangNo\ucGangNoScreen.resx">
+      <DependentUpon>ucGangNoScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\HoistingBooking\ucHoistingBooking.resx">
+      <DependentUpon>ucHoistingBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\Level\ileLevel.resx">
+      <DependentUpon>ileLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\Level\ucLevel.resx">
+      <DependentUpon>ucLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\LockMonth\ucLockMonth.resx">
+      <DependentUpon>ucLockMonth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\MillingBooking\ucMillingBooking.resx">
+      <DependentUpon>ucMillingBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\OCRScheduling\AddWorkplaceOCR.resx">
+      <DependentUpon>AddWorkplaceOCR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\OCRScheduling\frmBulkPrint.resx">
+      <DependentUpon>frmBulkPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\OCRScheduling\frmDaysChecklists.resx">
+      <DependentUpon>frmDaysChecklists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\OCRScheduling\frmSelectDefaultPrinter.resx">
+      <DependentUpon>frmSelectDefaultPrinter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\OCRScheduling\LoadingPrintFrm.resx">
+      <DependentUpon>LoadingPrintFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\OCRScheduling\ucOCRSchedulingMain.resx">
+      <DependentUpon>ucOCRSchedulingMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\OreBody\ileOreBody.resx">
+      <DependentUpon>ileOreBody.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\OreBody\ucOreBody.resx">
+      <DependentUpon>ucOreBody.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\OreflowStorages\ucOreflowStorages.resx">
+      <DependentUpon>ucOreflowStorages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\Pegs\ilePegs.resx">
+      <DependentUpon>ilePegs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\Pegs\ucPegs.resx">
+      <DependentUpon>ucPegs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\ProblemSetup\ileProblemSetup.resx">
+      <DependentUpon>ileProblemSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\ProblemSetup\ucProblemSetup.resx">
+      <DependentUpon>ucProblemSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\ProcessCodes\ucProcessCodes.resx">
+      <DependentUpon>ucProcessCodes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\QAQC\ileCourseBlank.resx">
+      <DependentUpon>ileCourseBlank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\QAQC\ileCRM.resx">
+      <DependentUpon>ileCRM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\QAQC\ileDuplicate.resx">
+      <DependentUpon>ileDuplicate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\QAQC\ucQAQC.resx">
+      <DependentUpon>ucQAQC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SamplingCapture\ileSamplingCapture.resx">
+      <DependentUpon>ileSamplingCapture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SamplingCapture\ucSamplingCapture.resx">
+      <DependentUpon>ucSamplingCapture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SectionScreen\frmUpdateSection.resx">
+      <DependentUpon>frmUpdateSection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SectionScreen\ucOtherSections.resx">
+      <DependentUpon>ucOtherSections.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SetupCycles\frmDepartmentMain.resx">
+      <DependentUpon>frmDepartmentMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SetupCycles\FrmNotes.resx">
+      <DependentUpon>FrmNotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SetupCycles\GeoInspFrm.resx">
+      <DependentUpon>GeoInspFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SetupCycles\RockEngFrm.resx">
+      <DependentUpon>RockEngFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SetupCycles\ucSetupCycles.resx">
+      <DependentUpon>ucSetupCycles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SetupCycles\VentInspection.resx">
+      <DependentUpon>VentInspection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SystemSettings\frmAddExtendedBreak.resx">
+      <DependentUpon>frmAddExtendedBreak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SystemSettings\ucExtendedBreak.resx">
+      <DependentUpon>ucExtendedBreak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\TrammingProblems\ileTrammingProblems.resx">
+      <DependentUpon>ileTrammingProblems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\TrammingProblems\ucTrammingProblems.resx">
+      <DependentUpon>ucTrammingProblems.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SectionScreen\ileSectionScreen.resx">
+      <DependentUpon>ileSectionScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\TopPanels\ucTopPanels.resx">
+      <DependentUpon>ucTopPanels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\TrammingBooking\ucTrammingBooking.resx">
+      <DependentUpon>ucTrammingBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\TrammingBoxholes\ileTrammingBoxholes.resx">
+      <DependentUpon>ileTrammingBoxholes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\TrammingBoxholes\ucTrammingBoxholes.resx">
+      <DependentUpon>ucTrammingBoxholes.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\TrammingPlanning\ucTrammingPlanning.resx">
+      <DependentUpon>ucTrammingPlanning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\Users\ucUserProductionSettings.resx">
+      <DependentUpon>ucUserProductionSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\Workplaces\ileWorkplaceEdit.resx">
+      <DependentUpon>ileWorkplaceEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\Workplaces\ucWorkplaces.resx">
+      <DependentUpon>ucWorkplaces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\Workplace_Codes\ileGridEdit.resx">
+      <DependentUpon>ileGridEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\Workplace_Codes\ucWorkplace_Codes.resx">
+      <DependentUpon>ucWorkplace_Codes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\CalendarTypes\ucCalendarTypes.resx">
+      <DependentUpon>ucCalendarTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\CalendarTypes\ucCalTypeEdit.resx">
+      <DependentUpon>ucCalTypeEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SectionCalendar\ileSectionCalendar.resx">
+      <DependentUpon>ileSectionCalendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SectionCalendar\ucSectionCalendar.resx">
+      <DependentUpon>ucSectionCalendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SectionScreen\ucSectionScreen.resx">
+      <DependentUpon>ucSectionScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SystemSettings\ucSystemSettingsBookings.resx">
+      <DependentUpon>ucSystemSettingsBookings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SystemSettings\ucSystemSettingsCurrent.resx">
+      <DependentUpon>ucSystemSettingsCurrent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SystemSettings\ucSystemSettingsDates.resx">
+      <DependentUpon>ucSystemSettingsDates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SystemSettings\ucSystemSettingsFactors.resx">
+      <DependentUpon>ucSystemSettingsFactors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SystemSettings\ucSystemSettingsInterfaces.resx">
+      <DependentUpon>ucSystemSettingsInterfaces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SysAdminScreens\SystemSettings\ucSystemSettingsMines.resx">
+      <DependentUpon>ucSystemSettingsMines.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controls\Resources\Production16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controls\Resources\Production24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controls\Resources\Production32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controls\Resources\Production48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controls\Resources\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controls\Resources\Blank.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controls\Resources\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controls\Resources\Arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controls\Resources\Delete.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controls\Resources\Arrow Grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Controls\Resources\ProductionStart48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arrow.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Arrow Grey.png" />
+    <Content Include="Resources\Blank.bmp" />
+    <Content Include="Resources\check.png" />
+    <Content Include="Resources\cross.png" />
+    <Content Include="Resources\Delete.bmp" />
+    <None Include="Resources\Loading.gif" />
+    <None Include="Resources\images707MS6CI.png" />
+    <Content Include="Resources\Production16x16.png" />
+    <Content Include="Resources\Production24x24.png" />
+    <Content Include="Resources\Production32x32.png" />
+    <Content Include="Resources\Production48x48.png" />
+    <Content Include="Resources\ProductionStart48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mineware.Systems.HarmonyPASReports\Mineware.Systems.HarmonyPASReports.csproj">
+      <Project>{42f6be92-0679-47b9-8de8-bd520de066d6}</Project>
+      <Name>Mineware.Systems.HarmonyPASReports</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Mineware.Systems.HarmonyPlanning\Mineware.Systems.HarmonyPlanning.csproj">
+      <Project>{273bafff-73a0-488a-bbd6-12d396b3a681}</Project>
+      <Name>Mineware.Systems.HarmonyPlanning</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

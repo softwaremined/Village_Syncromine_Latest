@@ -1,0 +1,636 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" StartReportEvent="_StartReport" FinishReportEvent="_FinishReport" ReportInfo.Created="01/07/2012 17:02:32" ReportInfo.Modified="04/03/2017 09:55:22" ReportInfo.CreatorVersion="2016.3.0.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+
+  public class ReportScript
+  {  
+    private void MasterData1_BeforePrint(object sender, EventArgs e)
+    {
+      double TheVar1;
+      MasterData1.Visible = true;
+      if (((Int32)Report.GetColumnValue(&quot;TheQuery.StopeCheck&quot;)) == 0)
+      {
+     
+        MasterData1.Visible = false;
+      }
+      else
+      {
+        TheField0.FillColor = System.Drawing.Color.White;
+        TheField1.FillColor = System.Drawing.Color.White;   
+        TheField2.FillColor = System.Drawing.Color.White;   
+        TheField3.FillColor = System.Drawing.Color.White;       
+        TheField4.FillColor = System.Drawing.Color.White;
+        TheField5.FillColor = System.Drawing.Color.White;
+        TheField6.FillColor = System.Drawing.Color.White;
+        TheField7.FillColor = System.Drawing.Color.White;
+        TheField8.FillColor = System.Drawing.Color.White;
+        TheField9.FillColor = System.Drawing.Color.White;
+        TheField10.FillColor = System.Drawing.Color.White;
+        TheField11.FillColor = System.Drawing.Color.White;
+        TheField12.FillColor = System.Drawing.Color.White;
+        TheField13.FillColor = System.Drawing.Color.White;
+        TheField14.FillColor = System.Drawing.Color.White;
+        TheField15.FillColor = System.Drawing.Color.White;
+        TheField16.FillColor = System.Drawing.Color.White;
+        TheField17.FillColor = System.Drawing.Color.White;
+        TheField18.FillColor = System.Drawing.Color.White;
+        TheField19.FillColor = System.Drawing.Color.White;
+        TheField20.FillColor = System.Drawing.Color.White;  
+        
+        if (((String)Report.GetColumnValue(&quot;TheQuery.TheWorkplace&quot;)) != &quot;&quot;) 
+        {
+          TheField0.Text = ((String)Report.GetColumnValue(&quot;TheQuery.TheWorkplace&quot;));
+          TheField19.Text = ((String)Report.GetColumnValue(&quot;TheQuery.DayProb&quot;));                     
+          TheField20.Text = ((String)Report.GetColumnValue(&quot;TheQuery.NightProb&quot;));   
+        }
+        
+        if ((((String)Report.GetColumnValue(&quot;TheQuery.TheWorkplace&quot;)) == &quot;&quot;) &amp;&amp;
+          (((String)Report.GetColumnValue(&quot;TheQuery.TheSection&quot;)) != &quot;&quot;)) 
+        {
+          TheField0.Text = ((String)Report.GetColumnValue(&quot;TheQuery.TheSection&quot;));
+          TheField19.Text = &quot;&quot;;
+          TheField20.Text = &quot;&quot;;
+          TheField0.FillColor = System.Drawing.Color.Silver;
+          TheField1.FillColor = System.Drawing.Color.Silver;
+          TheField2.FillColor = System.Drawing.Color.Silver;
+          TheField3.FillColor = System.Drawing.Color.Silver;
+          TheField4.FillColor = System.Drawing.Color.Silver;
+          TheField5.FillColor = System.Drawing.Color.Silver;
+          TheField6.FillColor = System.Drawing.Color.Silver;
+          TheField7.FillColor = System.Drawing.Color.Silver;
+          TheField8.FillColor = System.Drawing.Color.Silver;
+          TheField9.FillColor = System.Drawing.Color.Silver;
+          TheField10.FillColor = System.Drawing.Color.Silver;
+          TheField11.FillColor = System.Drawing.Color.Silver;
+          TheField12.FillColor = System.Drawing.Color.Silver;
+          TheField13.FillColor = System.Drawing.Color.Silver;
+          TheField14.FillColor = System.Drawing.Color.Silver;
+          TheField15.FillColor = System.Drawing.Color.Silver;
+          TheField16.FillColor = System.Drawing.Color.Silver;
+          TheField17.FillColor = System.Drawing.Color.Silver;
+          TheField18.FillColor = System.Drawing.Color.Silver;
+          TheField19.FillColor = System.Drawing.Color.Silver;
+          TheField20.FillColor = System.Drawing.Color.Silver;
+        }
+        if ((((String)Report.GetColumnValue(&quot;TheQuery.TheWorkplace&quot;)) == &quot;&quot;) &amp;&amp;
+          (((String)Report.GetColumnValue(&quot;TheQuery.TheSection&quot;)) == &quot;&quot;) &amp;&amp;
+          (((String)Report.GetColumnValue(&quot;TheQuery.TheSection1&quot;)) != &quot;&quot;))
+        {
+          TheField0.Text = ((String)Report.GetColumnValue(&quot;TheQuery.TheSection1&quot;));
+          TheField19.Text = &quot;&quot;;
+          TheField20.Text = &quot;&quot;;
+          TheField0.FillColor = System.Drawing.Color.LimeGreen;
+          TheField1.FillColor = System.Drawing.Color.LimeGreen;
+          TheField2.FillColor = System.Drawing.Color.LimeGreen;
+          TheField3.FillColor = System.Drawing.Color.LimeGreen;
+          TheField4.FillColor = System.Drawing.Color.LimeGreen;
+          TheField5.FillColor = System.Drawing.Color.LimeGreen;
+          TheField6.FillColor = System.Drawing.Color.LimeGreen;
+          TheField7.FillColor = System.Drawing.Color.LimeGreen;
+          TheField8.FillColor = System.Drawing.Color.LimeGreen;
+          TheField9.FillColor = System.Drawing.Color.LimeGreen;
+          TheField10.FillColor = System.Drawing.Color.LimeGreen;
+          TheField11.FillColor = System.Drawing.Color.LimeGreen;
+          TheField12.FillColor = System.Drawing.Color.LimeGreen;
+          TheField13.FillColor = System.Drawing.Color.LimeGreen;
+          TheField14.FillColor = System.Drawing.Color.LimeGreen;
+          TheField15.FillColor = System.Drawing.Color.LimeGreen;
+          TheField16.FillColor = System.Drawing.Color.LimeGreen;
+          TheField17.FillColor = System.Drawing.Color.LimeGreen;
+          TheField18.FillColor = System.Drawing.Color.LimeGreen;
+          TheField19.FillColor = System.Drawing.Color.LimeGreen;
+          TheField20.FillColor = System.Drawing.Color.LimeGreen;
+        }
+        if ((((String)Report.GetColumnValue(&quot;TheQuery.TheWorkplace&quot;)) == &quot;&quot;) &amp;&amp;
+          (((String)Report.GetColumnValue(&quot;TheQuery.TheSection&quot;)) == &quot;&quot;) &amp;&amp;
+          (((String)Report.GetColumnValue(&quot;TheQuery.TheSection1&quot;)) == &quot;&quot;)) 
+        {
+          TheField0.Text = ((String)Report.GetColumnValue(&quot;TheQuery.TheSection2&quot;));
+          TheField19.Text = &quot;&quot;;
+          TheField20.Text = &quot;&quot;;
+          TheField0.FillColor = System.Drawing.Color.SkyBlue;
+          TheField1.FillColor = System.Drawing.Color.SkyBlue;
+          TheField2.FillColor = System.Drawing.Color.SkyBlue;
+          TheField3.FillColor = System.Drawing.Color.SkyBlue;       
+          TheField4.FillColor = System.Drawing.Color.SkyBlue;
+          TheField5.FillColor = System.Drawing.Color.SkyBlue;
+          TheField6.FillColor = System.Drawing.Color.SkyBlue;
+          TheField7.FillColor = System.Drawing.Color.SkyBlue;
+          TheField8.FillColor = System.Drawing.Color.SkyBlue;
+          TheField9.FillColor = System.Drawing.Color.SkyBlue;
+          TheField10.FillColor = System.Drawing.Color.SkyBlue;
+          TheField11.FillColor = System.Drawing.Color.SkyBlue;
+          TheField12.FillColor = System.Drawing.Color.SkyBlue;
+          TheField13.FillColor = System.Drawing.Color.SkyBlue;
+          TheField14.FillColor = System.Drawing.Color.SkyBlue;
+          TheField15.FillColor = System.Drawing.Color.SkyBlue;
+          TheField16.FillColor = System.Drawing.Color.SkyBlue;
+          TheField17.FillColor = System.Drawing.Color.SkyBlue;
+          TheField18.FillColor = System.Drawing.Color.SkyBlue;
+          TheField19.FillColor = System.Drawing.Color.SkyBlue;
+          TheField20.FillColor = System.Drawing.Color.SkyBlue;         
+        }
+        if ((((String)Report.GetColumnValue(&quot;TheQuery.TheWorkplace&quot;)) == &quot;&quot;) &amp;&amp;
+          (((String)Report.GetColumnValue(&quot;TheQuery.TheSection&quot;)) == &quot;&quot;) &amp;&amp;
+          (((String)Report.GetColumnValue(&quot;TheQuery.TheSection1&quot;)) == &quot;&quot;) &amp;&amp;
+          (((String)Report.GetColumnValue(&quot;TheQuery.TheSection2&quot;)) == &quot;&quot;)) 
+        {
+          if (((String)Report.GetColumnValue(&quot;SysSettings.TheLevel&quot;)) == &quot;1&quot;)
+          {
+            TheField0.Text = ((String)Report.GetColumnValue(&quot;SysSettings.TheSection&quot;));
+            TheField19.Text = &quot;&quot;;
+            TheField20.Text = &quot;&quot;;
+            TheField0.FillColor = System.Drawing.Color.Red;
+            TheField1.FillColor = System.Drawing.Color.Red;
+            TheField2.FillColor = System.Drawing.Color.Red;
+            TheField3.FillColor = System.Drawing.Color.Red;
+            TheField4.FillColor = System.Drawing.Color.Red;
+            TheField5.FillColor = System.Drawing.Color.Red;
+            TheField6.FillColor = System.Drawing.Color.Red;
+            TheField7.FillColor = System.Drawing.Color.Red;
+            TheField8.FillColor = System.Drawing.Color.Red;
+            TheField9.FillColor = System.Drawing.Color.Red;
+            TheField10.FillColor = System.Drawing.Color.Red;
+            TheField11.FillColor = System.Drawing.Color.Red;
+            TheField12.FillColor = System.Drawing.Color.Red;
+            TheField13.FillColor = System.Drawing.Color.Red;
+            TheField14.FillColor = System.Drawing.Color.Red;
+            TheField15.FillColor = System.Drawing.Color.Red;
+            TheField16.FillColor = System.Drawing.Color.Red;
+            TheField17.FillColor = System.Drawing.Color.Red;
+            TheField18.FillColor = System.Drawing.Color.Red;
+            TheField19.FillColor = System.Drawing.Color.Red;
+            TheField20.FillColor = System.Drawing.Color.Red;
+          }
+          else
+          {
+            TheField0.Text = &quot;&quot;;
+            TheField1.Text = &quot;&quot;;
+            TheField2.Text = &quot;&quot;;
+            TheField3.Text = &quot;&quot;;
+            TheField4.Text = &quot;&quot;;
+            TheField5.Text = &quot;&quot;;
+            TheField6.Text = &quot;&quot;;
+            TheField7.Text = &quot;&quot;;
+            TheField8.Text = &quot;&quot;;
+            TheField9.Text = &quot;&quot;;
+            TheField10.Text = &quot;&quot;;
+            TheField11.Text = &quot;&quot;;
+            TheField12.Text = &quot;&quot;;
+            TheField13.Text = &quot;&quot;;
+            TheField14.Text = &quot;&quot;;
+            TheField15.Text = &quot;&quot;;
+            TheField16.Text = &quot;&quot;;
+            TheField17.Text = &quot;&quot;;
+            TheField18.Text = &quot;&quot;;
+            TheField19.Text = &quot;&quot;;
+            TheField20.Text = &quot;&quot;;
+            MasterData1.Visible = false;
+          }
+          
+            
+        }
+      }
+      TheVar1 = Convert.ToDouble(((Decimal)Report.GetColumnValue(&quot;TheQuery.DaV_Sqm&quot;)));
+      if (TheVar1 &lt; 0)
+         TheField6.TextColor = Color.Red;
+      TheVar1 = Convert.ToDouble(((Decimal)Report.GetColumnValue(&quot;TheQuery.V_Sqm&quot;)));
+      if (TheVar1 &lt; 0)
+        TheField9.TextColor = Color.Red;
+      TheVar1 = Convert.ToDouble(((Decimal)Report.GetColumnValue(&quot;TheQuery.VM_Sqm&quot;)));
+      if (TheVar1 &lt; 0)
+        TheField16.TextColor = Color.Red; 
+    }
+
+    private void MasterData2_BeforePrint(object sender, EventArgs e)
+    {
+      double TheVar1;
+      MasterData2.Visible = true;
+      if (((Int32)Report.GetColumnValue(&quot;TheQuery.DevCheck&quot;)) == 0)
+      {
+   
+        MasterData2.Visible = false;
+      }
+      else
+      { 
+        TheDevField0.FillColor = System.Drawing.Color.White;
+        ThesecField4.FillColor = System.Drawing.Color.White;   
+        ThesecField5.FillColor = System.Drawing.Color.White;   
+        ThesecField6.FillColor = System.Drawing.Color.White;       
+        ThesecField7.FillColor = System.Drawing.Color.White;
+        ThesecField8.FillColor = System.Drawing.Color.White;
+        ThesecField9.FillColor = System.Drawing.Color.White;
+        ThesecField10.FillColor = System.Drawing.Color.White;
+        ThesecField11.FillColor = System.Drawing.Color.White;
+        ThesecField12.FillColor = System.Drawing.Color.White;
+        ThesecField13.FillColor = System.Drawing.Color.White;
+        ThesecField14.FillColor = System.Drawing.Color.White;
+        ThesecField15.FillColor = System.Drawing.Color.White;
+        ThesecField16.FillColor = System.Drawing.Color.White;
+        TheSecField3.FillColor = System.Drawing.Color.White;
+        ThesecField17.FillColor = System.Drawing.Color.White;
+        ThesecField18.FillColor = System.Drawing.Color.White;
+        ThesecField19.FillColor = System.Drawing.Color.White;
+        ThesecField20.FillColor = System.Drawing.Color.White; 
+        
+        if (((String)Report.GetColumnValue(&quot;TheQuery.TheWorkplace&quot;)) != &quot;&quot;) 
+        {
+          ThesecField11.Text = ((String)Report.GetColumnValue(&quot;TheQuery.Da_DevNightBlast&quot;));
+          ThesecField12.Text = ((String)Report.GetColumnValue(&quot;TheQuery.Da_DevNightClean&quot;));
+          TheDevField0.Text = ((String)Report.GetColumnValue(&quot;TheQuery.TheWorkplace&quot;));
+          ThesecField19.Text = ((String)Report.GetColumnValue(&quot;TheQuery.DayProb&quot;));                     
+          ThesecField20.Text = ((String)Report.GetColumnValue(&quot;TheQuery.NightProb&quot;)); 
+        }
+        
+        if ((((String)Report.GetColumnValue(&quot;TheQuery.TheWorkplace&quot;)) == &quot;&quot;) &amp;&amp;
+          (((String)Report.GetColumnValue(&quot;TheQuery.TheSection&quot;)) != &quot;&quot;)) 
+        {
+          TheDevField0.Text = ((String)Report.GetColumnValue(&quot;TheQuery.TheSection&quot;));
+          ThesecField11.Text = &quot;&quot;;
+          ThesecField12.Text = &quot;&quot;;
+          ThesecField19.Text = &quot;&quot;;
+          ThesecField20.Text = &quot;&quot;;
+          TheDevField0.FillColor = System.Drawing.Color.Silver;
+          ThesecField4.FillColor = System.Drawing.Color.Silver;   
+          ThesecField5.FillColor = System.Drawing.Color.Silver;   
+          ThesecField6.FillColor = System.Drawing.Color.Silver;       
+          ThesecField7.FillColor = System.Drawing.Color.Silver;
+          ThesecField8.FillColor = System.Drawing.Color.Silver;
+          ThesecField9.FillColor = System.Drawing.Color.Silver;
+          ThesecField10.FillColor = System.Drawing.Color.Silver;
+          ThesecField11.FillColor = System.Drawing.Color.Silver;
+          ThesecField12.FillColor = System.Drawing.Color.Silver;
+          ThesecField13.FillColor = System.Drawing.Color.Silver;
+          ThesecField14.FillColor = System.Drawing.Color.Silver;
+          ThesecField15.FillColor = System.Drawing.Color.Silver;
+          ThesecField16.FillColor = System.Drawing.Color.Silver;
+          TheSecField3.FillColor = System.Drawing.Color.Silver;
+          ThesecField17.FillColor = System.Drawing.Color.Silver;
+          ThesecField18.FillColor = System.Drawing.Color.Silver;
+          ThesecField19.FillColor = System.Drawing.Color.Silver;
+          ThesecField20.FillColor = System.Drawing.Color.Silver;
+        }
+        if ((((String)Report.GetColumnValue(&quot;TheQuery.TheWorkplace&quot;)) == &quot;&quot;) &amp;&amp;
+          (((String)Report.GetColumnValue(&quot;TheQuery.TheSection&quot;)) == &quot;&quot;) &amp;&amp;
+          (((String)Report.GetColumnValue(&quot;TheQuery.TheSection1&quot;)) != &quot;&quot;))
+        {
+          TheDevField0.Text = ((String)Report.GetColumnValue(&quot;TheQuery.TheSection1&quot;));
+          ThesecField11.Text = &quot;&quot;;
+          ThesecField12.Text = &quot;&quot;;
+          ThesecField19.Text = &quot;&quot;;
+          ThesecField20.Text = &quot;&quot;;
+          TheDevField0.FillColor = System.Drawing.Color.LimeGreen;
+          ThesecField4.FillColor = System.Drawing.Color.LimeGreen;   
+          ThesecField5.FillColor = System.Drawing.Color.LimeGreen;   
+          ThesecField6.FillColor = System.Drawing.Color.LimeGreen;       
+          ThesecField7.FillColor = System.Drawing.Color.LimeGreen;
+          ThesecField8.FillColor = System.Drawing.Color.LimeGreen;
+          ThesecField9.FillColor = System.Drawing.Color.LimeGreen;
+          ThesecField10.FillColor = System.Drawing.Color.LimeGreen;
+          ThesecField11.FillColor = System.Drawing.Color.LimeGreen;
+          ThesecField12.FillColor = System.Drawing.Color.LimeGreen;
+          ThesecField13.FillColor = System.Drawing.Color.LimeGreen;
+          ThesecField14.FillColor = System.Drawing.Color.LimeGreen;
+          ThesecField15.FillColor = System.Drawing.Color.LimeGreen;
+          ThesecField16.FillColor = System.Drawing.Color.LimeGreen;
+          TheSecField3.FillColor = System.Drawing.Color.LimeGreen;
+          ThesecField17.FillColor = System.Drawing.Color.LimeGreen;
+          ThesecField18.FillColor = System.Drawing.Color.LimeGreen;
+          ThesecField19.FillColor = System.Drawing.Color.LimeGreen;
+          ThesecField20.FillColor = System.Drawing.Color.LimeGreen;
+        }
+        if ((((String)Report.GetColumnValue(&quot;TheQuery.TheWorkplace&quot;)) == &quot;&quot;) &amp;&amp;
+          (((String)Report.GetColumnValue(&quot;TheQuery.TheSection&quot;)) == &quot;&quot;) &amp;&amp;
+          (((String)Report.GetColumnValue(&quot;TheQuery.TheSection1&quot;)) == &quot;&quot;)) 
+        {
+          TheDevField0.Text = ((String)Report.GetColumnValue(&quot;TheQuery.TheSection2&quot;));
+          ThesecField11.Text = &quot;&quot;;
+          ThesecField12.Text = &quot;&quot;;
+          ThesecField19.Text = &quot;&quot;;
+          ThesecField20.Text = &quot;&quot;;
+          TheDevField0.FillColor = System.Drawing.Color.SkyBlue;
+          ThesecField4.FillColor = System.Drawing.Color.SkyBlue;   
+          ThesecField5.FillColor = System.Drawing.Color.SkyBlue;   
+          ThesecField6.FillColor = System.Drawing.Color.SkyBlue;       
+          ThesecField7.FillColor = System.Drawing.Color.SkyBlue;
+          ThesecField8.FillColor = System.Drawing.Color.SkyBlue;
+          ThesecField9.FillColor = System.Drawing.Color.SkyBlue;
+          ThesecField10.FillColor = System.Drawing.Color.SkyBlue;
+          ThesecField11.FillColor = System.Drawing.Color.SkyBlue;
+          ThesecField12.FillColor = System.Drawing.Color.SkyBlue;
+          ThesecField13.FillColor = System.Drawing.Color.SkyBlue;
+          ThesecField14.FillColor = System.Drawing.Color.SkyBlue;
+          ThesecField15.FillColor = System.Drawing.Color.SkyBlue;
+          ThesecField16.FillColor = System.Drawing.Color.SkyBlue;
+          TheSecField3.FillColor = System.Drawing.Color.SkyBlue;
+          ThesecField17.FillColor = System.Drawing.Color.SkyBlue;
+          ThesecField18.FillColor = System.Drawing.Color.SkyBlue;
+          ThesecField19.FillColor = System.Drawing.Color.SkyBlue;
+          ThesecField20.FillColor = System.Drawing.Color.SkyBlue;        
+        }
+        if ((((String)Report.GetColumnValue(&quot;TheQuery.TheWorkplace&quot;)) == &quot;&quot;) &amp;&amp;
+          (((String)Report.GetColumnValue(&quot;TheQuery.TheSection&quot;)) == &quot;&quot;) &amp;&amp;
+          (((String)Report.GetColumnValue(&quot;TheQuery.TheSection1&quot;)) == &quot;&quot;) &amp;&amp;
+          (((String)Report.GetColumnValue(&quot;TheQuery.TheSection2&quot;)) == &quot;&quot;)) 
+        {              
+          if (((String)Report.GetColumnValue(&quot;SysSettings.TheLevel&quot;)) == &quot;1&quot;)
+          {
+            TheDevField0.Text =  ((String)Report.GetColumnValue(&quot;SysSettings.TheSection&quot;));
+            ThesecField11.Text = &quot;&quot;;
+            ThesecField12.Text = &quot;&quot;;
+            ThesecField19.Text = &quot;&quot;;
+            ThesecField20.Text = &quot;&quot;;
+            TheDevField0.FillColor = System.Drawing.Color.Red;
+            ThesecField4.FillColor = System.Drawing.Color.Red;
+            ThesecField5.FillColor = System.Drawing.Color.Red;
+            ThesecField6.FillColor = System.Drawing.Color.Red;    
+            ThesecField7.FillColor = System.Drawing.Color.Red;
+            ThesecField8.FillColor = System.Drawing.Color.Red;
+            ThesecField9.FillColor = System.Drawing.Color.Red;
+            ThesecField10.FillColor = System.Drawing.Color.Red;
+            ThesecField11.FillColor = System.Drawing.Color.Red;
+            ThesecField12.FillColor = System.Drawing.Color.Red;
+            ThesecField13.FillColor = System.Drawing.Color.Red;
+            ThesecField14.FillColor = System.Drawing.Color.Red;
+            ThesecField15.FillColor = System.Drawing.Color.Red;
+            ThesecField16.FillColor = System.Drawing.Color.Red;
+            TheSecField3.FillColor = System.Drawing.Color.Red;
+            ThesecField17.FillColor = System.Drawing.Color.Red;
+            ThesecField18.FillColor = System.Drawing.Color.Red;
+            ThesecField19.FillColor = System.Drawing.Color.Red;
+            ThesecField20.FillColor = System.Drawing.Color.Red;
+          }
+          else
+          {
+            TheDevField0.Text = &quot;&quot;;
+            ThesecField4.Text = &quot;&quot;;  
+            ThesecField5.Text = &quot;&quot;;
+            ThesecField6.Text = &quot;&quot;;      
+            ThesecField7.Text = &quot;&quot;;
+            ThesecField8.Text = &quot;&quot;;
+            ThesecField9.Text = &quot;&quot;;
+            ThesecField10.Text = &quot;&quot;;
+            ThesecField11.Text = &quot;&quot;;
+            ThesecField12.Text = &quot;&quot;;
+            ThesecField13.Text = &quot;&quot;;
+            ThesecField14.Text = &quot;&quot;;
+            ThesecField15.Text = &quot;&quot;;
+            ThesecField16.Text = &quot;&quot;;
+            TheSecField3.Text = &quot;&quot;;
+            ThesecField17.Text = &quot;&quot;;
+            ThesecField18.Text = &quot;&quot;;
+            ThesecField19.Text = &quot;&quot;;
+            ThesecField20.Text = &quot;&quot;;      
+            MasterData2.Visible = false;
+          }
+        }
+      }
+      TheVar1 = Convert.ToDouble(((Decimal)Report.GetColumnValue(&quot;TheQuery.DaV_DevAdv&quot;)));
+      if (TheVar1 &lt; 0)
+        ThesecField7.TextColor = Color.Red;
+      TheVar1 = Convert.ToDouble(((Decimal)Report.GetColumnValue(&quot;TheQuery.V_DevAdv&quot;)));
+      if (TheVar1 &lt; 0)
+        ThesecField10.TextColor = Color.Red;
+      TheVar1 = Convert.ToDouble(((Decimal)Report.GetColumnValue(&quot;TheQuery.VM_DevAdv&quot;)));
+      if (TheVar1 &lt; 0)
+        TheSecField3.TextColor = Color.Red; 
+    }
+
+    private void Page2_StartPage(object sender, EventArgs e)
+    {
+     
+    }
+
+    private void _StartReport(object sender, EventArgs e)
+    {
+      if (((String)Report.GetColumnValue(&quot;Shifts.StpCheck&quot;)) == &quot;0&quot;)
+      {
+     
+        Page1.Visible = false;
+      }
+      
+      if (((String)Report.GetColumnValue(&quot;Shifts.DevCheck&quot;)) == &quot;0&quot;)
+     {
+     
+        Page2.Visible = false;
+      }
+    }
+
+    private void _FinishReport(object sender, EventArgs e)
+    {
+     
+    
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="SysSettings" ReferenceName="Data.SysSettings" DataType="System.Int32" Enabled="true">
+      <Column Name="Banner" DataType="System.String"/>
+      <Column Name="Shaft" DataType="System.String"/>
+      <Column Name="TheDate" DataType="System.String"/>
+      <Column Name="TheSection" DataType="System.String"/>
+      <Column Name="TheLevel" DataType="System.String"/>
+      <Column Name="TheRepType" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Shifts" ReferenceName="Data.Shifts" DataType="System.Int32" Enabled="true">
+      <Column Name="Shift" DataType="System.String"/>
+      <Column Name="TotalShifts" DataType="System.String"/>
+      <Column Name="DevCheck" DataType="System.String"/>
+      <Column Name="StpCheck" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="TheQuery" ReferenceName="Data.TheQuery" DataType="System.Int32" Enabled="true">
+      <Column Name="TheSection" DataType="System.String"/>
+      <Column Name="TheSection1" DataType="System.String"/>
+      <Column Name="TheSection2" DataType="System.String"/>
+      <Column Name="TheWorkplace" DataType="System.String"/>
+      <Column Name="NightProb" DataType="System.String"/>
+      <Column Name="DayProb" DataType="System.String"/>
+      <Column Name="Shifts" DataType="System.Int32"/>
+      <Column Name="TotalShifts" DataType="System.Int32"/>
+      <Column Name="DevCheck" DataType="System.Int32"/>
+      <Column Name="StopeCheck" DataType="System.Int32"/>
+      <Column Name="DM_m2" DataType="System.Decimal"/>
+      <Column Name="DM_FL" DataType="System.Decimal"/>
+      <Column Name="DM_ReefSQMcmgt" DataType="System.Decimal"/>
+      <Column Name="DM_reefm2" DataType="System.Decimal"/>
+      <Column Name="DM_cmgt" DataType="System.Decimal"/>
+      <Column Name="Da_m2" DataType="System.Decimal"/>
+      <Column Name="DaB_Sqm" DataType="System.Decimal"/>
+      <Column Name="DaV_Sqm" DataType="System.Decimal"/>
+      <Column Name="D_m2" DataType="System.Decimal"/>
+      <Column Name="B_Sqm" DataType="System.Decimal"/>
+      <Column Name="V_Sqm" DataType="System.Decimal"/>
+      <Column Name="DaM_Sqm" DataType="System.Decimal"/>
+      <Column Name="VM_Sqm" DataType="System.Decimal"/>
+      <Column Name="F_Sqm" DataType="System.Decimal"/>
+      <Column Name="Da_NightBlast" DataType="System.Decimal"/>
+      <Column Name="Da_NightClean" DataType="System.Decimal"/>
+      <Column Name="DaB_Adv" DataType="System.Decimal"/>
+      <Column Name="B_Adv" DataType="System.Decimal"/>
+      <Column Name="B_FL" DataType="System.Decimal"/>
+      <Column Name="DaB_FL" DataType="System.Decimal"/>
+      <Column Name="DM_DevAdv" DataType="System.Decimal"/>
+      <Column Name="Da_DevAdv" DataType="System.Decimal"/>
+      <Column Name="DaB_DevAdv" DataType="System.Decimal"/>
+      <Column Name="DaV_DevAdv" DataType="System.Decimal"/>
+      <Column Name="D_DevAdv" DataType="System.Decimal"/>
+      <Column Name="B_DevAdv" DataType="System.Decimal"/>
+      <Column Name="V_DevAdv" DataType="System.Decimal"/>
+      <Column Name="F_DevAdv" DataType="System.Decimal"/>
+      <Column Name="DaM_DevAdv" DataType="System.Decimal"/>
+      <Column Name="VM_DevAdv" DataType="System.Decimal"/>
+      <Column Name="Da_DevNightBlast" DataType="System.String"/>
+      <Column Name="Da_DevNightClean" DataType="System.String"/>
+    </TableDataSource>
+    <Total Name="TotalDev" TotalType="Max" Expression="[TheQuery.DevCheck]" Evaluator="MasterData1" PrintOn="PageFooter1"/>
+    <Total Name="TotalStop" TotalType="Max" Expression="[TheQuery.StopeCheck]" Evaluator="MasterData1" PrintOn="PageFooter1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" OutlineExpression="">
+    <PageHeaderBand Name="PageHeader2" Width="1047.06" Height="86.93" BeforePrintEvent="PageHeader2_BeforePrint">
+      <TextObject Name="Memo11" Top="35.91" Width="3.78" Height="51.02" Border.Lines="Left, Right" Fill.Color="153, 180, 209" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo165" Left="1043.15" Top="35.91" Width="3.78" Height="51.02" Border.Lines="Left, Right" Fill.Color="153, 180, 209" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo1179" Width="1046.93" Height="35.91" Border.Lines="Left, Right, Top" Fill.Color="153, 180, 209" Text="[SysSettings.Shaft] - DAILY STOPING PERFORMANCE - [SysSettings.TheDate] for [SysSettings.TheSection]" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold, Underline"/>
+      <TextObject Name="Memo106" Left="3.78" Top="35.91" Width="139.84" Height="51.02" Border.Lines="All" Fill.Color="215, 228, 242" Text="Workplace" Padding="2, 1, 2, 1" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo107" Left="245.7" Top="73.7" Width="34.02" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Plan" Padding="2, 1, 2, 1" AutoShrink="FontSize" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo108" Left="279.72" Top="73.7" Width="34.02" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Book" Padding="2, 1, 2, 1" AutoShrink="FontSize" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo113" Left="313.74" Top="73.7" Width="34.02" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Var" Padding="2, 1, 2, 1" AutoShrink="FontSize" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo114" Left="347.76" Top="73.7" Width="34.02" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Plan" Padding="2, 1, 2, 1" AutoShrink="FontSize" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo121" Left="381.78" Top="73.7" Width="34.02" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Book" Padding="2, 1, 2, 1" AutoShrink="FontSize" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo122" Left="415.8" Top="73.7" Width="34.02" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Var" Padding="2, 1, 2, 1" AutoShrink="FontSize" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo123" Left="449.82" Top="73.7" Width="34.02" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Blast" Padding="2, 1, 2, 1" AutoShrink="FontSize" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo124" Left="483.84" Top="73.7" Width="34.02" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Clean" Padding="2, 1, 2, 1" AutoShrink="FontSize" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo125" Left="211.68" Top="73.7" Width="34.02" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="cmg/t" Padding="2, 1, 2, 1" AutoShrink="FontSize" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo126" Left="756" Top="35.91" Width="143.64" Height="51.02" Border.Lines="All" Fill.Color="215, 228, 242" Text="Day shift reasons for not blasting" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo131" Left="899.64" Top="35.91" Width="143.64" Height="51.02" Border.Lines="All" Fill.Color="215, 228, 242" Text="Night shift reason for not cleaning" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo172" Left="585.9" Top="73.7" Width="34.02" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Book" Padding="2, 1, 2, 1" AutoShrink="FontSize" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo177" Left="619.92" Top="73.7" Width="34.02" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Meas" Padding="2, 1, 2, 1" AutoShrink="FontSize" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo190" Left="653.94" Top="73.7" Width="34.02" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Var" Padding="2, 1, 2, 1" AutoShrink="FontSize" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo233" Left="245.7" Top="60.47" Width="102.06" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Daily" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo234" Left="347.76" Top="60.47" Width="107.72" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Progressive" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo239" Left="517.86" Top="73.7" Width="34.02" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Daily" Padding="2, 1, 2, 1" AutoShrink="FontSize" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo240" Left="551.88" Top="73.7" Width="34.02" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Prog" Padding="2, 1, 2, 1" AutoShrink="FontSize" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo241" Left="721.98" Top="35.91" Width="34.02" Height="51.02" Border.Lines="All" Fill.Color="215, 228, 242" Text="SB FC" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo260" Left="245.7" Top="35.91" Width="204.12" Height="24.57" Border.Lines="All" Fill.Color="215, 228, 242" Text="m2" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo261" Left="449.82" Top="35.91" Width="68.04" Height="37.8" Border.Lines="All" Fill.Color="215, 228, 242" Text="Night Shift&#13;&#10;FL" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo262" Left="517.86" Top="35.91" Width="68.03" Height="37.8" Border.Lines="All" Fill.Color="215, 228, 242" Text="Adv/Blast" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo263" Left="585.9" Top="35.91" Width="102.06" Height="37.8" Border.Lines="All" Fill.Color="215, 228, 242" Text="Latest Recon\&#13;&#10;m2" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo264" Left="687.96" Top="35.91" Width="34.02" Height="51.02" Border.Lines="All" Fill.Color="215, 228, 242" Text="Mech FC" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo269" Left="143.62" Top="35.91" Width="102.06" Height="37.8" Border.Lines="All" Fill.Color="215, 228, 242" Text="Dynamic Month Plan" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo270" Left="143.62" Top="73.7" Width="34.02" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="m2" Padding="2, 1, 2, 1" AutoShrink="FontSize" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo271" Left="177.66" Top="73.7" Width="34.02" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="FL" Padding="2, 1, 2, 1" AutoShrink="FontSize" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo1" Left="491.34" Top="15.12" Width="49.13" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="[TheQuery.Shifts]" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo3" Left="600.95" Top="15.12" Width="52.91" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="[TheQuery.TotalShifts]" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo5" Left="551.81" Top="15.12" Width="37.8" Height="11.34" Fill.Color="153, 180, 209" Text="of" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo8" Left="423.31" Top="15.12" Width="56.69" Height="11.34" Fill.Color="153, 180, 209" Text="Shift" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="MasterData1" Top="90.93" Width="1047.06" Height="13.23" BeforePrintEvent="MasterData1_BeforePrint" KeepChild="true" DataSource="TheQuery">
+      <TextObject Name="TheField0" Left="3.78" Width="139.84" Height="13.23" Border.Lines="All" BeforePrintEvent="TheField0_BeforePrint" Text="[TheQuery.TheWorkplace]" Padding="2, 1, 2, 1" HideValue="0" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="TheField1" Left="143.62" Width="34.02" Height="13.23" Border.Lines="All" Text="[TheQuery.DM_m2]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="TheField2" Left="177.66" Width="34.02" Height="13.23" Border.Lines="All" Text="[TheQuery.DM_FL]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="TheField3" Left="211.68" Width="34.02" Height="13.23" Border.Lines="All" Text="[TheQuery.DM_cmgt]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="TheField4" Left="245.7" Width="34.02" Height="13.23" Border.Lines="All" Text="[TheQuery.Da_m2]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="TheField5" Left="279.72" Width="34.02" Height="13.23" Border.Lines="All" Text="[TheQuery.DaB_Sqm]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="TheField6" Left="313.74" Width="34.02" Height="13.23" Border.Lines="All" Text="[TheQuery.DaV_Sqm]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="TheField7" Left="347.76" Width="34.02" Height="13.23" Border.Lines="All" Text="[TheQuery.D_m2]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="TheField8" Left="381.78" Width="34.02" Height="13.23" Border.Lines="All" Text="[TheQuery.B_Sqm]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="TheField9" Left="415.8" Width="34.02" Height="13.23" Border.Lines="All" Text="[TheQuery.V_Sqm]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="TheField10" Left="449.82" Width="34.02" Height="13.23" Border.Lines="All" Text="[TheQuery.Da_NightBlast]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="TheField11" Left="483.84" Width="34.02" Height="13.23" Border.Lines="All" Text="[TheQuery.Da_NightClean]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="TheField12" Left="517.86" Width="34.02" Height="13.23" Border.Lines="All" Text="[TheQuery.DaB_Adv]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="TheField13" Left="551.88" Width="34.02" Height="13.23" Border.Lines="All" Text="[TheQuery.B_Adv]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="TheField14" Left="585.9" Width="34.02" Height="13.23" Border.Lines="All" Text="[TheQuery.DaB_Sqm]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="TheField15" Left="619.92" Width="34.02" Height="13.23" Border.Lines="All" Text="[TheQuery.DaB_Sqm]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="TheField16" Left="653.94" Width="34.02" Height="13.23" Border.Lines="All" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="TheField17" Left="687.96" Width="34.02" Height="13.23" Border.Lines="All" Text="[TheQuery.F_Sqm]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="TheField18" Left="721.98" Width="34.02" Height="13.23" Border.Lines="All" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="TheField19" Left="756" Width="143.64" Height="13.23" Border.Lines="All" Text="[TheQuery.DayProb]" Padding="2, 1, 2, 1" HideValue="0" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="TheField20" Left="899.64" Width="143.64" Height="13.23" Border.Lines="All" Text="[TheQuery.NightProb]" Padding="2, 1, 2, 1" HideValue="0" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="Memo24" Width="3.78" Height="13.23" Border.Lines="Left, Right" Fill.Color="153, 180, 209" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+      <TextObject Name="Memo25" Left="1043.15" Width="3.78" Height="13.23" Border.Lines="Left, Right" Fill.Color="153, 180, 209" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="Arial Narrow, 5.25pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="108.16" Width="1047.06" Height="18.9">
+      <TextObject Name="Text1" Width="907.2" Height="18.9" Text="[PageN]of[TotalPages#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text2" Left="907.2" Width="141.75" Height="18.9" Text="[Date]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+    </PageFooterBand>
+  </ReportPage>
+  <ReportPage Name="Page2" Landscape="true" PaperWidth="297" PaperHeight="210" StartPageEvent="Page2_StartPage">
+    <PageHeaderBand Name="PageHeader1" Width="1047.06" Height="86.93">
+      <TextObject Name="Memo164" Left="219.21" Top="60.47" Width="79.37" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Daily" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo166" Left="298.58" Top="60.47" Width="79.37" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Progressive" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo167" Left="377.95" Top="73.7" Width="52.91" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Blast" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="Arial, 5pt, style=Bold"/>
+      <TextObject Name="Memo178" Left="430.87" Top="73.7" Width="52.91" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Clean" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="Arial, 5pt, style=Bold"/>
+      <TextObject Name="Memo179" Left="721.89" Top="35.91" Width="162.52" Height="51.02" Border.Lines="All" Fill.Color="215, 228, 242" Text="Day Shift reasons for not blasting" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo184" Left="884.41" Top="35.91" Width="158.74" Height="51.02" Border.Lines="All" Fill.Color="215, 228, 242" Text="Night Shift reasons for not cleaning" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo189" Left="483.78" Top="35.91" Width="52.91" Height="37.8" Border.Lines="All" Fill.Color="215, 228, 242" Text="Adv/Blast     m" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo196" Left="616.06" Top="35.91" Width="52.91" Height="51.02" Border.Lines="All" Fill.Color="215, 228, 242" Text="Mech FC" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo197" Left="668.98" Top="35.91" Width="52.91" Height="51.02" Border.Lines="All" Fill.Color="215, 228, 242" Text="SB FC" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo27" Left="1043.15" Top="24.57" Width="3.78" Height="62.36" Border.Lines="Left, Right" Fill.Color="153, 180, 209" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo40" Top="32.13" Width="11.34" Height="54.8" Border.Lines="Left, Right" Fill.Color="153, 180, 209" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo60" Left="3.78" Top="35.91" Width="162.52" Height="51.02" Border.Lines="All" Fill.Color="215, 228, 242" Text="Workplace" Padding="2, 1, 2, 1" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo279" Left="219.21" Top="35.91" Width="158.74" Height="24.57" Border.Lines="All" Fill.Color="215, 228, 242" Text="m" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo281" Left="377.95" Top="35.91" Width="105.83" Height="37.8" Border.Lines="All" Fill.Color="215, 228, 242" Text="Night Shift" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo282" Left="536.69" Top="35.91" Width="79.37" Height="39.69" Border.Lines="All" Fill.Color="215, 228, 242" Text="Latest Recon m" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo289" Left="166.3" Top="35.91" Width="52.91" Height="24.57" Border.Lines="All" Fill.Color="215, 228, 242" Text="Dynamic Month Plan" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo290" Left="166.3" Top="60.47" Width="52.91" Height="26.46" Border.Lines="All" Fill.Color="215, 228, 242" Text="Call" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo9" Width="1046.93" Height="35.91" Border.Lines="Left, Right, Top" Fill.Color="153, 180, 209" Text="[SysSettings.Shaft] - DAILY DEVELOPMENT PERFORMANCE - [SysSettings.TheDate] for [SysSettings.TheSection]" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold, Underline"/>
+      <TextObject Name="Memo10" Left="472.44" Top="15.12" Width="49.13" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="[Shifts.Shift]" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo13" Left="582.05" Top="15.12" Width="52.91" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="[Shifts.TotalShifts]" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo15" Left="532.91" Top="15.12" Width="37.8" Height="11.34" Fill.Color="153, 180, 209" Text="of" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo18" Left="404.41" Top="15.12" Width="56.69" Height="11.34" Fill.Color="153, 180, 209" Text="Shift" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
+      <TextObject Name="Memo65" Left="219.21" Top="73.7" Width="26.46" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Plan" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="Arial, 5pt, style=Bold"/>
+      <TextObject Name="Memo76" Left="245.67" Top="73.7" Width="26.46" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Book" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="Arial, 5pt, style=Bold"/>
+      <TextObject Name="Memo78" Left="272.13" Top="73.7" Width="26.46" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Var" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="Arial, 5pt, style=Bold"/>
+      <TextObject Name="Memo83" Left="298.58" Top="73.7" Width="26.46" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Plan" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="Arial, 5pt, style=Bold"/>
+      <TextObject Name="Memo97" Left="325.04" Top="73.7" Width="26.46" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Book" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="Arial, 5pt, style=Bold"/>
+      <TextObject Name="Memo102" Left="351.5" Top="73.7" Width="26.46" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Var" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="Arial, 5pt, style=Bold"/>
+      <TextObject Name="Memo127" Left="483.78" Top="73.7" Width="26.46" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Daily" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="Arial, 5pt, style=Bold"/>
+      <TextObject Name="Memo128" Left="510.24" Top="73.7" Width="26.46" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Prog" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="Arial, 5pt, style=Bold"/>
+      <TextObject Name="Memo130" Left="536.69" Top="73.7" Width="26.46" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Book" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="Arial, 5pt, style=Bold"/>
+      <TextObject Name="Memo133" Left="563.15" Top="73.7" Width="26.46" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Meas" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="Arial, 5pt, style=Bold"/>
+      <TextObject Name="Memo14" Left="589.61" Top="73.7" Width="26.46" Height="13.23" Border.Lines="All" Fill.Color="215, 228, 242" Text="Var" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="Arial, 5pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="MasterData2" Top="90.93" Width="1047.06" Height="13.23" BeforePrintEvent="MasterData2_BeforePrint" DataSource="TheQuery" PrintIfDetailEmpty="true" PrintIfDatasourceEmpty="true">
+      <TextObject Name="TheDevField0" Left="3.78" Width="162.52" Height="13.23" Border.Lines="All" Text="[TheQuery.TheWorkplace]" Padding="2, 1, 2, 1" HideValue="0" Font="Arial Narrow, 6pt"/>
+      <TextObject Name="ThesecField4" Left="166.3" Width="52.91" Height="13.23" Border.Lines="All" Text="[TheQuery.DM_DevAdv]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" Font="Arial Narrow, 6pt"/>
+      <TextObject Name="ThesecField5" Left="219.21" Width="26.46" Height="13.23" Border.Lines="All" Text="[TheQuery.Da_DevAdv]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" Font="Arial Narrow, 6pt"/>
+      <TextObject Name="ThesecField6" Left="245.67" Width="26.46" Height="13.23" Border.Lines="All" Text="[TheQuery.DaB_DevAdv]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" Font="Arial Narrow, 6pt"/>
+      <TextObject Name="ThesecField7" Left="272.13" Width="26.46" Height="13.23" Border.Lines="All" Text="[TheQuery.DaV_DevAdv]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" Font="Arial Narrow, 6pt"/>
+      <TextObject Name="ThesecField8" Left="298.58" Width="26.46" Height="13.23" Border.Lines="All" Text="[TheQuery.D_DevAdv]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" Font="Arial Narrow, 6pt"/>
+      <TextObject Name="ThesecField9" Left="325.04" Width="26.46" Height="13.23" Border.Lines="All" Text="[TheQuery.B_DevAdv]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" Font="Arial Narrow, 6pt"/>
+      <TextObject Name="ThesecField10" Left="351.5" Width="26.46" Height="13.23" Border.Lines="All" Text="[TheQuery.V_DevAdv]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" Font="Arial Narrow, 6pt"/>
+      <TextObject Name="ThesecField11" Left="377.95" Width="52.91" Height="13.23" Border.Lines="All" Text="[TheQuery.Da_DevNightBlast]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Center" Font="Arial Narrow, 6pt"/>
+      <TextObject Name="ThesecField12" Left="430.87" Width="52.91" Height="13.23" Border.Lines="All" Text="[TheQuery.Da_DevNightClean]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Center" Font="Arial Narrow, 6pt"/>
+      <TextObject Name="ThesecField13" Left="483.78" Width="26.46" Height="13.23" Border.Lines="All" Text="[TheQuery.DaB_DevAdv]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" Font="Arial Narrow, 6pt"/>
+      <TextObject Name="ThesecField14" Left="510.24" Width="26.46" Height="13.23" Border.Lines="All" Text="[TheQuery.B_DevAdv]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" Font="Arial Narrow, 6pt"/>
+      <TextObject Name="ThesecField15" Left="536.69" Width="26.46" Height="13.23" Border.Lines="All" Text="[TheQuery.B_DevAdv]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" Font="Arial Narrow, 6pt"/>
+      <TextObject Name="ThesecField16" Left="563.15" Width="26.46" Height="13.23" Border.Lines="All" Text="[TheQuery.B_DevAdv]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" Font="Arial Narrow, 6pt"/>
+      <TextObject Name="ThesecField17" Left="616.06" Width="52.91" Height="13.23" Border.Lines="All" Text="[TheQuery.F_DevAdv]" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" Font="Arial Narrow, 6pt"/>
+      <TextObject Name="ThesecField18" Left="668.98" Width="52.91" Height="13.23" Border.Lines="All" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" Font="Arial Narrow, 6pt"/>
+      <TextObject Name="ThesecField19" Left="721.89" Width="162.52" Height="13.23" Border.Lines="All" Text="[TheQuery.DayProb]" Padding="2, 1, 2, 1" HideValue="0" VertAlign="Bottom" Font="Arial Narrow, 6pt"/>
+      <TextObject Name="ThesecField20" Left="884.41" Width="158.74" Height="13.23" Border.Lines="All" Text="[TheQuery.NightProb]" Padding="2, 1, 2, 1" HideValue="0" VertAlign="Bottom" Font="Arial Narrow, 6pt"/>
+      <TextObject Name="Memo90" Width="3.78" Height="13.23" Border.Lines="Left, Right" Fill.Color="153, 180, 209" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial Narrow, 6pt"/>
+      <TextObject Name="Memo95" Left="1043.15" Width="3.78" Height="13.23" Border.Lines="Left, Right" Fill.Color="153, 180, 209" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Arial Narrow, 6pt"/>
+      <TextObject Name="TheSecField3" Left="589.61" Width="26.46" Height="13.23" Border.Lines="All" Padding="2, 1, 2, 1" HideZeros="true" HideValue="0" Format="Number" Format.UseLocale="false" Format.DecimalDigits="1" Format.DecimalSeparator="." Format.GroupSeparator="" Format.NegativePattern="1" HorzAlign="Right" Font="Arial Narrow, 6pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter2" Top="108.16" Width="1047.06" Height="18.9">
+      <TextObject Name="Text3" Width="907.2" Height="18.9" Text="[PageN]of[TotalPages#]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+      <TextObject Name="Text4" Left="907.2" Width="141.75" Height="18.9" Text="[Date]" HorzAlign="Center" VertAlign="Center" Font="Arial, 7pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

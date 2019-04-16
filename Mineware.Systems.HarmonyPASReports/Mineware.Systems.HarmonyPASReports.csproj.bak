@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{42F6BE92-0679-47B9-8DE8-BD520DE066D6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mineware.Systems.HarmonyPASReports</RootNamespace>
+    <AssemblyName>Mineware.Systems.HarmonyPASReports</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\..\MIMSHARMONYDOORNKOP\Bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>4</LangVersion>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v18.1">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v18.1">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v18.1">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v18.1.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v18.1">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v18.1.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v18.1.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v18.1.Export">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v18.1.Core">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v18.1, Version=18.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="FastReport, Version=2018.3.43.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\MIMSHARMONYDOORNKOP\Bin\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="Mineware.Menu.Structure, Version=18.2.2.17412, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\MIMSHARMONYDOORNKOP\Bin\Mineware.Menu.Structure.dll</HintPath>
+    </Reference>
+    <Reference Include="Mineware.Plugin.Interface, Version=1.5.6323.18681, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\MIMSHARMONYDOORNKOP\Bin\Mineware.Plugin.Interface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mineware.Systems.Global, Version=1.5.6323.22878, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\MIMSHARMONYDOORNKOP\Bin\Mineware.Systems.Global.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Mineware.Systems.GlobalConnect, Version=1.5.6416.20284, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\MIMSHARMONYDOORNKOP\Bin\Mineware.Systems.GlobalConnect.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="6ShiftRecon\clsReportSettings.cs" />
+    <Compile Include="6ShiftRecon\ucRecon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="6ShiftRecon\ucRecon.Designer.cs">
+      <DependentUpon>ucRecon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CourseBlankSampleReport\clsCourseBlankSampleReportSettings.cs" />
+    <Compile Include="CourseBlankSampleReport\ucCourseBlankSampleReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CourseBlankSampleReport\ucCourseBlankSampleReport.designer.cs">
+      <DependentUpon>ucCourseBlankSampleReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DuplicateSampleReport\clsDuplicateSampleReportSettings.cs" />
+    <Compile Include="DuplicateSampleReport\ucDuplicateSampleReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DuplicateSampleReport\ucDuplicateSampleReport.designer.cs">
+      <DependentUpon>ucDuplicateSampleReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GenericReport\clsGenericReportData.cs" />
+    <Compile Include="GenericReport\clsGenericReportSettings.cs" />
+    <Compile Include="GenericReport\ucGenericReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GenericReport\ucGenericReport.Designer.cs">
+      <DependentUpon>ucGenericReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GradeReport\clsGradeReportSettingsProperties.cs" />
+    <Compile Include="GradeReport\ucGradeReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GradeReport\ucGradeReport.designer.cs">
+      <DependentUpon>ucGradeReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MODailyDetail\MODailyProductionSettingsProperties.cs" />
+    <Compile Include="MODailyDetail\ucMODailyProduction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MODailyDetail\ucMODailyProduction.Designer.cs">
+      <DependentUpon>ucMODailyProduction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MODaily\MODailyProductionSettingsProperties.cs" />
+    <Compile Include="MODaily\ucMODailyProduction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MODaily\ucMODailyProduction.Designer.cs">
+      <DependentUpon>ucMODailyProduction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlannedVsBooked\PlannedVsBookedSettingsProperties.cs" />
+    <Compile Include="PlannedVsBooked\ucPlannedVsBooked.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlannedVsBooked\ucPlannedVsBooked.designer.cs">
+      <DependentUpon>ucPlannedVsBooked.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlanningReport\PlanningReportSettingsProperties.cs" />
+    <Compile Include="PlanningReport\ucPlanningReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlanningReport\ucPlanningReport.Designer.cs">
+      <DependentUpon>ucPlanningReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlanningReportNewStyle\PlanningReportProperties.cs" />
+    <Compile Include="PlanningReportNewStyle\ucPlanningReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BonusReport\clsBonusReportSettings.cs" />
+    <Compile Include="BonusReport\ucBonusReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BonusReport\ucBonusReport.Designer.cs">
+      <DependentUpon>ucBonusReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrewRanking\clsCrewRankingSettings.cs" />
+    <Compile Include="CrewRanking\ucCrewRanking.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CrewRanking\ucCrewRanking.Designer.cs">
+      <DependentUpon>ucCrewRanking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MeasuringListReport\ucMeasureLstProp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MeasuringListReport\ucMeasureLstProp.Designer.cs">
+      <DependentUpon>ucMeasureLstProp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Planning_Protocol_Report\ucLockedPlanning.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Planning_Protocol_Report\ucLockedPlanning.designer.cs">
+      <DependentUpon>ucLockedPlanning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Planning_Protocol_Report\PlanningProtocolReportProperties.cs" />
+    <Compile Include="Planning_Protocol_Report\ucPlanningProtocolReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Planning_Protocol_Report\ucPlanningProtocolReport.designer.cs">
+      <DependentUpon>ucPlanningProtocolReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MeasuringListReport\clsMeasuringListSettingProperties.cs" />
+    <Compile Include="MeasuringListReport\ucMeasuringListReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MeasuringListReport\ucMeasuringListReport.designer.cs">
+      <DependentUpon>ucMeasuringListReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlathondWallChartReport\PlathondWallChartReportSettingPropertiesClass.cs" />
+    <Compile Include="PlathondWallChartReport\PlathondWallChartReportUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlathondWallChartReport\PlathondWallChartReportUserControl.Designer.cs">
+      <DependentUpon>PlathondWallChartReportUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProblemHistoryGraph\clsProblemsReportData.cs" />
+    <Compile Include="ProblemHistoryGraph\clsProblemsReportSettings.cs" />
+    <Compile Include="ProblemHistoryGraph\ucProblemsReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProblemHistoryGraph\ucProblemsReport.Designer.cs">
+      <DependentUpon>ucProblemsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Problem_Analysis_Report\ProblemAnalysisReportProperties.cs" />
+    <Compile Include="Problem_Analysis_Report\ucProblemAnalysisReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Problem_Analysis_Report\ucProblemAnalysisReport.designer.cs">
+      <DependentUpon>ucProblemAnalysisReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductionAnalysisReport\clsProductionAnalysisRepSettings.cs" />
+    <Compile Include="ProductionAnalysisReport\ucProductionAnalysisReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProductionAnalysisReport\ucProductionAnalysisReport.Designer.cs">
+      <DependentUpon>ucProductionAnalysisReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProblemsReport\clsProblemsReportData.cs" />
+    <Compile Include="ProblemsReport\clsProblemsReportSettings.cs" />
+    <Compile Include="ProblemsReport\ucProblemsReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProblemsReport\ucProblemsReport.Designer.cs">
+      <DependentUpon>ucProblemsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RevisedPlanning_Audit_Report\RevisedPlanningAuditProperties.cs" />
+    <Compile Include="RevisedPlanning_Audit_Report\ucRevisedPlanningAuditReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RevisedPlanning_Audit_Report\ucRevisedPlanningAuditReport.designer.cs">
+      <DependentUpon>ucRevisedPlanningAuditReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StandardCRMReport\clsStandardCRMReportSettings.cs" />
+    <Compile Include="StandardCRMReport\ucStandardCRMReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StandardCRMReport\ucStandardCRMReport.designer.cs">
+      <DependentUpon>ucStandardCRMReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TonnageReport\clsTonnageReportSettings.cs" />
+    <Compile Include="TonnageReport\ucTonnageReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TonnageReport\ucTonnageReport.Designer.cs">
+      <DependentUpon>ucTonnageReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TopPanelsReport\clsTopPanelsReportSettings.cs" />
+    <Compile Include="TopPanelsReport\ucTopPanelsReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TopPanelsReport\ucTopPanelsReport.Designer.cs">
+      <DependentUpon>ucTopPanelsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorstPerformers\clsWorstPerformers.cs" />
+    <Compile Include="WorstPerformers\ucWorstPerformerss.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorstPerformers\ucWorstPerformerss.Designer.cs">
+      <DependentUpon>ucWorstPerformerss.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="6ShiftRecon\ucRecon.resx">
+      <DependentUpon>ucRecon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BonusReport\ucBonusReport.resx">
+      <DependentUpon>ucBonusReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CourseBlankSampleReport\ucCourseBlankSampleReport.resx">
+      <DependentUpon>ucCourseBlankSampleReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrewRanking\ucCrewRanking.resx">
+      <DependentUpon>ucCrewRanking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DuplicateSampleReport\ucDuplicateSampleReport.resx">
+      <DependentUpon>ucDuplicateSampleReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GenericReport\ucGenericReport.resx">
+      <DependentUpon>ucGenericReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GradeReport\ucGradeReport.resx">
+      <DependentUpon>ucGradeReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MeasuringListReport\ucMeasureLstProp.resx">
+      <DependentUpon>ucMeasureLstProp.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="SICReport\clsSICReportData.cs" />
+    <Compile Include="SICReport\clsSICReportSettings.cs" />
+    <Compile Include="SICReport\ucSICReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SICReport\ucSICReport.designer.cs">
+      <DependentUpon>ucSICReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SurveyReport\clsSurveyReportData.cs" />
+    <Compile Include="SurveyReport\clsSurveyReportSettings.cs" />
+    <Compile Include="SurveyReport\ucSurveyReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SurveyReport\ucSurveyReport.Designer.cs">
+      <DependentUpon>ucSurveyReport.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MeasuringListReport\ucMeasuringListReport.resx">
+      <DependentUpon>ucMeasuringListReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MODailyDetail\ucMODailyProduction.resx">
+      <DependentUpon>ucMODailyProduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MODaily\ucMODailyProduction.resx">
+      <DependentUpon>ucMODailyProduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlannedVsBooked\ucPlannedVsBooked.resx">
+      <DependentUpon>ucPlannedVsBooked.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlanningReport\ucPlanningReport.resx">
+      <DependentUpon>ucPlanningReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlanningReportNewStyle\ucPlanningReport.resx">
+      <DependentUpon>ucPlanningReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Planning_Protocol_Report\ucLockedPlanning.resx">
+      <DependentUpon>ucLockedPlanning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Planning_Protocol_Report\ucPlanningProtocolReport.resx">
+      <DependentUpon>ucPlanningProtocolReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlathondWallChartReport\PlathondWallChartReportUserControl.resx">
+      <DependentUpon>PlathondWallChartReportUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProblemHistoryGraph\ucProblemsReport.resx">
+      <DependentUpon>ucProblemsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Problem_Analysis_Report\ucProblemAnalysisReport.resx">
+      <DependentUpon>ucProblemAnalysisReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductionAnalysisReport\ucProductionAnalysisReport.resx">
+      <DependentUpon>ucProductionAnalysisReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProblemsReport\ucProblemsReport.resx">
+      <DependentUpon>ucProblemsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RevisedPlanning_Audit_Report\ucRevisedPlanningAuditReport.resx">
+      <DependentUpon>ucRevisedPlanningAuditReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StandardCRMReport\ucStandardCRMReport.resx">
+      <DependentUpon>ucStandardCRMReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TonnageReport\ucTonnageReport.resx">
+      <DependentUpon>ucTonnageReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TopPanelsReport\ucTopPanelsReport.resx">
+      <DependentUpon>ucTopPanelsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SICReport\ucSICReport.resx">
+      <DependentUpon>ucSICReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SurveyReport\ucSurveyReport.resx">
+      <DependentUpon>ucSurveyReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorstPerformers\ucWorstPerformerss.resx">
+      <DependentUpon>ucWorstPerformerss.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mineware.Systems.HarmonyPASGlobal\Mineware.Systems.HarmonyPASGlobal.csproj">
+      <Project>{8ee252b3-b366-494e-ac03-35ece9b8d64a}</Project>
+      <Name>Mineware.Systems.HarmonyPASGlobal</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
