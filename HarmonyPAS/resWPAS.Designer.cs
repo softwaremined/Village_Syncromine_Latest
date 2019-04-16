@@ -22,14 +22,14 @@ namespace Mineware.Systems.Production {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class resHarmonyPAS {
+    internal class resWPAS {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal resHarmonyPAS() {
+        internal resWPAS() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Mineware.Systems.Production {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Mineware.Systems.Production.resHarmonyPAS", typeof(resHarmonyPAS).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Mineware.Systems.Production.resWPAS", typeof(resWPAS).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -221,7 +221,7 @@ namespace Mineware.Systems.Production {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DBHARMONYPAS.
+        ///   Looks up a localized string similar to DBWPAS.
         /// </summary>
         internal static string systemDBTag {
             get {
@@ -230,7 +230,7 @@ namespace Mineware.Systems.Production {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Harmony PAS.
+        ///   Looks up a localized string similar to WPAS.
         /// </summary>
         internal static string systemName {
             get {

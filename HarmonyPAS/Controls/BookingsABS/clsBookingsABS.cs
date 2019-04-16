@@ -32,7 +32,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
             var errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "get_Sysset", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "get_Sysset", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             return theData.ResultsDataTable;
@@ -47,7 +47,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
 			var errorMsg = theData.ExecuteInstruction();
 			if (errorMsg.success == false)
 			{
-				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "get_Sysset", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "get_Sysset", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
 				return theData.ResultsDataTable;
 			}
 			return theData.ResultsDataTable;
@@ -63,7 +63,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
             var errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "get_Sysset", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "get_Sysset", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             return theData.ResultsDataTable;
@@ -80,7 +80,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
 			var errorMsg = theData.ExecuteInstruction();
 			if (errorMsg.success == false)
 			{
-				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "get_Sysset", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "get_Sysset", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
 				return theData.ResultsDataTable;
 			}
 			return theData.ResultsDataTable;
@@ -159,7 +159,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
 			var errorMsg = theData.ExecuteInstruction();
 			if (errorMsg.success == false)
 			{
-				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "get_UserBookSection", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "get_UserBookSection", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
 				return theData.ResultsDataTable;
 			}
 			return theData.ResultsDataTable;
@@ -175,7 +175,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
 			var errorMsg = theData.ExecuteInstruction();
 			if (errorMsg.success == false)
 			{
-				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "get_BookCodeStp", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "get_BookCodeStp", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
 				return theData.ResultsDataTable;
 			}
 			return theData.ResultsDataTable;
@@ -191,7 +191,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
 			var errorMsg = theData.ExecuteInstruction();
 			if (errorMsg.success == false)
 			{
-				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "get_BookCodeDev", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "get_BookCodeDev", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
 				return theData.ResultsDataTable;
 			}
 			return theData.ResultsDataTable;
@@ -208,7 +208,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
 			var errorMsg = theData.ExecuteInstruction();
 			if (errorMsg.success == false)
 			{
-				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSICCapture", "get_Problems_Desc", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSICCapture", "get_Problems_Desc", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
 				return theData.ResultsDataTable;
 			}
 			return theData.ResultsDataTable;
@@ -247,7 +247,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
 			var errorMsg = theData.ExecuteInstruction();
 			if (errorMsg.success == false)
 			{
-				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "get_Pegs", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "get_Pegs", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
 				return theData.ResultsDataTable;
 			}
 			return theData.ResultsDataTable;
@@ -279,7 +279,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
 			var errorMsg = theData.ExecuteInstruction();
 			if (errorMsg.success == false)
 			{
-				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "GetShiftInfo", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "GetShiftInfo", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
 				return theData.ResultsDataTable;
 			}
 			return theData.ResultsDataTable;
@@ -306,7 +306,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
             var errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "GetShiftInfo", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "GetShiftInfo", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             return theData.ResultsDataTable;
@@ -332,7 +332,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
             var errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "GetShiftInfo", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "GetShiftInfo", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             return theData.ResultsDataTable;
@@ -359,7 +359,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
 			var errorMsg = theData.ExecuteInstruction();
 			if (errorMsg.success == false)
 			{
-				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "get_WorkplacesSTP", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "get_WorkplacesSTP", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
 				return theData.ResultsDataTable;
 			}
 			return theData.ResultsDataTable;
@@ -384,7 +384,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
 			var errorMsg = theData.ExecuteInstruction();
 			if (errorMsg.success == false)
 			{
-				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "get_WorkplacesDev", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "get_WorkplacesDev", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
 				return theData.ResultsDataTable;
 			}
 			return theData.ResultsDataTable;
@@ -401,7 +401,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
 			var errorMsg = theData.ExecuteInstruction();
 			if (errorMsg.success == false)
 			{
-				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "get_Problems_Types", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "get_Problems_Types", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
 				return theData.ResultsDataTable;
 			}
 			return theData.ResultsDataTable;
@@ -421,7 +421,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
 			var errorMsg = theData.ExecuteInstruction();
 			if (errorMsg.success == false)
 			{
-				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "get_Problems_Groups", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "get_Problems_Groups", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
 				return theData.ResultsDataTable;
 			}
 			return theData.ResultsDataTable;
@@ -439,7 +439,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
             var errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "get_Problems_Types", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "get_Problems_Types", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             return theData.ResultsDataTable;
@@ -456,7 +456,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
 			var errorMsg = theData.ExecuteInstruction();
 			if (errorMsg.success == false)
 			{
-				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "get_Problems_Desc", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "get_Problems_Desc", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
 				return theData.ResultsDataTable;
 			}
 			return theData.ResultsDataTable;
@@ -480,7 +480,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
 			var errorMsg = theData.ExecuteInstruction();
 			if (errorMsg.success == false)
 			{
-				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "get_DetailStoping", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "get_DetailStoping", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
 				return theData.ResultsDataTable;
 			}
 			return theData.ResultsDataTable;
@@ -504,7 +504,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
 			var errorMsg = theData.ExecuteInstruction();
 			if (errorMsg.success == false)
 			{
-				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "get_DetailDevelopment", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "get_DetailDevelopment", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
 				return theData.ResultsDataTable;
 			}
 			return theData.ResultsDataTable;
@@ -642,7 +642,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
 			var errorMsg = theData.ExecuteInstruction();
 			if (errorMsg.success == false)
 			{
-				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "Save_Stoping", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "Save_Stoping", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
 				return false;
 			}
 			return true;
@@ -719,7 +719,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
 			var errorMsg = theData.ExecuteInstruction();
 			if (errorMsg.success == false)
 			{
-				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "Save_Development", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "Save_Development", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
 				return false;
 			}
 			return true;
@@ -750,7 +750,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
 			var queryResult = theData.ExecuteInstruction();
 			if (!queryResult.success)
 			{
-				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "LoadBookingRecon", queryResult.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+				_sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "LoadBookingRecon", queryResult.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
 				return null;
 			}
 
@@ -836,7 +836,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
                     var executingResult = theData.ExecuteInstruction();
                     if (executingResult.success == false)
                     {
-                        _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsBookingsABS", "SaveBookingRecon", executingResult.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                        _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsBookingsABS", "SaveBookingRecon", executingResult.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                         return false;
                     }
 

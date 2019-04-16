@@ -395,7 +395,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::Mineware.Systems.Production.resHarmonyPAS.Arrow_Grey;
+            this.pictureBox3.Image = global::Mineware.Systems.Production.resWPAS.Arrow_Grey;
             this.pictureBox3.Location = new System.Drawing.Point(329, 251);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox3.Name = "pictureBox3";
@@ -406,7 +406,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Mineware.Systems.Production.resHarmonyPAS.Arrow_Grey;
+            this.pictureBox1.Image = global::Mineware.Systems.Production.resWPAS.Arrow_Grey;
             this.pictureBox1.Location = new System.Drawing.Point(329, 89);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
@@ -1123,7 +1123,7 @@
             // PrecPicBox25
             // 
             this.PrecPicBox25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PrecPicBox25.Image = global::Mineware.Systems.Production.resHarmonyPAS.cross;
+            this.PrecPicBox25.Image = global::Mineware.Systems.Production.resWPAS.cross;
             this.PrecPicBox25.InitialImage = null;
             this.PrecPicBox25.Location = new System.Drawing.Point(681, 636);
             this.PrecPicBox25.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1185,7 +1185,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Mineware.Systems.Production.resHarmonyPAS.Arrow_Grey;
+            this.pictureBox2.Image = global::Mineware.Systems.Production.resWPAS.Arrow_Grey;
             this.pictureBox2.Location = new System.Drawing.Point(329, 170);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox2.Name = "pictureBox2";
@@ -1336,7 +1336,7 @@
             // picBlank
             // 
             this.picBlank.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picBlank.Image = global::Mineware.Systems.Production.resHarmonyPAS.Blank;
+            this.picBlank.Image = global::Mineware.Systems.Production.resWPAS.Blank;
             this.picBlank.Location = new System.Drawing.Point(738, 86);
             this.picBlank.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.picBlank.Name = "picBlank";
@@ -1349,7 +1349,7 @@
             // picCheck
             // 
             this.picCheck.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picCheck.Image = global::Mineware.Systems.Production.resHarmonyPAS.check;
+            this.picCheck.Image = global::Mineware.Systems.Production.resWPAS.check;
             this.picCheck.Location = new System.Drawing.Point(738, 208);
             this.picCheck.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.picCheck.Name = "picCheck";
@@ -1362,7 +1362,7 @@
             // picCross
             // 
             this.picCross.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picCross.Image = global::Mineware.Systems.Production.resHarmonyPAS.cross;
+            this.picCross.Image = global::Mineware.Systems.Production.resWPAS.cross;
             this.picCross.Location = new System.Drawing.Point(738, 150);
             this.picCross.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.picCross.Name = "picCross";

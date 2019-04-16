@@ -20,7 +20,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.SamplingCapture
 
         public void setConnectionString()
         {
-            TheData.ConnectionString = TConnections.GetConnectionString(resHarmonyPAS.systemDBTag, CurrentUser.Connection);
+            TheData.ConnectionString = TConnections.GetConnectionString(resWPAS.systemDBTag, CurrentUser.Connection);
         }
 
         public DataTable getSamplingData()

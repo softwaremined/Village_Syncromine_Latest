@@ -35,7 +35,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.AuthLockPlan
 
         private void updateSecurity()
         {
-            if (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.HarmonyPasMenuStructure.miAuthorisePlan_HPASLockPlanningAuthorise_MinewareSystemsHarmonyPAS.ItemID) == 2)
+            if (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.WPASMenuStructure.miAuthorisePlan_HPASLockPlanningAuthorise_MinewareSystemsHarmonyPAS.ItemID) == 2)
             {
                 btnSave.Enabled = true;
                 gcLocked.OptionsColumn.AllowEdit = true;
@@ -125,7 +125,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.AuthLockPlan
         private void ucAuthLockPlan_Load(object sender, EventArgs e)
         {
           
-            switch (  TUserInfo .theSecurityLevel (ProductionGlobal.TProductionGlobal.HarmonyPasMenuStructure.miAuthorisePlan_HPASLockPlanningAuthorise_MinewareSystemsHarmonyPAS.ItemID ))
+            switch (  TUserInfo .theSecurityLevel (ProductionGlobal.TProductionGlobal.WPASMenuStructure.miAuthorisePlan_HPASLockPlanningAuthorise_MinewareSystemsHarmonyPAS.ItemID ))
             {
                 case 0:
                 case 1:  
@@ -150,7 +150,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.AuthLockPlan
                     break;
             }
 
-            switch (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.HarmonyPasMenuStructure.miAuthorisePlan_HPASLockPlanningAuthorise_MinewareSystemsHarmonyPAS.ItemID ))
+            switch (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.WPASMenuStructure.miAuthorisePlan_HPASLockPlanningAuthorise_MinewareSystemsHarmonyPAS.ItemID ))
             {
                 case 0:
                 case 1: 
@@ -489,8 +489,8 @@ namespace Mineware.Systems.Production.SysAdminScreens.AuthLockPlan
                         _dbMan.queryExecutionType = MWDataManager.ExecutionType.GeneralSQLStatement;
                         _dbMan.queryReturnType = MWDataManager.ReturnType.DataTable;
                         _dbMan.ExecuteInstruction();
-                        TUserInfo.ActionLog(resHarmonyPAS.systemTag, "LOCK PLAN STOPE", UserCurrentInfo.UserID + " : " + r["workplaceid"].ToString() + " LOCKED: " + r["locked"].ToString(), UserCurrentInfo.Connection);
-                        TUserInfo.ActionLog(resHarmonyPAS.systemTag, "LOCK PLAN STOPE", UserCurrentInfo.UserID + " : " + r["workplaceid"].ToString() + " AUTH: " + r["Auth"].ToString(), UserCurrentInfo.Connection);
+                        TUserInfo.ActionLog(resWPAS.systemTag, "LOCK PLAN STOPE", UserCurrentInfo.UserID + " : " + r["workplaceid"].ToString() + " LOCKED: " + r["locked"].ToString(), UserCurrentInfo.Connection);
+                        TUserInfo.ActionLog(resWPAS.systemTag, "LOCK PLAN STOPE", UserCurrentInfo.UserID + " : " + r["workplaceid"].ToString() + " AUTH: " + r["Auth"].ToString(), UserCurrentInfo.Connection);
                     }
                 }
             }            
@@ -551,8 +551,8 @@ namespace Mineware.Systems.Production.SysAdminScreens.AuthLockPlan
                     rpReplanning.Visible = true;
                     rpPreplanning.Visible = false;
                     gcLockPlan.Visible = true;
-                    TUserInfo.ActionLog(resHarmonyPAS.systemTag, "LOCK PLAN STOPE", UserCurrentInfo.UserID + " : " + r["workplaceid"].ToString() + " LOCKED: " + r["locked"].ToString(), UserCurrentInfo.Connection);
-                    TUserInfo.ActionLog(resHarmonyPAS.systemTag, "LOCK PLAN STOPE", UserCurrentInfo.UserID + " : " + r["workplaceid"].ToString() + " AUTH: " + r["Auth"].ToString(), UserCurrentInfo.Connection);
+                    TUserInfo.ActionLog(resWPAS.systemTag, "LOCK PLAN STOPE", UserCurrentInfo.UserID + " : " + r["workplaceid"].ToString() + " LOCKED: " + r["locked"].ToString(), UserCurrentInfo.Connection);
+                    TUserInfo.ActionLog(resWPAS.systemTag, "LOCK PLAN STOPE", UserCurrentInfo.UserID + " : " + r["workplaceid"].ToString() + " AUTH: " + r["Auth"].ToString(), UserCurrentInfo.Connection);
                   
                 }
 

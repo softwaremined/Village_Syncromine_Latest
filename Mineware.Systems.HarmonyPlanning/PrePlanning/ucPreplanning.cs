@@ -1805,7 +1805,7 @@ namespace Mineware.Systems.Planning
                 _TestData.ExecuteInstruction();
 
                 DialogResult result;
-                if (_TestData.ResultsDataTable.Rows.Count == 0 && TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.HarmonyPasMenuStructure.miAllowImportPreviousMonth_HPASPlanningWPImportPreviousMonth_MinewareSystemsHarmonyPAS.ItemID) == 2)
+                if (_TestData.ResultsDataTable.Rows.Count == 0 && TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.WPASMenuStructure.miAllowImportPreviousMonth_HPASPlanningWPImportPreviousMonth_MinewareSystemsHarmonyPAS.ItemID) == 2)
                 {
 
                     result = MessageBox.Show("You have not yet planned for this month. Do you want to load your plans from last month, to form a basis for this month's plan? ", "Unlock Data", MessageBoxButtons.YesNo);
@@ -1836,7 +1836,7 @@ namespace Mineware.Systems.Planning
                 _TestData.ExecuteInstruction();
 
                 DialogResult result;
-                if (_TestData.ResultsDataTable.Rows.Count == 0 && TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.HarmonyPasMenuStructure.miAllowImportPreviousMonth_HPASPlanningWPImportPreviousMonth_MinewareSystemsHarmonyPAS.ItemID) == 2)
+                if (_TestData.ResultsDataTable.Rows.Count == 0 && TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.WPASMenuStructure.miAllowImportPreviousMonth_HPASPlanningWPImportPreviousMonth_MinewareSystemsHarmonyPAS.ItemID) == 2)
                 {
                     result = MessageBox.Show("You have not yet planned for this month. Do you want to load your plans from last month, to form a basis for this month's plan? ", "Unlock Data", MessageBoxButtons.YesNo);
                     if (result == DialogResult.No)
@@ -1870,7 +1870,7 @@ namespace Mineware.Systems.Planning
                 _TestData.ExecuteInstruction();
 
                 DialogResult result;
-                if (_TestData.ResultsDataTable.Rows.Count == 0 && TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.HarmonyPasMenuStructure.miAllowImportPreviousMonth_HPASPlanningWPImportPreviousMonth_MinewareSystemsHarmonyPAS.ItemID) == 2)
+                if (_TestData.ResultsDataTable.Rows.Count == 0 && TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.WPASMenuStructure.miAllowImportPreviousMonth_HPASPlanningWPImportPreviousMonth_MinewareSystemsHarmonyPAS.ItemID) == 2)
                 {
 
                     result = MessageBox.Show("You have not yet planned for this month. Do you want to load your plans from last month, to form a basis for this month's plan? ", "Unlock Data", MessageBoxButtons.YesNo);
@@ -2867,7 +2867,7 @@ namespace Mineware.Systems.Planning
         {
             Color readonlyColor = System.Drawing.Color.FromArgb(255, 255, 192);
             //  Set security for Face Length Column
-            switch (TUserInfo.theSecurityLevel(TProductionGlobal.HarmonyPasMenuStructure.miEditFaceLength_HPASPlanningAllowFaceLengthEdit_MinewareSystemsHarmonyPAS.ItemID))
+            switch (TUserInfo.theSecurityLevel(TProductionGlobal.WPASMenuStructure.miEditFaceLength_HPASPlanningAllowFaceLengthEdit_MinewareSystemsHarmonyPAS.ItemID))
             {
                 case 0:
                     gcFaceLength.OptionsColumn.AllowEdit = false;
@@ -2882,7 +2882,7 @@ namespace Mineware.Systems.Planning
             }
 
             //  Set security for SQM on off Column
-            switch (TUserInfo.theSecurityLevel(TProductionGlobal.HarmonyPasMenuStructure.miEditSQM_HPASPlanningAllowEditSQM_MinewareSystemsHarmonyPAS.ItemID))
+            switch (TUserInfo.theSecurityLevel(TProductionGlobal.WPASMenuStructure.miEditSQM_HPASPlanningAllowEditSQM_MinewareSystemsHarmonyPAS.ItemID))
             {
                 case 0:
                     gcSQM.OptionsColumn.AllowEdit = false;
@@ -2908,7 +2908,7 @@ namespace Mineware.Systems.Planning
             gcCubicMetres.OptionsColumn.ReadOnly = true;
             gcCubicMetres.AppearanceCell.BackColor = readonlyColor;
             //  Set security for Cubes Column
-            switch (TUserInfo.theSecurityLevel(TProductionGlobal.HarmonyPasMenuStructure.miEditSQM_HPASPlanningAllowEditSQM_MinewareSystemsHarmonyPAS.ItemID))
+            switch (TUserInfo.theSecurityLevel(TProductionGlobal.WPASMenuStructure.miEditSQM_HPASPlanningAllowEditSQM_MinewareSystemsHarmonyPAS.ItemID))
             {
                 
                 case 0:

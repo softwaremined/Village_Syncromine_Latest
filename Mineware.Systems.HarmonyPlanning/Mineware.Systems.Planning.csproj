@@ -21,7 +21,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>C:\MIMSHARMONYDOORNKOP\Bin\</OutputPath>
+    <OutputPath>..\..\..\MIMSWPASVILLAGE\Bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -661,9 +661,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mineware.Systems.HarmonyPASGlobal\Mineware.Systems.ProdGlobal.csproj">
+    <ProjectReference Include="..\Mineware.Systems.HarmonyPASGlobal\Mineware.Systems.Settings.csproj">
       <Project>{8ee252b3-b366-494e-ac03-35ece9b8d64a}</Project>
-      <Name>Mineware.Systems.ProdGlobal</Name>
+      <Name>Mineware.Systems.Settings</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

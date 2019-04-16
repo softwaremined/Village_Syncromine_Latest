@@ -48,9 +48,9 @@ namespace Mineware.Systems.Production.SysAdminScreens.Calendars
 
         private void dtStartdate_EditValueChanged(object sender, EventArgs e)
         {
-            _clsCalendarsData.theData.ConnectionString = TConnections.GetConnectionString(resHarmonyPAS.systemDBTag, UserCurrentInfo.Connection);
+            _clsCalendarsData.theData.ConnectionString = TConnections.GetConnectionString(resWPAS.systemDBTag, UserCurrentInfo.Connection);
             var TheData1 = new MWDataManager.clsDataAccess();
-            TheData1.ConnectionString = TConnections.GetConnectionString(resHarmonyPAS.systemDBTag, UserCurrentInfo.Connection);
+            TheData1.ConnectionString = TConnections.GetConnectionString(resWPAS.systemDBTag, UserCurrentInfo.Connection);
             TheData1.queryExecutionType = MWDataManager.ExecutionType.GeneralSQLStatement;
 
             DataTable dt = new DataTable();
@@ -64,7 +64,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.Calendars
 
         private void dtEndDate_EditValueChanged(object sender, EventArgs e)
         {
-            _clsCalendarsData.theData.ConnectionString = TConnections.GetConnectionString(resHarmonyPAS.systemDBTag, UserCurrentInfo.Connection);
+            _clsCalendarsData.theData.ConnectionString = TConnections.GetConnectionString(resWPAS.systemDBTag, UserCurrentInfo.Connection);
             _clsCalendarsData.theData.ConnectionString = TConnections.GetConnectionString(theSystemDBTag, UserCurrentInfo.Connection);
             DataTable dt = new DataTable();
             dt = _clsCalendarsData.getTotalShiftsList(String.Format("{0:yyyy-MM-dd}", dtStartdate.EditValue), String.Format("{0:yyyy-MM-dd}", dtEndDate.EditValue), TheCalendarCode);
@@ -108,7 +108,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.Calendars
 
 
             MWDataManager.clsDataAccess _dbManCalType = new MWDataManager.clsDataAccess();
-            _dbManCalType.ConnectionString = TConnections.GetConnectionString(resHarmonyPAS.systemDBTag, UserCurrentInfo.Connection);
+            _dbManCalType.ConnectionString = TConnections.GetConnectionString(resWPAS.systemDBTag, UserCurrentInfo.Connection);
             _dbManCalType.SqlStatement = "	select * from CODE_CALENDAR where CalendarCode = '" + TheCalendarCode + "'";
 
             _dbManCalType.queryExecutionType = MWDataManager.ExecutionType.GeneralSQLStatement;
@@ -171,7 +171,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.Calendars
         private void dtStartdate_DrawItem(object sender, DevExpress.XtraEditors.Calendar.CustomDrawDayNumberCellEventArgs e)
         {
             MWDataManager.clsDataAccess _dbManCalType = new MWDataManager.clsDataAccess();
-            _dbManCalType.ConnectionString = TConnections.GetConnectionString(resHarmonyPAS.systemDBTag, UserCurrentInfo.Connection);
+            _dbManCalType.ConnectionString = TConnections.GetConnectionString(resWPAS.systemDBTag, UserCurrentInfo.Connection);
             _dbManCalType.SqlStatement = "select TOP 35 * from caltype where calendarcode='" + TheCalendarCode + "' and CalendarDate >= '" + String.Format("{0:yyyy-MM-dd}", dtStartdate.EditValue) + "' and workingday='Y'";
 
             _dbManCalType.queryExecutionType = MWDataManager.ExecutionType.GeneralSQLStatement;

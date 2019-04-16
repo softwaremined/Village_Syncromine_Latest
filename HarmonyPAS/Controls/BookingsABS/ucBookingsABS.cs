@@ -1469,7 +1469,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
                     }
                     catch
                     {
-                        _sysMessagesClass.viewMessage(MessageType.Error, "Error finding Calendars", resHarmonyPAS.systemTag, "ucBookings", "BtnShow_Click",
+                        _sysMessagesClass.viewMessage(MessageType.Error, "Error finding Calendars", resWPAS.systemTag, "ucBookings", "BtnShow_Click",
                             "Cannot find Calendar or Planning for Prodmonth:" + _prodmonth, ButtonTypes.OK, MessageDisplayType.Small);
                         return;
                     }
@@ -1515,7 +1515,7 @@ namespace Mineware.Systems.Production.Controls.BookingsABS
                     }
                     else
                     {
-						_sysMessagesClass.viewMessage(MessageType.Error, "Error finding Calendars", resHarmonyPAS.systemTag, "ucBookings", "BtnShow_Click",
+						_sysMessagesClass.viewMessage(MessageType.Error, "Error finding Calendars", resWPAS.systemTag, "ucBookings", "BtnShow_Click",
 							"Cannot find Calendar or Planning for Prodmonth:" + _prodmonth, ButtonTypes.OK, MessageDisplayType.Small);
                         return;
                     }

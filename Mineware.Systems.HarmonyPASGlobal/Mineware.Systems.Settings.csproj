@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>C:\MIMSHARMONYDOORNKOP\Bin\</OutputPath>
+    <OutputPath>..\..\..\MIMSWPASVILLAGE\Bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -162,8 +162,8 @@
     <Compile Include="ProductionEnums\reportAction.cs" />
     <Compile Include="ReplanningTypes.cs" />
     <Compile Include="SetProdmonth.cs" />
-    <Compile Include="THarmonyPASGlobal.cs" />
-    <Compile Include="HarmonyPasMenuStructure.cs" />
+    <Compile Include="TWPASGlobal.cs" />
+    <Compile Include="WPASMenuStructure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TSysSettings.cs" />
     <Compile Include="TUserProduction.cs" />

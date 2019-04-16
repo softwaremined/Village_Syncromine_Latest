@@ -112,7 +112,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.SectionCalendar
             {
                 bool canShow = false;
                 MWDataManager.clsDataAccess _dbMan = new MWDataManager.clsDataAccess();
-                _dbMan.ConnectionString = TConnections.GetConnectionString(resHarmonyPAS.systemDBTag, UserCurrentInfo.Connection);
+                _dbMan.ConnectionString = TConnections.GetConnectionString(resWPAS.systemDBTag, UserCurrentInfo.Connection);
                 _dbMan.SqlStatement = " select currentproductionmonth from sysset";
                 _dbMan.queryExecutionType = MWDataManager.ExecutionType.GeneralSQLStatement;
                 _dbMan.queryReturnType = MWDataManager.ReturnType.DataTable;

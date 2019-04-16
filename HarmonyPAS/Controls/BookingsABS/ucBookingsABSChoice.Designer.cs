@@ -1327,7 +1327,7 @@
             // 
             // pbxCross
             // 
-            this.pbxCross.Image = global::Mineware.Systems.Production.resHarmonyPAS.cross;
+            this.pbxCross.Image = global::Mineware.Systems.Production.resWPAS.cross;
             this.pbxCross.Location = new System.Drawing.Point(436, 31);
             this.pbxCross.Name = "pbxCross";
             this.pbxCross.Size = new System.Drawing.Size(37, 34);
@@ -1337,7 +1337,7 @@
             // 
             // pbxChecked
             // 
-            this.pbxChecked.Image = global::Mineware.Systems.Production.resHarmonyPAS.check;
+            this.pbxChecked.Image = global::Mineware.Systems.Production.resWPAS.check;
             this.pbxChecked.Location = new System.Drawing.Point(479, 31);
             this.pbxChecked.Name = "pbxChecked";
             this.pbxChecked.Size = new System.Drawing.Size(33, 34);
@@ -1420,7 +1420,7 @@
             // 
             // pbxNotVisited
             // 
-            this.pbxNotVisited.Image = global::Mineware.Systems.Production.resHarmonyPAS.images707MS6CI;
+            this.pbxNotVisited.Image = global::Mineware.Systems.Production.resWPAS.images707MS6CI;
             this.pbxNotVisited.Location = new System.Drawing.Point(340, 132);
             this.pbxNotVisited.Name = "pbxNotVisited";
             this.pbxNotVisited.Size = new System.Drawing.Size(45, 39);

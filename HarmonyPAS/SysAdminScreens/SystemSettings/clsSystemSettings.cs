@@ -72,7 +72,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.SystemSettings
             }
             catch (Exception _exception)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "ERROR SAVING Bookings Settings", resHarmonyPAS.systemTag, "clsSystemSettings", "updateBookingsSettings", _exception.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "ERROR SAVING Bookings Settings", resWPAS.systemTag, "clsSystemSettings", "updateBookingsSettings", _exception.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return false;
             }
         }
@@ -91,7 +91,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.SystemSettings
             }
             catch (Exception _exception)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "ERROR SAVING Current Settings", resHarmonyPAS.systemTag, "clsSystemSettings", "updateCurrentSettings", _exception.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "ERROR SAVING Current Settings", resWPAS.systemTag, "clsSystemSettings", "updateCurrentSettings", _exception.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return false;
             }
         }
@@ -112,7 +112,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.SystemSettings
             }
             catch (Exception _exception)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "ERROR SAVING Dates Settings", resHarmonyPAS.systemTag, "clsSystemSettings", "updateDatesSettings", _exception.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "ERROR SAVING Dates Settings", resWPAS.systemTag, "clsSystemSettings", "updateDatesSettings", _exception.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return false;
             }
         }
@@ -130,7 +130,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.SystemSettings
             }
             catch (Exception _exception)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "ERROR SAVING Factors Settings", resHarmonyPAS.systemTag, "clsSystemSettings", "updateFactorsSettings", _exception.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "ERROR SAVING Factors Settings", resWPAS.systemTag, "clsSystemSettings", "updateFactorsSettings", _exception.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return false;
             }
         }
@@ -154,7 +154,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.SystemSettings
             }
             catch (Exception _exception)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "ERROR SAVING Interface Settings", resHarmonyPAS.systemTag, "clsSystemSettings", "updateInterfaceSettings", _exception.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "ERROR SAVING Interface Settings", resWPAS.systemTag, "clsSystemSettings", "updateInterfaceSettings", _exception.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return false;
             }
         }
@@ -175,7 +175,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.SystemSettings
             }
             catch (Exception _exception)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "ERROR SAVING Mines Settings", resHarmonyPAS.systemTag, "clsSystemSettings", "updateMinesSettings", _exception.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "ERROR SAVING Mines Settings", resWPAS.systemTag, "clsSystemSettings", "updateMinesSettings", _exception.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return false;
             }
         }
@@ -194,7 +194,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.SystemSettings
             }
             catch (Exception _exception)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "ERROR SAVING Mines Settings", resHarmonyPAS.systemTag, "clsSystemSettings", "updateMinesSettings", _exception.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "ERROR SAVING Mines Settings", resWPAS.systemTag, "clsSystemSettings", "updateMinesSettings", _exception.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return false;
             }
         }

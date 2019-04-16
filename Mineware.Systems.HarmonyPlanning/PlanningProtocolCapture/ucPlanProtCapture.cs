@@ -467,8 +467,8 @@ namespace Mineware.Systems.Planning.PlanningProtocolCapture
 
         private void updateSecurity()
         {
-            if (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.HarmonyPasMenuStructure.miCapturePlanningProtocol_HPASCapturePlanningProtocol_MinewareSystemsHarmonyPAS.ItemID) == 0 ||
-                TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.HarmonyPasMenuStructure.miCapturePlanningProtocol_HPASCapturePlanningProtocol_MinewareSystemsHarmonyPAS.ItemID) == 1)
+            if (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.WPASMenuStructure.miCapturePlanningProtocol_HPASCapturePlanningProtocol_MinewareSystemsHarmonyPAS.ItemID) == 0 ||
+                TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.WPASMenuStructure.miCapturePlanningProtocol_HPASCapturePlanningProtocol_MinewareSystemsHarmonyPAS.ItemID) == 1)
             {
                 btnSave.Enabled = false;
                 btnUnlockData.Enabled = false;
@@ -476,7 +476,7 @@ namespace Mineware.Systems.Planning.PlanningProtocolCapture
             }
             else
             {
-                switch (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.HarmonyPasMenuStructure.miUnlockPlanningProtcol_HPASPlanProtUnlock_MinewareSystemsHarmonyPAS.ItemID))
+                switch (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.WPASMenuStructure.miUnlockPlanningProtcol_HPASPlanProtUnlock_MinewareSystemsHarmonyPAS.ItemID))
                 {
                     case 0:
                         btnUnlockData.Enabled = false;

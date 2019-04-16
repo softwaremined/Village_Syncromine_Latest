@@ -240,9 +240,9 @@ namespace Mineware.Systems.Planning.PrePlanning
         {
             if (!PlanningClass.isRevised)
             {
-                if (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.HarmonyPasMenuStructure.miPlanning_HPASPlanning_MinewareSystemsHarmonyPAS.ItemID) == 2)
+                if (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.WPASMenuStructure.miPlanning_HPASPlanning_MinewareSystemsHarmonyPAS.ItemID) == 2)
                 {
-                    switch (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.HarmonyPasMenuStructure.miAddWorkplace_HPASPlanningWPAddWP_MinewareSystemsHarmonyPAS.ItemID))
+                    switch (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.WPASMenuStructure.miAddWorkplace_HPASPlanningWPAddWP_MinewareSystemsHarmonyPAS.ItemID))
                     {
                         case 0:
                         case 1:
@@ -252,7 +252,7 @@ namespace Mineware.Systems.Planning.PrePlanning
                             btnAddWorkPlace.Enabled = true;
                             break;
                     }
-                    switch (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.HarmonyPasMenuStructure.miDeleteWorkplace_HPASPlanningWPDelWP_MinewareSystemsHarmonyPAS.ItemID))
+                    switch (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.WPASMenuStructure.miDeleteWorkplace_HPASPlanningWPDelWP_MinewareSystemsHarmonyPAS.ItemID))
                     {
                         case 0:
                         case 1:
@@ -262,7 +262,7 @@ namespace Mineware.Systems.Planning.PrePlanning
                             btnDeleteWorkplace.Enabled = true;
                             break;
                     }
-                    switch (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.HarmonyPasMenuStructure.miApproveWorkplace_HPASPlanningWPApproveWP_MinewareSystemsHarmonyPAS.ItemID))
+                    switch (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.WPASMenuStructure.miApproveWorkplace_HPASPlanningWPApproveWP_MinewareSystemsHarmonyPAS.ItemID))
                     {
                         case 0:
                             btnApprovePrePlanning.Enabled = false;
@@ -272,7 +272,7 @@ namespace Mineware.Systems.Planning.PrePlanning
                             btnApprovePrePlanning.Enabled = true;
                             break;
                     }
-                    switch (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.HarmonyPasMenuStructure.miReplaceWorkplace_HPASPlanningWPReplace_MinewareSystemsHarmonyPAS.ItemID))
+                    switch (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.WPASMenuStructure.miReplaceWorkplace_HPASPlanningWPReplace_MinewareSystemsHarmonyPAS.ItemID))
                     {
                         case 0:
                         case 1:
@@ -282,7 +282,7 @@ namespace Mineware.Systems.Planning.PrePlanning
                             btnReplaceWorkplace.Enabled = true;
                             break;
                     }
-                    switch (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.HarmonyPasMenuStructure.miUnApproveWorkplace_HPASPlanningWPUnAppWP_MinewareSystemsHarmonyPAS.ItemID))
+                    switch (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.WPASMenuStructure.miUnApproveWorkplace_HPASPlanningWPUnAppWP_MinewareSystemsHarmonyPAS.ItemID))
                     {
                         case 0:
                         case 1:
@@ -293,7 +293,7 @@ namespace Mineware.Systems.Planning.PrePlanning
                             btnUnApprovePlanning.Enabled = true;
                             break;
                     }
-                    switch (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.HarmonyPasMenuStructure.miCyclePlan_HPASPlanningCycle_MinewareSystemsHarmonyPAS.ItemID))
+                    switch (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.WPASMenuStructure.miCyclePlan_HPASPlanningCycle_MinewareSystemsHarmonyPAS.ItemID))
                     {
                         case 0:
                             btnCyclePlanning.Enabled = false;
@@ -345,7 +345,7 @@ namespace Mineware.Systems.Planning.PrePlanning
                     {
                         if (PlanningClass.isRevised)
                         {
-                            switch (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.HarmonyPasMenuStructure.miRevisedPlanning_HPASRevisedPlanning_MinewareSystemsHarmonyPAS.ItemID))
+                            switch (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.WPASMenuStructure.miRevisedPlanning_HPASRevisedPlanning_MinewareSystemsHarmonyPAS.ItemID))
                             {
                                 case 0:
                                 case 1:

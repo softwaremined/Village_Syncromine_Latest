@@ -428,7 +428,7 @@ namespace Mineware.Systems.Planning.PrePlanning
 
             if (theResult.success)
             {
-                if (_TestData.ResultsDataTable.Rows.Count == 0 && TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.HarmonyPasMenuStructure.miAllowImportPreviousMonth_HPASPlanningWPImportPreviousMonth_MinewareSystemsHarmonyPAS.ItemID) == 2)
+                if (_TestData.ResultsDataTable.Rows.Count == 0 && TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.WPASMenuStructure.miAllowImportPreviousMonth_HPASPlanningWPImportPreviousMonth_MinewareSystemsHarmonyPAS.ItemID) == 2)
                 {
 
                     var canReload = MessageBox.Show("You have not yet planned for this month. Do you want to load your plans from last month, to form a basis for this month's plan? ", "Unlock Data", MessageBoxButtons.YesNo);

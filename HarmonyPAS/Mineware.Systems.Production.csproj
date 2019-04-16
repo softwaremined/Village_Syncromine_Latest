@@ -19,7 +19,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>C:\MIMSHARMONYDOORNKOP\Plugin\</OutputPath>
+    <OutputPath>..\..\..\MIMSWPASVILLAGE\Plugin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -276,12 +276,12 @@
     <Compile Include="Controls\Survey\ucWorkplaceAdd.Designer.cs">
       <DependentUpon>ucWorkplaceAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="HarmonyPas.cs" />
+    <Compile Include="WPAS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="resHarmonyPAS.Designer.cs">
+    <Compile Include="resWPAS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>resHarmonyPAS.resx</DependentUpon>
+      <DependentUpon>resWPAS.resx</DependentUpon>
     </Compile>
     <Compile Include="SysAdminScreens\AMISSetup\clsAMISSetupData.cs" />
     <Compile Include="SysAdminScreens\AMISSetup\ileCourseBlankSample.cs">
@@ -931,10 +931,10 @@
       <DependentUpon>ucWorkplaceAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="resHarmonyPAS.resx">
+    <EmbeddedResource Include="resWPAS.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
-      <LastGenOutput>resHarmonyPAS.Designer.cs</LastGenOutput>
+      <LastGenOutput>resWPAS.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="SysAdminScreens\AMISSetup\ileCourseBlankSample.resx">
       <DependentUpon>ileCourseBlankSample.cs</DependentUpon>
@@ -1278,9 +1278,9 @@
     <Content Include="Resources\ProductionStart48x48.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mineware.Systems.HarmonyPASGlobal\Mineware.Systems.ProdGlobal.csproj">
+    <ProjectReference Include="..\Mineware.Systems.HarmonyPASGlobal\Mineware.Systems.Settings.csproj">
       <Project>{8ee252b3-b366-494e-ac03-35ece9b8d64a}</Project>
-      <Name>Mineware.Systems.ProdGlobal</Name>
+      <Name>Mineware.Systems.Settings</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mineware.Systems.HarmonyPASReports\Mineware.Systems.Reports.csproj">
       <Project>{42f6be92-0679-47b9-8de8-bd520de066d6}</Project>

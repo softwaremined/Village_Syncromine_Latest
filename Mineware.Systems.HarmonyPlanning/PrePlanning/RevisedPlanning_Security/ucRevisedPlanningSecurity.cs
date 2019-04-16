@@ -40,7 +40,7 @@ namespace Mineware.Systems.Planning.PrePlanning.RevisedPlanning_Security
 
         private void updateSecurity()
         {
-            switch (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.HarmonyPasMenuStructure.miRevisedPlanningSecurity_HPASRevisedPlanningSecurity_MinewareSystemsHarmonyPAS.ItemID))
+            switch (TUserInfo.theSecurityLevel(ProductionGlobal.TProductionGlobal.WPASMenuStructure.miRevisedPlanningSecurity_HPASRevisedPlanningSecurity_MinewareSystemsHarmonyPAS.ItemID))
             {
                case 0:
                case 1:

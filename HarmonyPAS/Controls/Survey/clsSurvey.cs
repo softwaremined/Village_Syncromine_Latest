@@ -18,7 +18,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_Sysset", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_Sysset", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -35,7 +35,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_Sections", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_Sections", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -58,7 +58,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_Stoping", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_Stoping", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -83,7 +83,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_Stoping_Detail", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_Stoping_Detail", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -106,7 +106,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_Development", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_Development", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -132,7 +132,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_Development_Detail", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_Development_Detail", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -150,7 +150,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_Contractors", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_Contractors", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -167,7 +167,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_MineMethods", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_MineMethods", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -182,7 +182,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_MineMethods", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_MineMethods", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -199,7 +199,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_Indicators", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_Indicators", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -216,7 +216,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_CrewsM", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_CrewsM", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -234,7 +234,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_PegNumbers", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_PegNumbers", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -263,7 +263,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_CubicTypes", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_CubicTypes", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -292,7 +292,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_CleanTypes", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_CleanTypes", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -315,7 +315,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_Entries", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_Entries", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -351,7 +351,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_Density", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_Density", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -370,7 +370,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_Destinations", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_Destinations", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -385,7 +385,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_CheckLockedStatus", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_CheckLockedStatus", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -408,7 +408,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_MaxSeqNo", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_MaxSeqNo", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -429,7 +429,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_EndTypes", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_EndTypes", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -454,7 +454,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_PlanCrews", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_PlanCrews", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -469,7 +469,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_PlanDates", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_PlanDates", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -489,7 +489,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_PlanDates", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_PlanDates", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -506,7 +506,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "find_Peg", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "find_Peg", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -524,7 +524,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "find_Survey", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "find_Survey", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -540,7 +540,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "find_Workplace", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "find_Workplace", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -563,7 +563,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "delete_Survey", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "delete_Survey", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return false;
             }
             else
@@ -586,7 +586,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "getfind_Workplace", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "getfind_Workplace", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -657,7 +657,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_WPSearch", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_WPSearch", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -682,7 +682,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_WPAdd", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_WPAdd", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -703,7 +703,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "find_Workplace", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "find_Workplace", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -726,7 +726,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "find_Workplace", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "find_Workplace", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -773,7 +773,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "getfind_Workplace", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "getfind_Workplace", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -804,7 +804,7 @@ namespace Mineware.Systems.Production.Controls.Survey
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "delete_Survey", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "delete_Survey", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return false;
             }
             else

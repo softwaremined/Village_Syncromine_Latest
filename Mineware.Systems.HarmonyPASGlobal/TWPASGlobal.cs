@@ -14,11 +14,11 @@ namespace Mineware.Systems.ProductionGlobal
     {
         public static List<TUserProduction> UserInfo = new List<TUserProduction>();
         public static List<TSysSettings> SystemSettingsProduction = new List<TSysSettings>();
-        public static HarmonyPasMenuStructure HarmonyPasMenuStructure = new HarmonyPasMenuStructure();
+        public static WPASMenuStructure WPASMenuStructure = new WPASMenuStructure();
 
         static TProductionGlobal()
         {
-            HarmonyPasMenuStructure.setMenuItems();
+            WPASMenuStructure.setMenuItems();
         }
 
         public static DateTime ProdMonthAsDate(string theProdmonth)

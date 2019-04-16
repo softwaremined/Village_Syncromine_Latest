@@ -78,7 +78,7 @@ namespace Mineware.Systems.Planning.PlanningProtocolTemplates
 
         private void LoadSecurity()
         {
-            switch (UserCurrentInfo.theSecurityLevel(TProductionGlobal.HarmonyPasMenuStructure.miEditPlanningProtocolTemplate_HPASPlanProtEdit_MinewareSystemsHarmonyPAS.ItemID))
+            switch (UserCurrentInfo.theSecurityLevel(TProductionGlobal.WPASMenuStructure.miEditPlanningProtocolTemplate_HPASPlanProtEdit_MinewareSystemsHarmonyPAS.ItemID))
             // switch (TUserInfo.theSecurityLevel("RPROS"))
             {
                 case 0:
@@ -92,7 +92,7 @@ namespace Mineware.Systems.Planning.PlanningProtocolTemplates
                     break;
             }
 
-            switch (UserCurrentInfo.theSecurityLevel(TProductionGlobal.HarmonyPasMenuStructure.miNewPlanningProtocolTemplate_HPASPlanProtNew_MinewareSystemsHarmonyPAS.ItemID))
+            switch (UserCurrentInfo.theSecurityLevel(TProductionGlobal.WPASMenuStructure.miNewPlanningProtocolTemplate_HPASPlanProtNew_MinewareSystemsHarmonyPAS.ItemID))
             // switch (TUserInfo.theSecurityLevel("RPROS"))
             {
                 case 0:
@@ -106,7 +106,7 @@ namespace Mineware.Systems.Planning.PlanningProtocolTemplates
                     break;
             }
 
-            switch (UserCurrentInfo.theSecurityLevel(TProductionGlobal.HarmonyPasMenuStructure.miDeletePlanningProtocolTemplate_HPASPlanProtDelete_MinewareSystemsHarmonyPAS.ItemID))
+            switch (UserCurrentInfo.theSecurityLevel(TProductionGlobal.WPASMenuStructure.miDeletePlanningProtocolTemplate_HPASPlanProtDelete_MinewareSystemsHarmonyPAS.ItemID))
             // switch (TUserInfo.theSecurityLevel("RPROS"))
             {
                 case 0:

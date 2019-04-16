@@ -159,7 +159,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.SectionCalendar
         try
         {
             var TheData1 = new MWDataManager.clsDataAccess();
-            TheData1.ConnectionString = TConnections.GetConnectionString(resHarmonyPAS.systemDBTag,
+            TheData1.ConnectionString = TConnections.GetConnectionString(resWPAS.systemDBTag,
                                                                          UserCurrentInfo.Connection);
             TheData1.queryExecutionType = MWDataManager.ExecutionType.GeneralSQLStatement;
             TheData1.SqlStatement = " delete from sect where userid = '" + TUserInfo.UserID + "' ";
@@ -208,7 +208,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.SectionCalendar
         try
         {
             MWDataManager.clsDataAccess _dbManCalType = new MWDataManager.clsDataAccess();
-            _dbManCalType.ConnectionString = TConnections.GetConnectionString(resHarmonyPAS.systemDBTag,
+            _dbManCalType.ConnectionString = TConnections.GetConnectionString(resWPAS.systemDBTag,
                                                                               UserCurrentInfo.Connection);
             _dbManCalType.SqlStatement = "select * from CODE_CALENDAR ";
             if(FormType == "SecCalendar")
@@ -256,7 +256,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.SectionCalendar
                 )
             {
                 DateTime aa = Convert.ToDateTime(dteBeginDate.EditValue).AddDays(-1);
-                _dbMan.ConnectionString = TConnections.GetConnectionString(resHarmonyPAS.systemDBTag,
+                _dbMan.ConnectionString = TConnections.GetConnectionString(resWPAS.systemDBTag,
                                                                            UserCurrentInfo.Connection);
                 _dbMan.SqlStatement =
                     " --select distinct(SectionID) SectionID, Name  \r\n " +
@@ -309,7 +309,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.SectionCalendar
                 if((txtBDate.Text == string.Empty) &
                     (txtEDate.Text == string.Empty))
                 {
-                    _dbMan.ConnectionString = TConnections.GetConnectionString(resHarmonyPAS.systemDBTag,
+                    _dbMan.ConnectionString = TConnections.GetConnectionString(resWPAS.systemDBTag,
                                                                                UserCurrentInfo.Connection);
                     _dbMan.SqlStatement =
                         " select s.SectionID SectionID, s.Name Name \r\n " +
@@ -360,7 +360,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.SectionCalendar
                 if(Convert.ToDateTime(dteBeginDate.EditValue) <= Convert.ToDateTime(dteEndDate.EditValue))
                 {
                     MWDataManager.clsDataAccess _dbManDate = new MWDataManager.clsDataAccess();
-                    _dbManDate.ConnectionString = TConnections.GetConnectionString(resHarmonyPAS.systemDBTag,
+                    _dbManDate.ConnectionString = TConnections.GetConnectionString(resWPAS.systemDBTag,
                                                                                    UserCurrentInfo.Connection);
                     _dbManDate.SqlStatement = "select COUNT(Workingday) from CALTYPE " +
                         " where CalendarCode = '" +

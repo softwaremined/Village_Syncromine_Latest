@@ -18,7 +18,7 @@ namespace Mineware.Systems.Production.Controls.SICCapture
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSICCapture", "get_Sysset", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSICCapture", "get_Sysset", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -59,7 +59,7 @@ namespace Mineware.Systems.Production.Controls.SICCapture
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSICCapture", "get_Sections", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSICCapture", "get_Sections", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -76,7 +76,7 @@ namespace Mineware.Systems.Production.Controls.SICCapture
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSICCapture", "get_Problems_Desc", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSICCapture", "get_Problems_Desc", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -93,7 +93,7 @@ namespace Mineware.Systems.Production.Controls.SICCapture
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSICCapture", "get_Problems_Desc", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSICCapture", "get_Problems_Desc", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -119,7 +119,7 @@ namespace Mineware.Systems.Production.Controls.SICCapture
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSICCapture", "get_SICData", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSICCapture", "get_SICData", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return theData.ResultsDataTable;
             }
             else
@@ -158,7 +158,7 @@ namespace Mineware.Systems.Production.Controls.SICCapture
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSICCapture", "Save_SIC", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSICCapture", "Save_SIC", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return false;
             }
             else
@@ -218,7 +218,7 @@ namespace Mineware.Systems.Production.Controls.SICCapture
             clsDataResult errorMsg = theData.ExecuteInstruction();
             if (errorMsg.success == false)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSICCapture", "Save_SICClean", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSICCapture", "Save_SICClean", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return false;
             }
             else

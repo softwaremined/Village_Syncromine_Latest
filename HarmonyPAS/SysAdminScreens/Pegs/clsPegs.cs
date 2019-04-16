@@ -171,7 +171,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.Pegs
             }
             catch (Exception _exception)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "UPDATING ERROR", resHarmonyPAS.systemTag, "clsPegs", "saveData", _exception.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "UPDATING ERROR", resWPAS.systemTag, "clsPegs", "saveData", _exception.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return false;
             }
         }

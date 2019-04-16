@@ -41,7 +41,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.ProblemSetup
         {
             var _clsProblemSetupData = new ProblemSetup.clsProblemSetupData();
             _clsProblemSetupData.CurrentUser = UserCurrentInfo;
-            _clsProblemSetupData.SystemDBTag = resHarmonyPAS.systemDBTag;
+            _clsProblemSetupData.SystemDBTag = resWPAS.systemDBTag;
             _clsProblemSetupData.setConnectionString();
             return _clsProblemSetupData;
         }

@@ -20,7 +20,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.Users
         {
             TheData.queryExecutionType = MWDataManager.ExecutionType.GeneralSQLStatement;
             TheData.queryReturnType = MWDataManager.ReturnType.DataTable;
-            TheData.ConnectionString = TConnections.GetConnectionString(resHarmonyPAS.systemDBTag, this.UserCurrentInfo.Connection);
+            TheData.ConnectionString = TConnections.GetConnectionString(resWPAS.systemDBTag, this.UserCurrentInfo.Connection);
 
             sb.Clear();
             sb.AppendLine("SELECT Distinct SEC.SectionID,SEC.Name,SEC.ReportToSectionID, ");
@@ -40,7 +40,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.Users
         {
             TheData.queryExecutionType = MWDataManager.ExecutionType.GeneralSQLStatement;
             TheData.queryReturnType = MWDataManager.ReturnType.DataTable;
-            TheData.ConnectionString = TConnections.GetConnectionString(resHarmonyPAS.systemDBTag, this.UserCurrentInfo.Connection);
+            TheData.ConnectionString = TConnections.GetConnectionString(resWPAS.systemDBTag, this.UserCurrentInfo.Connection);
 
             sb.Clear();
             sb.AppendLine("SELECT [UserID]");
@@ -80,7 +80,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.Users
             bool theResult = false;
             TheData.queryExecutionType = MWDataManager.ExecutionType.GeneralSQLStatement;
             TheData.queryReturnType = MWDataManager.ReturnType.DataTable;
-            TheData.ConnectionString = TConnections.GetConnectionString(resHarmonyPAS.systemDBTag, this.UserCurrentInfo.Connection);
+            TheData.ConnectionString = TConnections.GetConnectionString(resWPAS.systemDBTag, this.UserCurrentInfo.Connection);
             TheData.SqlStatement = "SELECT * FROM USERS WHERE UserID = '" + userID + "'";
             TheData.ExecuteInstruction();
 
@@ -130,21 +130,21 @@ namespace Mineware.Systems.Production.SysAdminScreens.Users
                         TheData.SqlStatement = sb.ToString();
 
                         TheData.ExecuteInstruction();
-                        TUserInfo.ActionLog(resHarmonyPAS.systemTag, "EDIT USER SETTINGS", userID, UserCurrentInfo.Connection);
-                        TUserInfo.ActionLog(resHarmonyPAS.systemTag, "EDIT USER BACK DATED BOOKINGS", userID + " : " + dr["BackDateBooking"].ToString(), UserCurrentInfo.Connection);
-                        TUserInfo.ActionLog(resHarmonyPAS.systemTag, "EDIT USER WP PRODUCTION", userID + " : " + dr["WPProduction"].ToString(), UserCurrentInfo.Connection);
-                        TUserInfo.ActionLog(resHarmonyPAS.systemTag, "EDIT USER WP SURFACE", userID + " : " + dr["WPSurface"].ToString(), UserCurrentInfo.Connection);
-                        TUserInfo.ActionLog(resHarmonyPAS.systemTag, "EDIT USER WP UNDERGROUND", userID + " : " + dr["WPUnderGround"].ToString(), UserCurrentInfo.Connection);
-                        TUserInfo.ActionLog(resHarmonyPAS.systemTag, "EDIT USER WP EDIT NAME", userID + " : " + dr["WPEditName"].ToString(), UserCurrentInfo.Connection);
-                        TUserInfo.ActionLog(resHarmonyPAS.systemTag, "EDIT USER WP EDIT ATTRIBUTE", userID + " : " + dr["WPEditAttribute"].ToString(), UserCurrentInfo.Connection);
-                        TUserInfo.ActionLog(resHarmonyPAS.systemTag, "EDIT USER CLASSIFY", userID + " : " + dr["WPClassify"].ToString(), UserCurrentInfo.Connection);
-                        TUserInfo.ActionLog(resHarmonyPAS.systemTag, "EDIT USER ALLOW BACKDATED BOOKINGS", userID + " : " + dr["BackDateBooking"].ToString(), UserCurrentInfo.Connection);
-                        TUserInfo.ActionLog(resHarmonyPAS.systemTag, "EDIT USER ALLOW DAYS BACKDATED BOOKINGS", userID + " : " + dr["DaysBackdate"].ToString(), UserCurrentInfo.Connection);
+                        TUserInfo.ActionLog(resWPAS.systemTag, "EDIT USER SETTINGS", userID, UserCurrentInfo.Connection);
+                        TUserInfo.ActionLog(resWPAS.systemTag, "EDIT USER BACK DATED BOOKINGS", userID + " : " + dr["BackDateBooking"].ToString(), UserCurrentInfo.Connection);
+                        TUserInfo.ActionLog(resWPAS.systemTag, "EDIT USER WP PRODUCTION", userID + " : " + dr["WPProduction"].ToString(), UserCurrentInfo.Connection);
+                        TUserInfo.ActionLog(resWPAS.systemTag, "EDIT USER WP SURFACE", userID + " : " + dr["WPSurface"].ToString(), UserCurrentInfo.Connection);
+                        TUserInfo.ActionLog(resWPAS.systemTag, "EDIT USER WP UNDERGROUND", userID + " : " + dr["WPUnderGround"].ToString(), UserCurrentInfo.Connection);
+                        TUserInfo.ActionLog(resWPAS.systemTag, "EDIT USER WP EDIT NAME", userID + " : " + dr["WPEditName"].ToString(), UserCurrentInfo.Connection);
+                        TUserInfo.ActionLog(resWPAS.systemTag, "EDIT USER WP EDIT ATTRIBUTE", userID + " : " + dr["WPEditAttribute"].ToString(), UserCurrentInfo.Connection);
+                        TUserInfo.ActionLog(resWPAS.systemTag, "EDIT USER CLASSIFY", userID + " : " + dr["WPClassify"].ToString(), UserCurrentInfo.Connection);
+                        TUserInfo.ActionLog(resWPAS.systemTag, "EDIT USER ALLOW BACKDATED BOOKINGS", userID + " : " + dr["BackDateBooking"].ToString(), UserCurrentInfo.Connection);
+                        TUserInfo.ActionLog(resWPAS.systemTag, "EDIT USER ALLOW DAYS BACKDATED BOOKINGS", userID + " : " + dr["DaysBackdate"].ToString(), UserCurrentInfo.Connection);
                         theResult = true;
                     }
                     catch (Exception e)
                     {
-                        myMessage.viewMessage(MessageType.Error, "Error Saving User", resHarmonyPAS.systemName, "DL_Users", "SaveUserSettings", e.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                        myMessage.viewMessage(MessageType.Error, "Error Saving User", resWPAS.systemName, "DL_Users", "SaveUserSettings", e.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                         theResult = false;
                     }
                 }
@@ -198,20 +198,20 @@ namespace Mineware.Systems.Production.SysAdminScreens.Users
                     try
                     {
                         TheData.ExecuteInstruction();
-                        TUserInfo.ActionLog(resHarmonyPAS.systemTag, "NEW USER SETTINGS", userID, UserCurrentInfo.Connection);
-                        TUserInfo.ActionLog(resHarmonyPAS.systemTag, "NEW USER BACK DATED BOOKINGS", userID + " : " + dr["BackDateBooking"].ToString(), UserCurrentInfo.Connection);
-                        TUserInfo.ActionLog(resHarmonyPAS.systemTag, "NEW USER ALLOW BACKDATED BOOKINGS", userID + " : " + dr["BackDateBooking"].ToString(), UserCurrentInfo.Connection);
-                        TUserInfo.ActionLog(resHarmonyPAS.systemTag, "NEW USER WP PRODUCTION", userID + " : " + dr["WPProduction"].ToString(), UserCurrentInfo.Connection);
-                        TUserInfo.ActionLog(resHarmonyPAS.systemTag, "NEW USER WP SURFACE", userID + " : " + dr["WPSurface"].ToString(), UserCurrentInfo.Connection);
-                        TUserInfo.ActionLog(resHarmonyPAS.systemTag, "NEW USER WP UNDERGRUND", userID + " : " + dr["WPUnderGround"].ToString(), UserCurrentInfo.Connection);
-                        TUserInfo.ActionLog(resHarmonyPAS.systemTag, "NEW USER WP EDIT NAME", userID + " : " + dr["WPEditName"].ToString(), UserCurrentInfo.Connection);
-                        TUserInfo.ActionLog(resHarmonyPAS.systemTag, "NEW USER WP EDIT ATTRIBUTE", userID + " : " + dr["WPEditAttribute"].ToString(), UserCurrentInfo.Connection);
-                        TUserInfo.ActionLog(resHarmonyPAS.systemTag, "NEW USER WP CLASSIFY", userID + " : " + dr["WPClassify"].ToString(), UserCurrentInfo.Connection);
+                        TUserInfo.ActionLog(resWPAS.systemTag, "NEW USER SETTINGS", userID, UserCurrentInfo.Connection);
+                        TUserInfo.ActionLog(resWPAS.systemTag, "NEW USER BACK DATED BOOKINGS", userID + " : " + dr["BackDateBooking"].ToString(), UserCurrentInfo.Connection);
+                        TUserInfo.ActionLog(resWPAS.systemTag, "NEW USER ALLOW BACKDATED BOOKINGS", userID + " : " + dr["BackDateBooking"].ToString(), UserCurrentInfo.Connection);
+                        TUserInfo.ActionLog(resWPAS.systemTag, "NEW USER WP PRODUCTION", userID + " : " + dr["WPProduction"].ToString(), UserCurrentInfo.Connection);
+                        TUserInfo.ActionLog(resWPAS.systemTag, "NEW USER WP SURFACE", userID + " : " + dr["WPSurface"].ToString(), UserCurrentInfo.Connection);
+                        TUserInfo.ActionLog(resWPAS.systemTag, "NEW USER WP UNDERGRUND", userID + " : " + dr["WPUnderGround"].ToString(), UserCurrentInfo.Connection);
+                        TUserInfo.ActionLog(resWPAS.systemTag, "NEW USER WP EDIT NAME", userID + " : " + dr["WPEditName"].ToString(), UserCurrentInfo.Connection);
+                        TUserInfo.ActionLog(resWPAS.systemTag, "NEW USER WP EDIT ATTRIBUTE", userID + " : " + dr["WPEditAttribute"].ToString(), UserCurrentInfo.Connection);
+                        TUserInfo.ActionLog(resWPAS.systemTag, "NEW USER WP CLASSIFY", userID + " : " + dr["WPClassify"].ToString(), UserCurrentInfo.Connection);
                         theResult = true;
                     }
                     catch (Exception e)
                     {
-                        myMessage.viewMessage(MessageType.Error, "Error Adding User", Production.resHarmonyPAS.systemName, "clsUserProductionSettings", "SaveUserSettings", e.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                        myMessage.viewMessage(MessageType.Error, "Error Adding User", Production.resWPAS.systemName, "clsUserProductionSettings", "SaveUserSettings", e.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                         theResult = false;
                     }
                 } // insert                
@@ -223,7 +223,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.Users
             bool theResult = true;
             TheData.queryExecutionType = MWDataManager.ExecutionType.GeneralSQLStatement;
             TheData.queryReturnType = MWDataManager.ReturnType.DataTable;
-            TheData.ConnectionString = TConnections.GetConnectionString(resHarmonyPAS.systemDBTag, this.UserCurrentInfo.Connection);
+            TheData.ConnectionString = TConnections.GetConnectionString(resWPAS.systemDBTag, this.UserCurrentInfo.Connection);
             //DataRow[] userSections = theSecions.Select("Updated = 1");
             sb.Clear();
             if (theSecions.Rows.Count != 0)
@@ -248,7 +248,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.Users
                 catch (Exception e)
                 {
 
-                    myMessage.viewMessage(MessageType.Error, "Error Saving Sections", resHarmonyPAS.systemName, "DL_Users", "SaveUserSections", e.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                    myMessage.viewMessage(MessageType.Error, "Error Saving Sections", resWPAS.systemName, "DL_Users", "SaveUserSections", e.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                     theResult = false;
                 }
             }

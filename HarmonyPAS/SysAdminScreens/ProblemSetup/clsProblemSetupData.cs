@@ -20,7 +20,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.ProblemSetup
 
         public void setConnectionString()
         {
-            TheData.ConnectionString = TConnections.GetConnectionString(resHarmonyPAS.systemDBTag, CurrentUser.Connection);
+            TheData.ConnectionString = TConnections.GetConnectionString(resWPAS.systemDBTag, CurrentUser.Connection);
         }
 
         public DataTable getProblemType(int _activity)

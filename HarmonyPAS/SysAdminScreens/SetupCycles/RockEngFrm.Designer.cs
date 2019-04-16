@@ -2196,7 +2196,7 @@
             // pbxOrange
             // 
             this.pbxOrange.BackColor = System.Drawing.Color.Transparent;
-            this.pbxOrange.Image = global::Mineware.Systems.Production.resHarmonyPAS.Orange;
+            this.pbxOrange.Image = global::Mineware.Systems.Production.resWPAS.Orange;
             this.pbxOrange.Location = new System.Drawing.Point(708, 28);
             this.pbxOrange.Name = "pbxOrange";
             this.pbxOrange.Size = new System.Drawing.Size(17, 15);
@@ -2208,7 +2208,7 @@
             // pbxRed
             // 
             this.pbxRed.BackColor = System.Drawing.Color.Transparent;
-            this.pbxRed.Image = global::Mineware.Systems.Production.resHarmonyPAS.Red;
+            this.pbxRed.Image = global::Mineware.Systems.Production.resWPAS.Red;
             this.pbxRed.Location = new System.Drawing.Point(684, 28);
             this.pbxRed.Name = "pbxRed";
             this.pbxRed.Size = new System.Drawing.Size(17, 15);
@@ -2220,7 +2220,7 @@
             // pbxGreen
             // 
             this.pbxGreen.BackColor = System.Drawing.Color.Transparent;
-            this.pbxGreen.Image = global::Mineware.Systems.Production.resHarmonyPAS.Green;
+            this.pbxGreen.Image = global::Mineware.Systems.Production.resWPAS.Green;
             this.pbxGreen.Location = new System.Drawing.Point(756, 28);
             this.pbxGreen.Name = "pbxGreen";
             this.pbxGreen.Size = new System.Drawing.Size(17, 15);

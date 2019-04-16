@@ -25,7 +25,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.GangNo
             }
             catch (Exception _exception)
             {
-                _sysMessagesClass.viewMessage(MessageType.Error, "UPDATING DB", resHarmonyPAS.systemTag, "clsSafetyCalendarData", "getSafetyCalendarList", _exception.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessagesClass.viewMessage(MessageType.Error, "UPDATING DB", resWPAS.systemTag, "clsSafetyCalendarData", "getSafetyCalendarList", _exception.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
             }
             return theData.ResultsDataTable;
         }

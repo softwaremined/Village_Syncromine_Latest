@@ -453,7 +453,7 @@ namespace Mineware.Systems.Production.Controls.Kriging
             }
             catch (Exception _exception)
             {
-                _sysMessageClass.viewMessage(MessageType.Error, "UPDATING ERROR", resHarmonyPAS.systemTag, "clsKriging", "save_Data", _exception.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                _sysMessageClass.viewMessage(MessageType.Error, "UPDATING ERROR", resWPAS.systemTag, "clsKriging", "save_Data", _exception.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                 return false;
             }
         }

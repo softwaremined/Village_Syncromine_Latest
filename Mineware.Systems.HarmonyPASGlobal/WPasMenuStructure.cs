@@ -6,7 +6,7 @@ using Mineware.Systems.GlobalConnect;
 
 namespace Mineware.Systems.ProductionGlobal
 {
-   public class HarmonyPasMenuStructure
+   public class WPASMenuStructure
    {
       public mainMenu theMenu = new mainMenu();
       public menuItem miPAS_HPAS_MinewareSystemsHarmonyPAS = new menuItem();

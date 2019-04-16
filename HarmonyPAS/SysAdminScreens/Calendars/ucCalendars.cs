@@ -106,7 +106,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.Calendars
                 if (lueCalendarCode.EditValue.ToString() == "Mill")
                 {
                     var TheData2 = new MWDataManager.clsDataAccess();
-                    TheData2.ConnectionString = TConnections.GetConnectionString(resHarmonyPAS.systemDBTag, UserCurrentInfo.Connection);
+                    TheData2.ConnectionString = TConnections.GetConnectionString(resWPAS.systemDBTag, UserCurrentInfo.Connection);
                     TheData2.queryExecutionType = MWDataManager.ExecutionType.GeneralSQLStatement;
                     TheData2.SqlStatement = "select * from CALENDARMILL";
                     TheData2.queryReturnType = MWDataManager.ReturnType.DataTable;
@@ -150,7 +150,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.Calendars
                 else
                 {
                     var TheData1 = new MWDataManager.clsDataAccess();
-                    TheData1.ConnectionString = TConnections.GetConnectionString(resHarmonyPAS.systemDBTag, UserCurrentInfo.Connection);
+                    TheData1.ConnectionString = TConnections.GetConnectionString(resWPAS.systemDBTag, UserCurrentInfo.Connection);
                     TheData1.queryExecutionType = MWDataManager.ExecutionType.GeneralSQLStatement;
                     TheData1.SqlStatement = "select * from CALENDAROTHER where CalendarCode = '" + lueCalendarCode.EditValue.ToString() + "'";
                     TheData1.queryReturnType = MWDataManager.ReturnType.DataTable;
@@ -249,7 +249,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.Calendars
                     DataRow DR = gvCalendars.GetDataRow(gvCalendars.FocusedRowHandle);
                     string SD = DR["Month"].ToString();
                     var TheData1 = new MWDataManager.clsDataAccess();
-                    TheData1.ConnectionString = TConnections.GetConnectionString(resHarmonyPAS.systemDBTag, UserCurrentInfo.Connection);
+                    TheData1.ConnectionString = TConnections.GetConnectionString(resWPAS.systemDBTag, UserCurrentInfo.Connection);
                     TheData1.queryExecutionType = MWDataManager.ExecutionType.GeneralSQLStatement;
 
                     TheData1.SqlStatement = "select * from CALENDARMILL where MillMonth = dbo.GetPrevProdMonth(" + SD + ") ";
@@ -270,7 +270,7 @@ namespace Mineware.Systems.Production.SysAdminScreens.Calendars
                     DataRow DR = gvCalendars.GetDataRow(gvCalendars.FocusedRowHandle);
                     string SD = DR["Month"].ToString();
                     var TheData1 = new MWDataManager.clsDataAccess();
-                    TheData1.ConnectionString = TConnections.GetConnectionString(resHarmonyPAS.systemDBTag, UserCurrentInfo.Connection);
+                    TheData1.ConnectionString = TConnections.GetConnectionString(resWPAS.systemDBTag, UserCurrentInfo.Connection);
                     TheData1.queryExecutionType = MWDataManager.ExecutionType.GeneralSQLStatement;
 
                     TheData1.SqlStatement = "select * from CALENDAROTHER where CalendarCode = '" + lueCalendarCode.EditValue.ToString() + "' and  Month = dbo.GetPrevProdMonth(" + SD + ") ";

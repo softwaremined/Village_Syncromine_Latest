@@ -1106,7 +1106,7 @@ namespace Mineware.Systems.Production.Controls.Survey
                 if (errorMsg.success == false)
                 {
                     System.Windows.Forms.MessageBox.Show(errorMsg.Message);
-                   // _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resHarmonyPAS.systemTag, "clsSurvey", "get_CleanTypes", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
+                   // _sysMessagesClass.viewMessage(MessageType.Error, "SQL ERROR", resWPAS.systemTag, "clsSurvey", "get_CleanTypes", errorMsg.Message, ButtonTypes.OK, MessageDisplayType.FullScreen);
                     //return theData.ResultsDataTable;
                 }
                 else
