@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Mineware.Systems.Reports</RootNamespace>
     <AssemblyName>Mineware.Systems.Reports</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -23,7 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>4</LangVersion>
+    <LangVersion>5</LangVersion>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
@@ -413,9 +413,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mineware.Systems.HarmonyPASGlobal\Mineware.Systems.Settings.csproj">
+    <ProjectReference Include="..\Mineware.Systems.HarmonyPASGlobal\Mineware.Systems.ProductionGlobal.csproj">
       <Project>{8ee252b3-b366-494e-ac03-35ece9b8d64a}</Project>
-      <Name>Mineware.Systems.Settings</Name>
+      <Name>Mineware.Systems.ProductionGlobal</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mineware.Systems.Planning", "Mineware.Systems.HarmonyPlanning\Mineware.Systems.Planning.csproj", "{273BAFFF-73A0-488A-BBD6-12D396B3A681}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mineware.Systems.Reports", "Mineware.Systems.HarmonyPASReports\Mineware.Systems.Reports.csproj", "{42F6BE92-0679-47B9-8DE8-BD520DE066D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mineware.Systems.Settings", "Mineware.Systems.HarmonyPASGlobal\Mineware.Systems.Settings.csproj", "{8EE252B3-B366-494E-AC03-35ECE9B8D64A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mineware.Systems.ProductionGlobal", "Mineware.Systems.HarmonyPASGlobal\Mineware.Systems.ProductionGlobal.csproj", "{8EE252B3-B366-494E-AC03-35ECE9B8D64A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mineware.Systems.Production", "HarmonyPAS\Mineware.Systems.Production.csproj", "{54FC5B79-6283-43DE-8B5C-06319D7B4196}"
 EndProject

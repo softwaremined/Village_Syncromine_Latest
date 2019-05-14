@@ -221,7 +221,7 @@ namespace Mineware.Systems.Production {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DBWPAS.
+        ///   Looks up a localized string similar to DBHARMONYPAS.
         /// </summary>
         internal static string systemDBTag {
             get {
@@ -230,7 +230,7 @@ namespace Mineware.Systems.Production {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to WPAS.
+        ///   Looks up a localized string similar to Harmony PAS.
         /// </summary>
         internal static string systemName {
             get {

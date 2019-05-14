@@ -2284,7 +2284,7 @@ namespace Mineware.Systems.Planning.PrePlanning.ChangeOfPlan.dsPrePlanningNotifi
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT *  \n  FROM PrePlanning_Notification_Security\nWHERE Section = \'NONE\' ";
+            this._commandCollection[0].CommandText = "SELECT *  \r\n  FROM PrePlanning_Notification_Security\r\nWHERE Section = \'NONE\' ";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2558,7 +2558,7 @@ namespace Mineware.Systems.Planning.PrePlanning.ChangeOfPlan.dsPrePlanningNotifi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Mineware.Systems.Planning.Properties.Settings.Default.CPM_TESTConnectionString;
+            this._connection.ConnectionString = global::Mineware.Systems.Planning.Properties.Settings.Default.CPM_KLF_SyncromineConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2567,7 +2567,7 @@ namespace Mineware.Systems.Planning.PrePlanning.ChangeOfPlan.dsPrePlanningNotifi
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT DISTINCT Department  \n  FROM PrePlanning_Notification_Security";
+            this._commandCollection[0].CommandText = "SELECT DISTINCT Department  \r\n  FROM PrePlanning_Notification_Security";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2759,7 +2759,7 @@ namespace Mineware.Systems.Planning.PrePlanning.ChangeOfPlan.dsPrePlanningNotifi
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT *  \n  FROM PrePlanning_Notification_Security\nWHERE Section <> \'NONE\' ";
+            this._commandCollection[0].CommandText = "SELECT *  \r\n  FROM PrePlanning_Notification_Security\r\nWHERE Section <> \'NONE\' ";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

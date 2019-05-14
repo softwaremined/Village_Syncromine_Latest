@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Mineware.Systems.Production</RootNamespace>
     <AssemblyName>Mineware.Systems.Production</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -131,11 +131,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\MIMSHarmony\bin\Microsoft.VisualBasic.PowerPacks.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Mineware.Menu.Structure">
       <HintPath>C:\MIMSHARMONYDOORNKOP\Bin\Mineware.Menu.Structure.dll</HintPath>
       <Private>False</Private>
@@ -153,10 +149,11 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Mineware.Systems.GlobalExtensions">
-      <HintPath>..\..\..\MIMSHARMONYDOORNKOP\Bin\Mineware.Systems.GlobalExtensions.dll</HintPath>
+      <HintPath>..\..\..\..\MIMSWPASVILLAGE\Bin\Mineware.Systems.GlobalExtensions.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\MIMSHARMONYDOORNKOP\Bin\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -881,6 +878,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="SysAdminScreens\AuthLockPlan\ucAuthLockPlan.resx.bak" />
     <None Include="SysAdminScreens\CalendarTypes\ucCalendarTypes.Designer.cs.bak" />
   </ItemGroup>
@@ -1278,9 +1276,9 @@
     <Content Include="Resources\ProductionStart48x48.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mineware.Systems.HarmonyPASGlobal\Mineware.Systems.Settings.csproj">
+    <ProjectReference Include="..\Mineware.Systems.HarmonyPASGlobal\Mineware.Systems.ProductionGlobal.csproj">
       <Project>{8ee252b3-b366-494e-ac03-35ece9b8d64a}</Project>
-      <Name>Mineware.Systems.Settings</Name>
+      <Name>Mineware.Systems.ProductionGlobal</Name>
     </ProjectReference>
     <ProjectReference Include="..\Mineware.Systems.HarmonyPASReports\Mineware.Systems.Reports.csproj">
       <Project>{42f6be92-0679-47b9-8de8-bd520de066d6}</Project>
